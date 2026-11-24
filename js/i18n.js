@@ -63,6 +63,21 @@ export const ROUTES = {
     en: '/en/exam-mode',
     fr: '/fr/mode-examen'
   },
+  cheatCidr: {
+    es: '/tabla-subredes-cidr',
+    en: '/en/cidr-subnet-cheat-sheet',
+    fr: '/fr/table-sous-reseaux-cidr'
+  },
+  cheatAscii: {
+    es: '/tabla-ascii-binario-hex',
+    en: '/en/ascii-binary-hex-table',
+    fr: '/fr/table-ascii-binaire-hex'
+  },
+  cheatBoolean: {
+    es: '/leyes-algebra-de-boole',
+    en: '/en/boolean-algebra-laws',
+    fr: '/fr/lois-algebre-de-boole'
+  },
   about: {
     es: '/sobre-nosotros',
     en: '/en/about',
@@ -85,8 +100,9 @@ export const TOOL_KEYS = [
   'ieee754', 'karnaugh', 'bases', 'truthTable',
   'hamming', 'raidChmod'
 ];
+export const CHEAT_KEYS = ['cheatCidr', 'cheatAscii', 'cheatBoolean'];
 export const LEGAL_KEYS = ['about', 'privacy', 'legal'];
-export const ALL_ROUTE_KEYS = ['home', 'exam', ...TOOL_KEYS, ...LEGAL_KEYS];
+export const ALL_ROUTE_KEYS = ['home', 'exam', ...TOOL_KEYS, ...CHEAT_KEYS, ...LEGAL_KEYS];
 
 export function getRoutePath(key, lang) {
   return ROUTES[key]?.[lang] || ROUTES.home[lang] || '/';
@@ -106,7 +122,8 @@ export const UI = {
     nav: {
       networking: 'Redes IP',
       digital: 'Sistemas Digitales',
-      systems: 'Códigos y Sistemas',
+      systems: 'Codificación',
+      cheats: 'Chuletas',
       studyMode: 'Modo Estudio',
       studyModeHint: 'Revela los pasos uno a uno',
       examMode: 'Modo Examen',
@@ -223,6 +240,12 @@ export const UI = {
       examBannerTitle: 'Modo Examen: 10 ejercicios aleatorios con corrección paso a paso',
       examBannerDesc: 'Elige tus temas de Redes IP o Sistemas Digitales, resuelve en papel o en pantalla y desbloquea las 10 soluciones completas a la vez.',
       examBannerCta: 'Iniciar Modo Examen',
+      cheatsSectionTitle: 'Tablas de Referencia Rápida (Chuletas)',
+      cheats: {
+        cheatCidr: { title: 'Tabla Completa CIDR (/0 a /32)', desc: 'Las 33 máscaras, wildcards, hosts útiles, rangos RFC 1918 y potencias de 2.' },
+        cheatAscii: { title: 'Tabla ASCII, Binario y Hex (0–127)', desc: 'Los 128 códigos ASCII con conversor de texto en tiempo real y filtros por categoría.' },
+        cheatBoolean: { title: 'Leyes de Boole y Puertas Lógicas', desc: 'Las 7 puertas lógicas con SVG, leyes de De Morgan y comprobador en Tablas de Verdad.' }
+      },
       featuresTitle: 'Diseñado para estudiar, verificar y enseñar',
       features: [
         { title: 'Exactitud bit a bit', desc: 'Aritmética exacta con BigInt y DataView sin errores de redondeo en coma flotante.' },
@@ -317,7 +340,8 @@ export const UI = {
     nav: {
       networking: 'IP Networking',
       digital: 'Digital Systems',
-      systems: 'Coding & Systems',
+      systems: 'Coding & Sys',
+      cheats: 'Cheat Sheets',
       studyMode: 'Study Mode',
       studyModeHint: 'Reveal steps one by one',
       examMode: 'Exam Mode',
@@ -434,6 +458,12 @@ export const UI = {
       examBannerTitle: 'Exam Mode: 10 randomized problems with step-by-step grading',
       examBannerDesc: 'Pick your IP Networking or Digital Systems topics, solve on paper or screen, and reveal all 10 full solutions at once.',
       examBannerCta: 'Start Exam Mode',
+      cheatsSectionTitle: 'Quick Reference Cheat Sheets',
+      cheats: {
+        cheatCidr: { title: 'Complete CIDR Table (/0 to /32)', desc: 'All 33 subnet masks, wildcards, usable hosts, RFC 1918 ranges & powers of 2.' },
+        cheatAscii: { title: 'ASCII, Binary & Hex Table (0–127)', desc: 'All 128 ASCII codes with live text-to-binary/hex converter & category filters.' },
+        cheatBoolean: { title: 'Boolean Algebra Laws & Logic Gates', desc: 'All 7 logic gates with SVG symbols, De Morgan laws & Truth Table checker.' }
+      },
       featuresTitle: 'Built for studying, verifying, and teaching',
       features: [
         { title: 'Bit-level accuracy', desc: 'Exact arithmetic using BigInt and DataView with zero floating-point drift.' },
@@ -528,7 +558,8 @@ export const UI = {
     nav: {
       networking: 'Réseaux IP',
       digital: 'Systèmes Numériques',
-      systems: 'Codage & Systèmes',
+      systems: 'Codage & Sys',
+      cheats: 'Fiches',
       studyMode: 'Mode Étude',
       studyModeHint: 'Révéler les étapes une par une',
       examMode: 'Mode Examen',
@@ -645,6 +676,12 @@ export const UI = {
       examBannerTitle: 'Mode Examen : 10 exercices aléatoires avec correction étape par étape',
       examBannerDesc: 'Choisissez vos thèmes, résolvez sur papier ou à l’écran, puis débloquez les 10 solutions détaillées d’un coup.',
       examBannerCta: 'Lancer le Mode Examen',
+      cheatsSectionTitle: 'Fiches de Référence Rapide',
+      cheats: {
+        cheatCidr: { title: 'Table CIDR Complète (/0 à /32)', desc: 'Les 33 masques, wildcards, hôtes utiles, plages RFC 1918 et puissances de 2.' },
+        cheatAscii: { title: 'Table ASCII, Binaire et Hex (0–127)', desc: 'Les 128 codes ASCII avec convertisseur texte en direct et filtres.' },
+        cheatBoolean: { title: 'Lois de Boole et Portes Logiques', desc: 'Les 7 portes logiques en SVG, théorèmes de De Morgan et test d’équivalence.' }
+      },
       featuresTitle: 'Conçu pour étudier, vérifier et enseigner',
       features: [
         { title: 'Précision bit à bit', desc: 'Arithmétique exacte avec BigInt et DataView sans dérive en virgule flottante.' },

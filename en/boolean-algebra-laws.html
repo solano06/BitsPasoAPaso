@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boolean Algebra Laws, De Morgan &amp; Logic Gates Cheat Sheet — BitsPasoAPaso</title>
+  <meta name="description" content="Complete reference of all 7 logic gates (SVG), 12 fundamental Boolean laws, De Morgan’s theorems, and one-click Truth Table equivalence checks." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/en/boolean-algebra-laws" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/leyes-algebra-de-boole" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/boolean-algebra-laws" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/lois-algebre-de-boole" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/leyes-algebra-de-boole" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Boolean Algebra Laws, De Morgan &amp; Logic Gates Cheat Sheet — BitsPasoAPaso" />
+  <meta property="og:description" content="Complete reference of all 7 logic gates (SVG), 12 fundamental Boolean laws, De Morgan’s theorems, and one-click Truth Table equivalence checks." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/en/boolean-algebra-laws" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Boolean Algebra Laws, De Morgan &amp; Logic Gates Cheat Sheet — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Complete reference of all 7 logic gates (SVG), 12 fundamental Boolean laws, De Morgan’s theorems, and one-click Truth Table equivalence checks." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuodh7p" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Boolean Algebra Laws, De Morgan & Logic Gates Cheat Sheet — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/en/boolean-algebra-laws","description":"Complete reference of all 7 logic gates (SVG), 12 fundamental Boolean laws, De Morgan’s theorems, and one-click Truth Table equivalence checks.","inLanguage":"en"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bitspasoapaso.vercel.app/en"},{"@type":"ListItem","position":2,"name":"Boolean Algebra Laws & Logic Gates","item":"https://bitspasoapaso.vercel.app/en/boolean-algebra-laws"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why are NAND and NOR universal gates?","acceptedAnswer":{"@type":"Answer","text":"Any Boolean function (including NOT, AND, OR) can be built using only NAND gates or only NOR gates."}},{"@type":"Question","name":"What do De Morgan’s laws state?","acceptedAnswer":{"@type":"Answer","text":"The complement of a sum equals the product of complements, and the complement of a product equals the sum of complements."}},{"@type":"Question","name":"Can I verify these laws step by step?","acceptedAnswer":{"@type":"Answer","text":"Yes, click \"Check equivalence\" to open the Truth Table generator with both sides preloaded."}},{"@type":"Question","name":"When should I use Karnaugh Maps?","acceptedAnswer":{"@type":"Answer","text":"To systematically minimize 2–4 variable functions into minimal SOP or POS."}}]}]}</script>
+</head>
+<body data-page="cheatBoolean" data-lang="en" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/en" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-0.5">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>IP Networking</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv4 &amp; VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compute CIDR, subnet mask, wildcard, broadcast, and VLSM partitioning step by step.</div>
+            </a><a href="/en/cidr-supernetting-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Summarize IPv4 routes in binary and decompose IP ranges into minimal CIDR blocks.</div>
+            </a><a href="/en/ipv6-subnet-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv6 Subnets</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compress per RFC 5952, analyze /64 subnets, and derive EUI-64 addresses from MAC.</div>
+            </a><a href="/en/bandwidth-tcp-throughput-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bandwidth / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compute transfer times (SI/IEC), BDP, sliding window throughput, and Mathis bound.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Digital Systems</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/ieee-754-converter" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convert decimals to 32-bit and 64-bit floating point with interactive clickable bits.</div>
+            </a><a href="/en/karnaugh-map-solver" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Karnaugh Map</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplify 2, 3, and 4-variable Boolean functions into SOP and POS with visual loops.</div>
+            </a><a href="/en/binary-twos-complement-converter" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases &amp; 2's Comp</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convert Decimal, Binary, Octal, Hex, 1's/2's Complement, BCD, and Gray code.</div>
+            </a><a href="/en/truth-table-generator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Truth Tables</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evaluate logic formulas, detect tautologies, extract DNF/CNF, and check equivalences.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Coding &amp; Sys</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/hamming-crc-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming &amp; CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Encode, detect, and correct 1-bit Hamming errors and run step-by-step CRC XOR division.</div>
+            </a><a href="/en/raid-chmod-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID &amp; chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculate RAID (0/1/5/6/10) usable capacity &amp; fault tolerance and interactive chmod/umask.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Cheat Sheets</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/cidr-subnet-cheat-sheet" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Complete CIDR Table (/0 to /32)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">All 33 subnet masks, wildcards, usable hosts, RFC 1918 ranges &amp; powers of 2.</div>
+            </a><a href="/en/ascii-binary-hex-table" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ASCII, Binary &amp; Hex Table (0–127)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">All 128 ASCII codes with live text-to-binary/hex converter &amp; category filters.</div>
+            </a><a href="/en/boolean-algebra-laws" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Boolean Algebra Laws &amp; Logic Gates</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">All 7 logic gates with SVG symbols, De Morgan laws &amp; Truth Table checker.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/leyes-algebra-de-boole" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">es</a><a href="/en/boolean-algebra-laws" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">en</a><a href="/fr/lois-algebre-de-boole" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Reveal steps one by one" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Study Mode</span>
+      </button>
+
+      <a href="/en/exam-mode" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Exam Mode</span>
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Open menu" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">IP Networking</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 &amp; VLSM Subnet Calculator</a><a href="/en/cidr-supernetting-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR &amp; Supernetting</a><a href="/en/ipv6-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv6 Subnet Calculator</a><a href="/en/bandwidth-tcp-throughput-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bandwidth &amp; TCP Throughput</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Digital Systems</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a><a href="/en/truth-table-generator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Truth Table Generator</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Coding &amp; Sys</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/hamming-crc-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Hamming Code &amp; CRC</a><a href="/en/raid-chmod-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID &amp; chmod Calculator</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Cheat Sheets</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/cidr-subnet-cheat-sheet" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Complete CIDR Table (/0 to /32)</a><a href="/en/ascii-binary-hex-table" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">ASCII, Binary &amp; Hex Table (0–127)</a><a href="/en/boolean-algebra-laws" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Boolean Algebra Laws &amp; Logic Gates</a>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/en/exam-mode" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Exam Mode</a>
+    </div>
+  </div>
+</header>
+  <main class="max-w-6xl mx-auto px-4 py-8 sm:py-10">
+    <div class="mb-6 flex flex-wrap items-start justify-between gap-3">
+      <div>
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-2">Cheat Sheets</span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Boolean Algebra Laws, De Morgan &amp; Logic Gates</h1>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-3xl">All 7 logic gates with ANSI/IEEE SVG symbols, fundamental laws in dual notation, and direct Truth Table verification links.</p>
+      </div>
+      <button id="cheat-print-btn" type="button" class="cheat-no-print px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm font-semibold hover:border-cyan-500 shrink-0">Save PDF</button>
+    </div>
+
+    
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mb-3">The 7 Logic Gates (ANSI/IEEE)</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800">
+              <tr><th class="px-3 py-2.5">Gate</th><th class="px-3 py-2.5">Symbol</th><th class="px-3 py-2.5">Expression</th><th class="px-3 py-2.5">Truth Table</th><th class="px-3 py-2.5">Note</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">NOT</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="22" x2="24" y2="22"/><polygon points="24,8 24,36 58,22"/><circle cx="63" cy="22" r="4"/><line x1="67" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = A' = ¬A</td>
+                  <td class="px-3 py-2 font-mono text-xs">0→1, 1→0</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Logical inverter</td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">AND</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="14" x2="24" y2="14"/><line x1="4" y1="30" x2="24" y2="30"/><path d="M24,8 L44,8 A14,14 0 0,1 44,36 L24,36 Z"/><line x1="58" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = A·B = A ∧ B</td>
+                  <td class="px-3 py-2 font-mono text-xs">00→0, 01→0, 10→0, 11→1</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Output 1 only if all inputs are 1</td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">OR</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="14" x2="27" y2="14"/><line x1="4" y1="30" x2="27" y2="30"/><path d="M22,8 Q32,22 22,36 Q48,36 62,22 Q48,8 22,8 Z"/><line x1="62" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = A + B = A ∨ B</td>
+                  <td class="px-3 py-2 font-mono text-xs">00→0, 01→1, 10→1, 11→1</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Output 1 if at least one input is 1</td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">NAND</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="14" x2="24" y2="14"/><line x1="4" y1="30" x2="24" y2="30"/><path d="M24,8 L42,8 A14,14 0 0,1 42,36 L24,36 Z"/><circle cx="60" cy="22" r="4"/><line x1="64" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = (A·B)' = ¬(A ∧ B)</td>
+                  <td class="px-3 py-2 font-mono text-xs">00→1, 01→1, 10→1, 11→0</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Universal gate (can build any function)</td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">NOR</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="14" x2="26" y2="14"/><line x1="4" y1="30" x2="26" y2="30"/><path d="M22,8 Q32,22 22,36 Q46,36 58,22 Q46,8 22,8 Z"/><circle cx="62" cy="22" r="4"/><line x1="66" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = (A + B)' = ¬(A ∨ B)</td>
+                  <td class="px-3 py-2 font-mono text-xs">00→1, 01→0, 10→0, 11→0</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Universal gate</td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">XOR</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="14" x2="22" y2="14"/><line x1="4" y1="30" x2="22" y2="30"/><path d="M18,8 Q28,22 18,36"/><path d="M25,8 Q35,22 25,36 Q50,36 64,22 Q50,8 25,8 Z"/><line x1="64" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = A ⊕ B</td>
+                  <td class="px-3 py-2 font-mono text-xs">00→0, 01→1, 10→1, 11→0</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Output 1 when inputs differ</td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">XNOR</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200"><svg viewBox="0 0 90 44" class="w-20 h-10 stroke-current fill-none" stroke-width="2"><line x1="4" y1="14" x2="22" y2="14"/><line x1="4" y1="30" x2="22" y2="30"/><path d="M18,8 Q28,22 18,36"/><path d="M25,8 Q35,22 25,36 Q48,36 60,22 Q48,8 25,8 Z"/><circle cx="64" cy="22" r="4"/><line x1="68" y1="22" x2="86" y2="22"/></svg></td>
+                  <td class="px-3 py-2 font-mono">Y = (A ⊕ B)' = A ↔ B</td>
+                  <td class="px-3 py-2 font-mono text-xs">00→1, 01→0, 10→0, 11→1</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Equality comparator (1 if A == B)</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mb-3">Fundamental Boolean Algebra Laws</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800">
+              <tr><th class="px-3 py-2.5">Law</th><th class="px-3 py-2.5">Engineering (+, ·, ')</th><th class="px-3 py-2.5">Logic (∨, ∧, ¬)</th><th class="cheat-no-print px-3 py-2.5"></th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Identity</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A + 0 = A  |  A·1 = A</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∨ 0 = A  |  A ∧ 1 = A</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Domination (Null)</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A + 1 = 1  |  A·0 = 0</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∨ 1 = 1  |  A ∧ 0 = 0</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Idempotence</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A + A = A  |  A·A = A</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∨ A = A  |  A ∧ A = A</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Complement</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A + A' = 1  |  A·A' = 0</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∨ ¬A = 1  |  A ∧ ¬A = 0</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Double Negation</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">(A')' = A</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">¬(¬A) = A</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Commutative</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A + B = B + A  |  A·B = B·A</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∨ B = B ∨ A  |  A ∧ B = B ∧ A</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Associative</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">(A + B) + C = A + (B + C)</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">(A ∨ B) ∨ C = A ∨ (B ∨ C)</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Distributive</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A·(B + C) = A·B + A·C</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C)</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    <a href="/en/truth-table-generator?mode=equiv&q=A%20*%20(B%20%2B%20C)%20%3B%20(A%20*%20B)%20%2B%20(A%20*%20C)" class="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-semibold">Check equivalence</a>
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Absorption</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A + A·B = A  |  A·(A + B) = A</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">A ∨ (A ∧ B) = A</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    <a href="/en/truth-table-generator?mode=equiv&q=A%20%2B%20(A%20*%20B)%20%3B%20A" class="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-semibold">Check equivalence</a>
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">Consensus</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">A·B + A'·C + B·C = A·B + A'·C</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">(A ∧ B) ∨ (¬A ∧ C) ∨ (B ∧ C) = (A ∧ B) ∨ (¬A ∧ C)</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    <a href="/en/truth-table-generator?mode=equiv&q=(A%20*%20B)%20%2B%20(!A%20*%20C)%20%2B%20(B%20*%20C)%20%3B%20(A%20*%20B)%20%2B%20(!A%20*%20C)" class="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-semibold">Check equivalence</a>
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">De Morgan's 1st Law</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">(A + B)' = A'·B'</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">¬(A ∨ B) = ¬A ∧ ¬B</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    <a href="/en/truth-table-generator?mode=equiv&q=!(A%20%2B%20B)%20%3B%20!A%20*%20!B" class="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-semibold">Check equivalence</a>
+                  </td>
+                </tr><tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">De Morgan's 2nd Law</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">(A·B)' = A' + B'</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">¬(A ∧ B) = ¬A ∨ ¬B</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    <a href="/en/truth-table-generator?mode=equiv&q=!(A%20*%20B)%20%3B%20!A%20%2B%20!B" class="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-semibold">Check equivalence</a>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-base font-bold">From Truth Table to SOP / POS &amp; Karnaugh</h2>
+          <p class="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400">1. For SOP sum all minterms (1-outputs). 2. For POS multiply all maxterms (0-outputs). 3. For 2–4 variables simplify visually in the Karnaugh Map.</p>
+        </div>
+        <a href="/en/karnaugh-map-solver" class="cheat-no-print px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shrink-0">Open Karnaugh Map →</a>
+      </section>
+    
+
+    <div class="cheat-no-print"><section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Frequently asked questions</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Why are NAND and NOR universal gates?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Any Boolean function (including NOT, AND, OR) can be built using only NAND gates or only NOR gates.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>What do De Morgan’s laws state?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">The complement of a sum equals the product of complements, and the complement of a product equals the sum of complements.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Can I verify these laws step by step?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Yes, click &quot;Check equivalence&quot; to open the Truth Table generator with both sides preloaded.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>When should I use Karnaugh Maps?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">To systematically minimize 2–4 variable functions into minimal SOP or POS.</p>
+          </details>
+    </div>
+  </section></div>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Educational tools for IP Networking and Digital Systems.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/en/cidr-subnet-cheat-sheet" class="hover:text-cyan-600 dark:hover:text-cyan-400">Complete CIDR Table (/0 to /32)</a><a href="/en/ascii-binary-hex-table" class="hover:text-cyan-600 dark:hover:text-cyan-400">ASCII, Binary &amp; Hex Table (0–127)</a><a href="/en/boolean-algebra-laws" class="hover:text-cyan-600 dark:hover:text-cyan-400">Boolean Algebra Laws &amp; Logic Gates</a>
+      <a href="/en/about" class="hover:text-cyan-600 dark:hover:text-cyan-400">About</a>
+      <a href="/en/privacy" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacy</a>
+      <a href="/en/legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Legal Notice</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwuodh7p"></script>
+</body>
+</html>

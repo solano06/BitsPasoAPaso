@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla Completa de Subredes CIDR (/0 a /32) y Máscaras — BitsPasoAPaso</title>
+  <meta name="description" content="Chuleta completa de los 33 prefijos CIDR (/0 a /32): máscara decimal, wildcard, hosts útiles, rangos privados RFC 1918 y potencias de 2." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/tabla-subredes-cidr" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/tabla-subredes-cidr" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/cidr-subnet-cheat-sheet" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/table-sous-reseaux-cidr" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/tabla-subredes-cidr" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tabla Completa de Subredes CIDR (/0 a /32) y Máscaras — BitsPasoAPaso" />
+  <meta property="og:description" content="Chuleta completa de los 33 prefijos CIDR (/0 a /32): máscara decimal, wildcard, hosts útiles, rangos privados RFC 1918 y potencias de 2." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/tabla-subredes-cidr" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tabla Completa de Subredes CIDR (/0 a /32) y Máscaras — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Chuleta completa de los 33 prefijos CIDR (/0 a /32): máscara decimal, wildcard, hosts útiles, rangos privados RFC 1918 y potencias de 2." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuodh7p" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Tabla Completa de Subredes CIDR (/0 a /32) y Máscaras — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/tabla-subredes-cidr","description":"Chuleta completa de los 33 prefijos CIDR (/0 a /32): máscara decimal, wildcard, hosts útiles, rangos privados RFC 1918 y potencias de 2.","inLanguage":"es"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"Tabla Completa CIDR (/0 a /32)","item":"https://bitspasoapaso.vercel.app/tabla-subredes-cidr"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo encuentro el prefijo CIDR para N hosts?","acceptedAnswer":{"@type":"Answer","text":"Escribe el número de hosts en el buscador superior (ej. 50) y la tabla resaltará automáticamente el prefijo más ajustado (/26 con 62 hosts útiles)."}},{"@type":"Question","name":"¿Por qué /31 tiene 2 direcciones útiles?","acceptedAnswer":{"@type":"Answer","text":"La RFC 3021 permite usar subredes /31 en enlaces punto a punto sin desperdiciar direcciones de red y broadcast."}},{"@type":"Question","name":"¿Qué es la máscara wildcard?","acceptedAnswer":{"@type":"Answer","text":"Es la máscara inversa (255.255.255.255 - máscara) usada en ACLs y OSPF."}},{"@type":"Question","name":"¿Puedo probar un prefijo directamente en la calculadora?","acceptedAnswer":{"@type":"Answer","text":"Sí, pulsa \"Probar en VLSM\" en cualquier fila para abrir el cálculo paso a paso."}}]}]}</script>
+</head>
+<body data-page="cheatCidr" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-0.5">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Redes IP</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
+            </a><a href="/calculadora-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.</div>
+            </a><a href="/calculadora-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</div>
+            </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Sistemas Digitales</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/conversor-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</div>
+            </a><a href="/mapa-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mapa de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</div>
+            </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a><a href="/tablas-de-verdad" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tablas de Verdad</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Codificación</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID y chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Chuletas</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/tabla-subredes-cidr" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tabla Completa CIDR (/0 a /32)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Las 33 máscaras, wildcards, hosts útiles, rangos RFC 1918 y potencias de 2.</div>
+            </a><a href="/tabla-ascii-binario-hex" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tabla ASCII, Binario y Hex (0–127)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Los 128 códigos ASCII con conversor de texto en tiempo real y filtros por categoría.</div>
+            </a><a href="/leyes-algebra-de-boole" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Leyes de Boole y Puertas Lógicas</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Las 7 puertas lógicas con SVG, leyes de De Morgan y comprobador en Tablas de Verdad.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/tabla-subredes-cidr" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">es</a><a href="/en/cidr-subnet-cheat-sheet" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/table-sous-reseaux-cidr" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Revela los pasos uno a uno" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Modo Estudio</span>
+      </button>
+
+      <a href="/modo-examen" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Modo Examen</span>
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Codificación</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Chuletas</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/tabla-subredes-cidr" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tabla Completa CIDR (/0 a /32)</a><a href="/tabla-ascii-binario-hex" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tabla ASCII, Binario y Hex (0–127)</a><a href="/leyes-algebra-de-boole" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Leyes de Boole y Puertas Lógicas</a>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/modo-examen" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Modo Examen</a>
+    </div>
+  </div>
+</header>
+  <main class="max-w-6xl mx-auto px-4 py-8 sm:py-10">
+    <div class="mb-6 flex flex-wrap items-start justify-between gap-3">
+      <div>
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-2">Chuletas</span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Tabla Completa de Subredes CIDR (/0 a /32)</h1>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-3xl">Referencia instantánea con las 33 máscaras IPv4, wildcards, hosts útiles (incluyendo /31 RFC 3021 y /32), filtro inteligente por número de hosts y enlace directo a VLSM.</p>
+      </div>
+      <button id="cheat-print-btn" type="button" class="cheat-no-print px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm font-semibold hover:border-cyan-500 shrink-0">Guardar PDF</button>
+    </div>
+
+    
+      <div class="cheat-no-print mb-5 flex flex-wrap items-center gap-3">
+        <input id="cidr-filter" type="text" placeholder="Buscar por prefijo (/26), máscara o nº mínimo de hosts (ej. 50)..." class="flex-1 min-w-[220px] px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono text-sm" />
+        <div class="hidden px-3 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-xs font-semibold text-cyan-700 dark:text-cyan-300">
+          Prefijo óptimo: <span id="cidr-optimal-hint" class="font-mono font-bold"></span>
+        </div>
+      </div>
+
+      <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+          <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <tr>
+              <th class="px-3 py-2.5">Prefijo</th>
+              <th class="px-3 py-2.5">Máscara</th>
+              <th class="px-3 py-2.5">Wildcard</th>
+              <th class="px-3 py-2.5">Bits host</th>
+              <th class="px-3 py-2.5">Direcciones</th>
+              <th class="px-3 py-2.5">Hosts útiles</th>
+              <th class="px-3 py-2.5">Uso típico</th>
+              <th class="cheat-no-print px-3 py-2.5"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-cidr-prefix="0" data-cidr-mask="0.0.0.0" data-cidr-usable="4294967294" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/0</td>
+                  <td class="px-3 py-2 font-mono">0.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">255.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">32</td>
+                  <td class="px-3 py-2 font-mono">4,294,967,296</td>
+                  <td class="px-3 py-2 font-mono font-semibold">4,294,967,294</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Ruta por defecto (0.0.0.0/0)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="0.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F0" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="1" data-cidr-mask="128.0.0.0" data-cidr-usable="2147483646" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/1</td>
+                  <td class="px-3 py-2 font-mono">128.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">127.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">31</td>
+                  <td class="px-3 py-2 font-mono">2,147,483,648</td>
+                  <td class="px-3 py-2 font-mono font-semibold">2,147,483,646</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="128.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F1" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="2" data-cidr-mask="192.0.0.0" data-cidr-usable="1073741822" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/2</td>
+                  <td class="px-3 py-2 font-mono">192.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">63.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">30</td>
+                  <td class="px-3 py-2 font-mono">1,073,741,824</td>
+                  <td class="px-3 py-2 font-mono font-semibold">1,073,741,822</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="192.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F2" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="3" data-cidr-mask="224.0.0.0" data-cidr-usable="536870910" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/3</td>
+                  <td class="px-3 py-2 font-mono">224.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">31.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">29</td>
+                  <td class="px-3 py-2 font-mono">536,870,912</td>
+                  <td class="px-3 py-2 font-mono font-semibold">536,870,910</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="224.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F3" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="4" data-cidr-mask="240.0.0.0" data-cidr-usable="268435454" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/4</td>
+                  <td class="px-3 py-2 font-mono">240.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">15.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">28</td>
+                  <td class="px-3 py-2 font-mono">268,435,456</td>
+                  <td class="px-3 py-2 font-mono font-semibold">268,435,454</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="240.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F4" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="5" data-cidr-mask="248.0.0.0" data-cidr-usable="134217726" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/5</td>
+                  <td class="px-3 py-2 font-mono">248.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">7.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">27</td>
+                  <td class="px-3 py-2 font-mono">134,217,728</td>
+                  <td class="px-3 py-2 font-mono font-semibold">134,217,726</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="248.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F5" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="6" data-cidr-mask="252.0.0.0" data-cidr-usable="67108862" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/6</td>
+                  <td class="px-3 py-2 font-mono">252.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">3.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">26</td>
+                  <td class="px-3 py-2 font-mono">67,108,864</td>
+                  <td class="px-3 py-2 font-mono font-semibold">67,108,862</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="252.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F6" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="7" data-cidr-mask="254.0.0.0" data-cidr-usable="33554430" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/7</td>
+                  <td class="px-3 py-2 font-mono">254.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">1.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">25</td>
+                  <td class="px-3 py-2 font-mono">33,554,432</td>
+                  <td class="px-3 py-2 font-mono font-semibold">33,554,430</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="254.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F7" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="8" data-cidr-mask="255.0.0.0" data-cidr-usable="16777214" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/8</td>
+                  <td class="px-3 py-2 font-mono">255.0.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.255.255.255</td>
+                  <td class="px-3 py-2 font-mono">24</td>
+                  <td class="px-3 py-2 font-mono">16,777,216</td>
+                  <td class="px-3 py-2 font-mono font-semibold">16,777,214</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Clase A / RFC 1918 (10.0.0.0/8)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.0.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F8" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="9" data-cidr-mask="255.128.0.0" data-cidr-usable="8388606" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/9</td>
+                  <td class="px-3 py-2 font-mono">255.128.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.127.255.255</td>
+                  <td class="px-3 py-2 font-mono">23</td>
+                  <td class="px-3 py-2 font-mono">8,388,608</td>
+                  <td class="px-3 py-2 font-mono font-semibold">8,388,606</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.128.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F9" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="10" data-cidr-mask="255.192.0.0" data-cidr-usable="4194302" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/10</td>
+                  <td class="px-3 py-2 font-mono">255.192.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.63.255.255</td>
+                  <td class="px-3 py-2 font-mono">22</td>
+                  <td class="px-3 py-2 font-mono">4,194,304</td>
+                  <td class="px-3 py-2 font-mono font-semibold">4,194,302</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.192.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F10" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="11" data-cidr-mask="255.224.0.0" data-cidr-usable="2097150" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/11</td>
+                  <td class="px-3 py-2 font-mono">255.224.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.31.255.255</td>
+                  <td class="px-3 py-2 font-mono">21</td>
+                  <td class="px-3 py-2 font-mono">2,097,152</td>
+                  <td class="px-3 py-2 font-mono font-semibold">2,097,150</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.224.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F11" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="12" data-cidr-mask="255.240.0.0" data-cidr-usable="1048574" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/12</td>
+                  <td class="px-3 py-2 font-mono">255.240.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.15.255.255</td>
+                  <td class="px-3 py-2 font-mono">20</td>
+                  <td class="px-3 py-2 font-mono">1,048,576</td>
+                  <td class="px-3 py-2 font-mono font-semibold">1,048,574</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">RFC 1918 (172.16.0.0/12)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.240.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F12" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="13" data-cidr-mask="255.248.0.0" data-cidr-usable="524286" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/13</td>
+                  <td class="px-3 py-2 font-mono">255.248.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.7.255.255</td>
+                  <td class="px-3 py-2 font-mono">19</td>
+                  <td class="px-3 py-2 font-mono">524,288</td>
+                  <td class="px-3 py-2 font-mono font-semibold">524,286</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.248.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F13" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="14" data-cidr-mask="255.252.0.0" data-cidr-usable="262142" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/14</td>
+                  <td class="px-3 py-2 font-mono">255.252.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.3.255.255</td>
+                  <td class="px-3 py-2 font-mono">18</td>
+                  <td class="px-3 py-2 font-mono">262,144</td>
+                  <td class="px-3 py-2 font-mono font-semibold">262,142</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.252.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F14" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="15" data-cidr-mask="255.254.0.0" data-cidr-usable="131070" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/15</td>
+                  <td class="px-3 py-2 font-mono">255.254.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.1.255.255</td>
+                  <td class="px-3 py-2 font-mono">17</td>
+                  <td class="px-3 py-2 font-mono">131,072</td>
+                  <td class="px-3 py-2 font-mono font-semibold">131,070</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.254.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F15" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="16" data-cidr-mask="255.255.0.0" data-cidr-usable="65534" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/16</td>
+                  <td class="px-3 py-2 font-mono">255.255.0.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.255.255</td>
+                  <td class="px-3 py-2 font-mono">16</td>
+                  <td class="px-3 py-2 font-mono">65,536</td>
+                  <td class="px-3 py-2 font-mono font-semibold">65,534</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Clase B / RFC 1918 (192.168.0.0/16)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.0.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F16" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="17" data-cidr-mask="255.255.128.0" data-cidr-usable="32766" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/17</td>
+                  <td class="px-3 py-2 font-mono">255.255.128.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.127.255</td>
+                  <td class="px-3 py-2 font-mono">15</td>
+                  <td class="px-3 py-2 font-mono">32,768</td>
+                  <td class="px-3 py-2 font-mono font-semibold">32,766</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.128.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F17" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="18" data-cidr-mask="255.255.192.0" data-cidr-usable="16382" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/18</td>
+                  <td class="px-3 py-2 font-mono">255.255.192.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.63.255</td>
+                  <td class="px-3 py-2 font-mono">14</td>
+                  <td class="px-3 py-2 font-mono">16,384</td>
+                  <td class="px-3 py-2 font-mono font-semibold">16,382</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.192.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F18" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="19" data-cidr-mask="255.255.224.0" data-cidr-usable="8190" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/19</td>
+                  <td class="px-3 py-2 font-mono">255.255.224.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.31.255</td>
+                  <td class="px-3 py-2 font-mono">13</td>
+                  <td class="px-3 py-2 font-mono">8,192</td>
+                  <td class="px-3 py-2 font-mono font-semibold">8,190</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.224.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F19" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="20" data-cidr-mask="255.255.240.0" data-cidr-usable="4094" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/20</td>
+                  <td class="px-3 py-2 font-mono">255.255.240.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.15.255</td>
+                  <td class="px-3 py-2 font-mono">12</td>
+                  <td class="px-3 py-2 font-mono">4,096</td>
+                  <td class="px-3 py-2 font-mono font-semibold">4,094</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.240.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F20" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="21" data-cidr-mask="255.255.248.0" data-cidr-usable="2046" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/21</td>
+                  <td class="px-3 py-2 font-mono">255.255.248.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.7.255</td>
+                  <td class="px-3 py-2 font-mono">11</td>
+                  <td class="px-3 py-2 font-mono">2,048</td>
+                  <td class="px-3 py-2 font-mono font-semibold">2,046</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.248.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F21" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="22" data-cidr-mask="255.255.252.0" data-cidr-usable="1022" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/22</td>
+                  <td class="px-3 py-2 font-mono">255.255.252.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.3.255</td>
+                  <td class="px-3 py-2 font-mono">10</td>
+                  <td class="px-3 py-2 font-mono">1,024</td>
+                  <td class="px-3 py-2 font-mono font-semibold">1,022</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Supernet de 4 redes /24</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.252.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F22" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="23" data-cidr-mask="255.255.254.0" data-cidr-usable="510" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/23</td>
+                  <td class="px-3 py-2 font-mono">255.255.254.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.1.255</td>
+                  <td class="px-3 py-2 font-mono">9</td>
+                  <td class="px-3 py-2 font-mono">512</td>
+                  <td class="px-3 py-2 font-mono font-semibold">510</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">—</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.254.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F23" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="24" data-cidr-mask="255.255.255.0" data-cidr-usable="254" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/24</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.0</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.255</td>
+                  <td class="px-3 py-2 font-mono">8</td>
+                  <td class="px-3 py-2 font-mono">256</td>
+                  <td class="px-3 py-2 font-mono font-semibold">254</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">LAN estándar (Clase C)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.0" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F24" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="25" data-cidr-mask="255.255.255.128" data-cidr-usable="126" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/25</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.128</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.127</td>
+                  <td class="px-3 py-2 font-mono">7</td>
+                  <td class="px-3 py-2 font-mono">128</td>
+                  <td class="px-3 py-2 font-mono font-semibold">126</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Mitad de una /24</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.128" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F25" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="26" data-cidr-mask="255.255.255.192" data-cidr-usable="62" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/26</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.192</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.63</td>
+                  <td class="px-3 py-2 font-mono">6</td>
+                  <td class="px-3 py-2 font-mono">64</td>
+                  <td class="px-3 py-2 font-mono font-semibold">62</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Subred mediana (62 hosts)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.192" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F26" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="27" data-cidr-mask="255.255.255.224" data-cidr-usable="30" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/27</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.224</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.31</td>
+                  <td class="px-3 py-2 font-mono">5</td>
+                  <td class="px-3 py-2 font-mono">32</td>
+                  <td class="px-3 py-2 font-mono font-semibold">30</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Subred pequeña (30 hosts)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.224" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F27" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="28" data-cidr-mask="255.255.255.240" data-cidr-usable="14" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/28</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.240</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.15</td>
+                  <td class="px-3 py-2 font-mono">4</td>
+                  <td class="px-3 py-2 font-mono">16</td>
+                  <td class="px-3 py-2 font-mono font-semibold">14</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Subred reducida (14 hosts)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.240" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F28" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="29" data-cidr-mask="255.255.255.248" data-cidr-usable="6" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/29</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.248</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.7</td>
+                  <td class="px-3 py-2 font-mono">3</td>
+                  <td class="px-3 py-2 font-mono">8</td>
+                  <td class="px-3 py-2 font-mono font-semibold">6</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Enlace / DMZ pequeña (6 hosts)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.248" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F29" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="30" data-cidr-mask="255.255.255.252" data-cidr-usable="2" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/30</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.252</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.3</td>
+                  <td class="px-3 py-2 font-mono">2</td>
+                  <td class="px-3 py-2 font-mono">4</td>
+                  <td class="px-3 py-2 font-mono font-semibold">2</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Enlace punto a punto clásico (2 hosts)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.252" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F30" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="31" data-cidr-mask="255.255.255.254" data-cidr-usable="2" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/31</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.254</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.1</td>
+                  <td class="px-3 py-2 font-mono">1</td>
+                  <td class="px-3 py-2 font-mono">2</td>
+                  <td class="px-3 py-2 font-mono font-semibold">2 (RFC 3021 P2P)</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Enlace P2P RFC 3021 (2 direcciones)</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.254" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F31" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr><tr data-cidr-prefix="32" data-cidr-mask="255.255.255.255" data-cidr-usable="1" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/32</td>
+                  <td class="px-3 py-2 font-mono">255.255.255.255</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">0.0.0.0</td>
+                  <td class="px-3 py-2 font-mono">0</td>
+                  <td class="px-3 py-2 font-mono">1</td>
+                  <td class="px-3 py-2 font-mono font-semibold">1 (Host)</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">Host único / Loopback / Ruta estática</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="255.255.255.255" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">Copiar</button>
+                    <a href="/calculadora-subredes-vlsm?mode=single&q=192.168.1.0%2F32" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">Probar en VLSM</a>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-lg font-bold mb-3">Rangos IPv4 Privados y Reservados</h2>
+          <div class="min-w-0 max-w-full overflow-x-auto">
+            <table class="w-full text-xs whitespace-nowrap">
+              <tbody>
+                <tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">10.0.0.0/8</td><td class="py-1.5 pr-3 font-mono">10.0.0.0 – 10.255.255.255</td><td class="py-1.5 text-slate-500">RFC 1918 (Private Class A)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">172.16.0.0/12</td><td class="py-1.5 pr-3 font-mono">172.16.0.0 – 172.31.255.255</td><td class="py-1.5 text-slate-500">RFC 1918 (Private Class B)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">192.168.0.0/16</td><td class="py-1.5 pr-3 font-mono">192.168.0.0 – 192.168.255.255</td><td class="py-1.5 text-slate-500">RFC 1918 (Private Class C)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">127.0.0.0/8</td><td class="py-1.5 pr-3 font-mono">127.0.0.0 – 127.255.255.255</td><td class="py-1.5 text-slate-500">RFC 1122 (Loopback)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">169.254.0.0/16</td><td class="py-1.5 pr-3 font-mono">169.254.0.0 – 169.254.255.255</td><td class="py-1.5 text-slate-500">RFC 3927 (APIPA / Link-Local)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">100.64.0.0/10</td><td class="py-1.5 pr-3 font-mono">100.64.0.0 – 100.127.255.255</td><td class="py-1.5 text-slate-500">RFC 6598 (CGNAT)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-lg font-bold mb-3">Potencias de 2 clave (2^0 a 2^16)</h2>
+          <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 font-mono text-xs">
+            <div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^0 =</span> <span class="font-bold">1</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^1 =</span> <span class="font-bold">2</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^2 =</span> <span class="font-bold">4</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^3 =</span> <span class="font-bold">8</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^4 =</span> <span class="font-bold">16</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^5 =</span> <span class="font-bold">32</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^6 =</span> <span class="font-bold">64</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^7 =</span> <span class="font-bold">128</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^8 =</span> <span class="font-bold">256</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^9 =</span> <span class="font-bold">512</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^10 =</span> <span class="font-bold">1,024</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^11 =</span> <span class="font-bold">2,048</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^12 =</span> <span class="font-bold">4,096</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^13 =</span> <span class="font-bold">8,192</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^14 =</span> <span class="font-bold">16,384</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^15 =</span> <span class="font-bold">32,768</span></div><div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^16 =</span> <span class="font-bold">65,536</span></div>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="cheat-no-print"><section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo encuentro el prefijo CIDR para N hosts?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Escribe el número de hosts en el buscador superior (ej. 50) y la tabla resaltará automáticamente el prefijo más ajustado (/26 con 62 hosts útiles).</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Por qué /31 tiene 2 direcciones útiles?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">La RFC 3021 permite usar subredes /31 en enlaces punto a punto sin desperdiciar direcciones de red y broadcast.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Qué es la máscara wildcard?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Es la máscara inversa (255.255.255.255 - máscara) usada en ACLs y OSPF.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Puedo probar un prefijo directamente en la calculadora?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Sí, pulsa &quot;Probar en VLSM&quot; en cualquier fila para abrir el cálculo paso a paso.</p>
+          </details>
+    </div>
+  </section></div>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Herramientas educativas de código abierto para Redes IP y Sistemas Digitales.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/tabla-subredes-cidr" class="hover:text-cyan-600 dark:hover:text-cyan-400">Tabla Completa CIDR (/0 a /32)</a><a href="/tabla-ascii-binario-hex" class="hover:text-cyan-600 dark:hover:text-cyan-400">Tabla ASCII, Binario y Hex (0–127)</a><a href="/leyes-algebra-de-boole" class="hover:text-cyan-600 dark:hover:text-cyan-400">Leyes de Boole y Puertas Lógicas</a>
+      <a href="/sobre-nosotros" class="hover:text-cyan-600 dark:hover:text-cyan-400">Sobre nosotros</a>
+      <a href="/privacidad" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacidad</a>
+      <a href="/aviso-legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Aviso legal</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwuodh7p"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@ import { solveTruthTable } from './engines/truth-table.js';
 import { solveBandwidth } from './engines/bandwidth.js';
 import { solveRaidChmod } from './engines/raid-chmod.js';
 import { initExamPage } from './exam-ui.js';
+import { initCheatSheet } from './cheatsheets-ui.js';
 
 const ENGINES = {
   vlsm: solveVlsm,
@@ -543,6 +544,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const lang = document.body.getAttribute('data-lang') || 'es';
   if (page === 'exam') {
     initExamPage(lang);
+  } else if (page && page.startsWith('cheat')) {
+    initCheatSheet(page);
   } else if (tool && ENGINES[tool]) {
     initCalculator(tool, lang);
   }

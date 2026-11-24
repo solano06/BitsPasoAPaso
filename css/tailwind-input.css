@@ -84,7 +84,8 @@
     display: block !important;
   }
 
-  .exam-no-print {
+  .exam-no-print,
+  .cheat-no-print {
     display: none !important;
   }
 

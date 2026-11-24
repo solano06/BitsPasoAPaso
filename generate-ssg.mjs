@@ -6,12 +6,21 @@ import {
   LANGUAGES,
   ALL_ROUTE_KEYS,
   TOOL_KEYS,
+  CHEAT_KEYS,
   LEGAL_KEYS,
   UI,
   getRoutePath,
   getOutputFile
 } from './js/i18n.js';
 import { TOOL_CONTENT } from './js/seo-content.js';
+import {
+  buildCidrRows,
+  IPV4_RESERVED_RANGES,
+  buildAsciiRows,
+  BOOLEAN_GATES,
+  BOOLEAN_LAWS,
+  CHEAT_META
+} from './js/cheatsheets-data.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SITE_URL = (process.env.SITE_URL || 'https://bitspasoapaso.vercel.app').replace(/\/+$/, '');
@@ -162,7 +171,7 @@ function esc(str) {
     .replace(/"/g, '&quot;');
 }
 
-function buildHead({ title, description, routeKey, lang, faqs, breadcrumbName }) {
+function buildHead({ title, description, routeKey, lang, faqs, breadcrumbName, schemaType = 'WebApplication' }) {
   const canonicalUrl = `${SITE_URL}${getRoutePath(routeKey, lang)}`;
   const hreflangs = LANGUAGES.map(
     (l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}${getRoutePath(routeKey, l)}" />`
@@ -190,14 +199,12 @@ function buildHead({ title, description, routeKey, lang, faqs, breadcrumbName })
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
+        '@type': schemaType,
         name: title,
         url: canonicalUrl,
         description,
-        applicationCategory: 'EducationalApplication',
-        operatingSystem: 'Any',
-        inLanguage: lang,
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }
+        ...(schemaType === 'WebApplication' ? { applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' } } : {}),
+        inLanguage: lang
       },
       {
         '@type': 'BreadcrumbList',
@@ -250,20 +257,22 @@ function buildHeader(routeKey, lang) {
   const digTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'digital');
   const sysTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'systems');
 
-  const renderDropdown = (label, keys) => `
+  const renderDropdown = (label, keys, isCheat = false) => `
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>${esc(label)}</span>
-        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
       <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
         ${keys
-          .map(
-            (k) => `<a href="${getRoutePath(k, lang)}" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">${esc(ui.tools[k].shortName)}</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">${esc(ui.tools[k].description)}</div>
-            </a>`
-          )
+          .map((k) => {
+            const title = isCheat ? ui.home.cheats[k].title : ui.tools[k].shortName;
+            const desc = isCheat ? ui.home.cheats[k].desc : ui.tools[k].description;
+            return `<a href="${getRoutePath(k, lang)}" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">${esc(title)}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">${esc(desc)}</div>
+            </a>`;
+          })
           .join('')}
       </div>
     </div>
@@ -284,10 +293,11 @@ function buildHeader(routeKey, lang) {
         <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
         <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
       </a>
-      <nav class="hidden lg:flex items-center gap-1">
+      <nav class="hidden lg:flex items-center gap-0.5">
         ${renderDropdown(ui.nav.networking, netTools)}
         ${renderDropdown(ui.nav.digital, digTools)}
         ${renderDropdown(ui.nav.systems, sysTools)}
+        ${renderDropdown(ui.nav.cheats, CHEAT_KEYS, true)}
       </nav>
     </div>
 
@@ -336,6 +346,12 @@ function buildHeader(routeKey, lang) {
         ${sysTools.map((k) => `<a href="${getRoutePath(k, lang)}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(ui.tools[k].name)}</a>`).join('')}
       </div>
     </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">${esc(ui.nav.cheats)}</div>
+      <div class="grid grid-cols-1 gap-1">
+        ${CHEAT_KEYS.map((k) => `<a href="${getRoutePath(k, lang)}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(ui.home.cheats[k].title)}</a>`).join('')}
+      </div>
+    </div>
     <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
       <a href="${getRoutePath('exam', lang)}" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">${esc(ui.nav.examMode)}</a>
     </div>
@@ -351,6 +367,7 @@ function buildFooter(lang) {
       <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · ${esc(ui.footer.rights)}
     </div>
     <div class="flex flex-wrap items-center gap-4">
+      ${CHEAT_KEYS.map((ck) => `<a href="${getRoutePath(ck, lang)}" class="hover:text-cyan-600 dark:hover:text-cyan-400">${esc(ui.home.cheats[ck].title)}</a>`).join('')}
       <a href="${getRoutePath('about', lang)}" class="hover:text-cyan-600 dark:hover:text-cyan-400">${esc(ui.footer.about)}</a>
       <a href="${getRoutePath('privacy', lang)}" class="hover:text-cyan-600 dark:hover:text-cyan-400">${esc(ui.footer.privacy)}</a>
       <a href="${getRoutePath('legal', lang)}" class="hover:text-cyan-600 dark:hover:text-cyan-400">${esc(ui.footer.legal)}</a>
@@ -437,6 +454,19 @@ ${buildHead({ title: h.metaTitle, description: h.metaDescription, routeKey: 'hom
       <div data-tool-section>
         <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">${esc(h.sectionSystems)}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${sysTools.map(renderCard).join('')}</div>
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">${esc(h.cheatsSectionTitle)}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        ${CHEAT_KEYS.map(
+          (ck) => `<a href="${getRoutePath(ck, lang)}" class="block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+            <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1">${esc(ui.nav.cheats)}</div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">${esc(h.cheats[ck].title)}</h3>
+            <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">${esc(h.cheats[ck].desc)}</p>
+          </a>`
+        ).join('')}
       </div>
     </section>
 
@@ -582,6 +612,12 @@ ${buildHead({ title: c.metaTitle, description: c.metaDescription, routeKey: tool
       <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
         <h2 class="text-xl font-bold text-slate-900 dark:text-white">${esc(ui.actions.quickGuide)}</h2>
         ${c.guide.map((p) => `<p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">${esc(p)}</p>`).join('')}
+        ${(() => {
+          const mapCheat = { vlsm: 'cheatCidr', cidr: 'cheatCidr', bases: 'cheatAscii', ieee754: 'cheatAscii', karnaugh: 'cheatBoolean', truthTable: 'cheatBoolean' };
+          const ck = mapCheat[toolKey];
+          if (!ck) return '';
+          return `<div class="pt-2"><a href="${getRoutePath(ck, lang)}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">→ ${esc(ui.home.cheats[ck].title)}</a></div>`;
+        })()}
       </div>
 
       <div>
@@ -749,6 +785,242 @@ const EXAM_META = {
   }
 };
 
+function buildCheatSheetHtml(cheatKey, lang) {
+  const ui = UI[lang];
+  const cm = CHEAT_META[cheatKey][lang];
+  const savePdfLbl = ui.actions.savePdf;
+
+  let bodyHtml = '';
+
+  if (cheatKey === 'cheatCidr') {
+    const rows = buildCidrRows(lang);
+    const L = {
+      es: { filterPh: 'Buscar por prefijo (/26), máscara o nº mínimo de hosts (ej. 50)...', opt: 'Prefijo óptimo:', colP: 'Prefijo', colM: 'Máscara', colW: 'Wildcard', colH: 'Bits host', colT: 'Direcciones', colU: 'Hosts útiles', colUse: 'Uso típico', copy: 'Copiar', test: 'Probar en VLSM', resTitle: 'Rangos IPv4 Privados y Reservados', powTitle: 'Potencias de 2 clave (2^0 a 2^16)' },
+      en: { filterPh: 'Filter by prefix (/26), mask, or min hosts (e.g. 50)...', opt: 'Optimal prefix:', colP: 'Prefix', colM: 'Mask', colW: 'Wildcard', colH: 'Host bits', colT: 'Total IPs', colU: 'Usable hosts', colUse: 'Typical use', copy: 'Copy', test: 'Test in VLSM', resTitle: 'Reserved & Private IPv4 Ranges', powTitle: 'Key Powers of 2 (2^0 to 2^16)' },
+      fr: { filterPh: 'Filtrer par préfixe (/26), masque ou hôtes min. (ex. 50)...', opt: 'Préfixe optimal :', colP: 'Préfixe', colM: 'Masque', colW: 'Wildcard', colH: 'Bits hôte', colT: 'Adresses', colU: 'Hôtes utiles', colUse: 'Usage typique', copy: 'Copier', test: 'Tester en VLSM', resTitle: 'Plages IPv4 Privées et Réservées', powTitle: 'Puissances de 2 clés (2^0 à 2^16)' }
+    }[lang];
+
+    bodyHtml = `
+      <div class="cheat-no-print mb-5 flex flex-wrap items-center gap-3">
+        <input id="cidr-filter" type="text" placeholder="${esc(L.filterPh)}" class="flex-1 min-w-[220px] px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono text-sm" />
+        <div class="hidden px-3 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-xs font-semibold text-cyan-700 dark:text-cyan-300">
+          ${esc(L.opt)} <span id="cidr-optimal-hint" class="font-mono font-bold"></span>
+        </div>
+      </div>
+
+      <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+          <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <tr>
+              <th class="px-3 py-2.5">${esc(L.colP)}</th>
+              <th class="px-3 py-2.5">${esc(L.colM)}</th>
+              <th class="px-3 py-2.5">${esc(L.colW)}</th>
+              <th class="px-3 py-2.5">${esc(L.colH)}</th>
+              <th class="px-3 py-2.5">${esc(L.colT)}</th>
+              <th class="px-3 py-2.5">${esc(L.colU)}</th>
+              <th class="px-3 py-2.5">${esc(L.colUse)}</th>
+              <th class="cheat-no-print px-3 py-2.5"></th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows
+              .map(
+                (r) => `<tr data-cidr-prefix="${r.prefix}" data-cidr-mask="${r.mask}" data-cidr-usable="${r.usableNum}" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">/${r.prefix}</td>
+                  <td class="px-3 py-2 font-mono">${r.mask}</td>
+                  <td class="px-3 py-2 font-mono text-slate-500 dark:text-slate-400">${r.wildcard}</td>
+                  <td class="px-3 py-2 font-mono">${r.hostBits}</td>
+                  <td class="px-3 py-2 font-mono">${r.totalStr}</td>
+                  <td class="px-3 py-2 font-mono font-semibold">${r.usableStr}</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">${esc(r.use)}</td>
+                  <td class="cheat-no-print px-3 py-2 space-x-1.5">
+                    <button type="button" data-copy-mask="${r.mask}" class="px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 text-xs hover:border-cyan-500">${esc(L.copy)}</button>
+                    <a href="${getRoutePath('vlsm', lang)}?mode=single&q=${encodeURIComponent(`192.168.1.0/${r.prefix}`)}" class="px-2 py-0.5 rounded bg-cyan-600 text-white text-xs font-semibold">${esc(L.test)}</a>
+                  </td>
+                </tr>`
+              )
+              .join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-lg font-bold mb-3">${esc(L.resTitle)}</h2>
+          <div class="min-w-0 max-w-full overflow-x-auto">
+            <table class="w-full text-xs whitespace-nowrap">
+              <tbody>
+                ${IPV4_RESERVED_RANGES.map((rv) => `<tr class="border-t border-slate-200 dark:border-slate-800"><td class="py-1.5 pr-3 font-mono font-bold text-cyan-600 dark:text-cyan-400">${rv.cidr}</td><td class="py-1.5 pr-3 font-mono">${rv.range}</td><td class="py-1.5 text-slate-500">${rv.rfc}</td></tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-lg font-bold mb-3">${esc(L.powTitle)}</h2>
+          <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 font-mono text-xs">
+            ${Array.from({ length: 17 }, (_, e) => `<div class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center"><span class="text-slate-500">2^${e} =</span> <span class="font-bold">${(2 ** e).toLocaleString('en-US')}</span></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (cheatKey === 'cheatAscii') {
+    const rows = buildAsciiRows(lang);
+    const L = {
+      es: { liveTitle: 'Conversor rápido Texto → ASCII (Binario / Hex)', livePh: 'Escribe aquí (ej. Bits)...', copyBin: 'Copiar Binario', copyHex: 'Copiar Hex', filterPh: 'Buscar carácter, decimal (65) o hex (0x41)...', all: 'Todos', control: 'Control (0–31, 127)', digit: 'Números (0–9)', upper: 'Mayúsculas (A–Z)', lower: 'Minúsculas (a–z)', symbol: 'Símbolos', colD: 'Dec', colB: 'Binario (8-bit)', colO: 'Oct', colH: 'Hex', colS: 'Símbolo', colDesc: 'Descripción' },
+      en: { liveTitle: 'Live Text → ASCII Converter (Binary / Hex)', livePh: 'Type text here (e.g. Bits)...', copyBin: 'Copy Binary', copyHex: 'Copy Hex', filterPh: 'Search char, decimal (65), or hex (0x41)...', all: 'All', control: 'Control (0–31, 127)', digit: 'Digits (0–9)', upper: 'Uppercase (A–Z)', lower: 'Lowercase (a–z)', symbol: 'Symbols', colD: 'Dec', colB: 'Binary (8-bit)', colO: 'Oct', colH: 'Hex', colS: 'Symbol', colDesc: 'Description' },
+      fr: { liveTitle: 'Convertisseur Texte → ASCII en direct', livePh: 'Tapez ici (ex. Bits)...', copyBin: 'Copier Binaire', copyHex: 'Copier Hex', filterPh: 'Rechercher caractère, décimal (65) ou hex (0x41)...', all: 'Tous', control: 'Contrôle (0–31, 127)', digit: 'Chiffres (0–9)', upper: 'Majuscules (A–Z)', lower: 'Minuscules (a–z)', symbol: 'Symboles', colD: 'Déc', colB: 'Binaire (8-bit)', colO: 'Oct', colH: 'Hex', colS: 'Symbole', colDesc: 'Description' }
+    }[lang];
+
+    bodyHtml = `
+      <div class="cheat-no-print p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-6 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h2 class="text-sm font-bold">${esc(L.liveTitle)}</h2>
+          <div class="flex gap-2">
+            <button id="ascii-copy-bin" type="button" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-semibold hover:border-cyan-500">${esc(L.copyBin)}</button>
+            <button id="ascii-copy-hex" type="button" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-semibold hover:border-cyan-500">${esc(L.copyHex)}</button>
+          </div>
+        </div>
+        <input id="ascii-live-input" type="text" value="Bits" placeholder="${esc(L.livePh)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm" />
+        <div id="ascii-live-output" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div class="cheat-no-print mb-4 space-y-3">
+        <input id="ascii-filter" type="text" placeholder="${esc(L.filterPh)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono text-sm" />
+        <div class="flex flex-wrap gap-1.5">
+          ${[
+            ['all', L.all],
+            ['control', L.control],
+            ['digit', L.digit],
+            ['upper', L.upper],
+            ['lower', L.lower],
+            ['symbol', L.symbol]
+          ]
+            .map(
+              ([cat, lbl], idx) => `<button type="button" data-ascii-cat="${cat}" class="px-3 py-1 rounded-lg border text-xs font-semibold ${
+                idx === 0 ? 'bg-cyan-600 text-white border-cyan-600' : 'border-slate-300 dark:border-slate-700'
+              }">${esc(lbl)}</button>`
+            )
+            .join('')}
+        </div>
+      </div>
+
+      <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+          <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <tr>
+              <th class="px-3 py-2">${esc(L.colD)}</th>
+              <th class="px-3 py-2">${esc(L.colB)}</th>
+              <th class="px-3 py-2">${esc(L.colO)}</th>
+              <th class="px-3 py-2">${esc(L.colH)}</th>
+              <th class="px-3 py-2">${esc(L.colS)}</th>
+              <th class="px-3 py-2">${esc(L.colDesc)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows
+              .map(
+                (r) => `<tr data-ascii-row data-ascii-cat-val="${r.category}" data-ascii-hay="${esc(`${r.dec} ${r.bin} ${r.hex} ${r.symbol} ${r.desc}`.toLowerCase())}" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">${r.dec}</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">${r.bin}</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">${r.oct}</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">${r.hex}</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">${esc(r.symbol)}</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">${esc(r.desc)}</td>
+                </tr>`
+              )
+              .join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } else if (cheatKey === 'cheatBoolean') {
+    const L = {
+      es: { gatesTitle: 'Las 7 Puertas Lógicas (ANSI/IEEE)', lawsTitle: 'Leyes Fundamentales del Álgebra de Boole', colGate: 'Puerta', colSvg: 'Símbolo', colExpr: 'Expresión', colTt: 'Tabla', colNote: 'Nota', colLaw: 'Ley', colEng: 'Ingeniería (+, ·, \')', colLog: 'Lógica (∨, ∧, ¬)', checkBtn: 'Comprobar equivalencia', kmapTitle: 'De Tabla de Verdad a SOP / POS y Karnaugh', kmapSteps: '1. Para SOP suma los mintérminos (salidas = 1). 2. Para POS multiplica los maxtérminos (salidas = 0). 3. Para 2–4 variables simplifica gráficamente en el Mapa de Karnaugh.', kmapBtn: 'Abrir Mapa de Karnaugh' },
+      en: { gatesTitle: 'The 7 Logic Gates (ANSI/IEEE)', lawsTitle: 'Fundamental Boolean Algebra Laws', colGate: 'Gate', colSvg: 'Symbol', colExpr: 'Expression', colTt: 'Truth Table', colNote: 'Note', colLaw: 'Law', colEng: 'Engineering (+, ·, \')', colLog: 'Logic (∨, ∧, ¬)', checkBtn: 'Check equivalence', kmapTitle: 'From Truth Table to SOP / POS & Karnaugh', kmapSteps: '1. For SOP sum all minterms (1-outputs). 2. For POS multiply all maxterms (0-outputs). 3. For 2–4 variables simplify visually in the Karnaugh Map.', kmapBtn: 'Open Karnaugh Map' },
+      fr: { gatesTitle: 'Les 7 Portes Logiques (ANSI/IEEE)', lawsTitle: 'Lois Fondamentales de l’Algèbre de Boole', colGate: 'Porte', colSvg: 'Symbole', colExpr: 'Expression', colTt: 'Table', colNote: 'Note', colLaw: 'Loi', colEng: 'Ingénierie (+, ·, \')', colLog: 'Logique (∨, ∧, ¬)', checkBtn: 'Vérifier l’équivalence', kmapTitle: 'De la Table de Vérité au SOP / POS et Karnaugh', kmapSteps: '1. En SOP additionnez les mintermes (sorties = 1). 2. En POS multipliez les maxtermes (sorties = 0). 3. Pour 2–4 variables simplifiez sur Tableau de Karnaugh.', kmapBtn: 'Ouvrir Tableau de Karnaugh' }
+    }[lang];
+
+    bodyHtml = `
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mb-3">${esc(L.gatesTitle)}</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800">
+              <tr><th class="px-3 py-2.5">${esc(L.colGate)}</th><th class="px-3 py-2.5">${esc(L.colSvg)}</th><th class="px-3 py-2.5">${esc(L.colExpr)}</th><th class="px-3 py-2.5">${esc(L.colTt)}</th><th class="px-3 py-2.5">${esc(L.colNote)}</th></tr>
+            </thead>
+            <tbody>
+              ${BOOLEAN_GATES.map(
+                (g) => `<tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-mono font-bold text-cyan-600 dark:text-cyan-400">${g.name}</td>
+                  <td class="px-3 py-2 text-slate-800 dark:text-slate-200">${g.svg}</td>
+                  <td class="px-3 py-2 font-mono">${esc(g.expr)}</td>
+                  <td class="px-3 py-2 font-mono text-xs">${esc(g.tt)}</td>
+                  <td class="px-3 py-2 text-xs text-slate-600 dark:text-slate-300">${esc(g.note[lang])}</td>
+                </tr>`
+              ).join('')}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mb-3">${esc(L.lawsTitle)}</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800">
+              <tr><th class="px-3 py-2.5">${esc(L.colLaw)}</th><th class="px-3 py-2.5">${esc(L.colEng)}</th><th class="px-3 py-2.5">${esc(L.colLog)}</th><th class="cheat-no-print px-3 py-2.5"></th></tr>
+            </thead>
+            <tbody>
+              ${BOOLEAN_LAWS.map(
+                (law) => `<tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-2 font-semibold">${esc(law.name[lang])}</td>
+                  <td class="px-3 py-2 font-mono text-cyan-600 dark:text-cyan-400">${esc(law.eng)}</td>
+                  <td class="px-3 py-2 font-mono text-emerald-600 dark:text-emerald-400">${esc(law.logic)}</td>
+                  <td class="cheat-no-print px-3 py-2">
+                    ${law.equiv ? `<a href="${getRoutePath('truthTable', lang)}?mode=equiv&q=${encodeURIComponent(law.equiv)}" class="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-semibold">${esc(L.checkBtn)}</a>` : ''}
+                  </td>
+                </tr>`
+              ).join('')}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-base font-bold">${esc(L.kmapTitle)}</h2>
+          <p class="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400">${esc(L.kmapSteps)}</p>
+        </div>
+        <a href="${getRoutePath('karnaugh', lang)}" class="cheat-no-print px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shrink-0">${esc(L.kmapBtn)} →</a>
+      </section>
+    `;
+  }
+
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+${buildHead({ title: cm.metaTitle, description: cm.metaDescription, routeKey: cheatKey, lang, faqs: cm.faqs, breadcrumbName: ui.home.cheats[cheatKey].title, schemaType: 'WebPage' })}
+<body data-page="${cheatKey}" data-lang="${lang}" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  ${buildHeader(cheatKey, lang)}
+  <main class="max-w-6xl mx-auto px-4 py-8 sm:py-10">
+    <div class="mb-6 flex flex-wrap items-start justify-between gap-3">
+      <div>
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-2">${esc(ui.nav.cheats)}</span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">${esc(cm.h1)}</h1>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-3xl">${esc(cm.subtitle)}</p>
+      </div>
+      <button id="cheat-print-btn" type="button" class="cheat-no-print px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm font-semibold hover:border-cyan-500 shrink-0">${esc(savePdfLbl)}</button>
+    </div>
+
+    ${bodyHtml}
+
+    <div class="cheat-no-print">${buildFaqSection(cm.faqs, ui.actions.faqTitle)}</div>
+  </main>
+  ${buildFooter(lang)}
+  <script type="module" src="/js/app.js?v=${BUILD_VERSION}"></script>
+</body>
+</html>`;
+}
+
 function buildExamHtml(lang) {
   const ui = UI[lang];
   const em = EXAM_META[lang];
@@ -785,6 +1057,11 @@ function main() {
 
     for (const toolKey of TOOL_KEYS) {
       writeOut(getOutputFile(toolKey, lang), buildToolHtml(toolKey, lang));
+      count++;
+    }
+
+    for (const cheatKey of CHEAT_KEYS) {
+      writeOut(getOutputFile(cheatKey, lang), buildCheatSheetHtml(cheatKey, lang));
       count++;
     }
 

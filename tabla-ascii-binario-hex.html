@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla ASCII, Binario (8 bits), Octal y Hexadecimal (0–127) — BitsPasoAPaso</title>
+  <meta name="description" content="Tabla completa de los 128 códigos ASCII (0 a 127) con binario de 8 bits, octal, hexadecimal y conversor de texto en tiempo real." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/tabla-ascii-binario-hex" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/tabla-ascii-binario-hex" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ascii-binary-hex-table" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/table-ascii-binaire-hex" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/tabla-ascii-binario-hex" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tabla ASCII, Binario (8 bits), Octal y Hexadecimal (0–127) — BitsPasoAPaso" />
+  <meta property="og:description" content="Tabla completa de los 128 códigos ASCII (0 a 127) con binario de 8 bits, octal, hexadecimal y conversor de texto en tiempo real." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/tabla-ascii-binario-hex" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tabla ASCII, Binario (8 bits), Octal y Hexadecimal (0–127) — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Tabla completa de los 128 códigos ASCII (0 a 127) con binario de 8 bits, octal, hexadecimal y conversor de texto en tiempo real." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuodh7p" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Tabla ASCII, Binario (8 bits), Octal y Hexadecimal (0–127) — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/tabla-ascii-binario-hex","description":"Tabla completa de los 128 códigos ASCII (0 a 127) con binario de 8 bits, octal, hexadecimal y conversor de texto en tiempo real.","inLanguage":"es"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"Tabla ASCII, Binario y Hex (0–127)","item":"https://bitspasoapaso.vercel.app/tabla-ascii-binario-hex"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Por qué el ASCII estándar llega hasta 127?","acceptedAnswer":{"@type":"Answer","text":"Porque utiliza 7 bits (2^7 = 128 códigos, de 0x00 a 0x7F), aunque suele almacenarse en bytes de 8 bits."}},{"@type":"Question","name":"¿Qué diferencia hay entre A (65) y a (97)?","acceptedAnswer":{"@type":"Answer","text":"Difieren exactamente en 32 (el bit 5: 01000001 vs 01100001), lo que facilita convertir mayúsculas y minúsculas."}},{"@type":"Question","name":"¿Qué son los códigos 0 al 31 y 127?","acceptedAnswer":{"@type":"Answer","text":"Son caracteres de control no imprimibles como NUL (0), TAB (9), LF (10), CR (13), ESC (27) y DEL (127)."}},{"@type":"Question","name":"¿Cómo uso el conversor de texto?","acceptedAnswer":{"@type":"Answer","text":"Escribe cualquier palabra en el cuadro superior para ver al instante su secuencia decimal, binaria y hexadecimal."}}]}]}</script>
+</head>
+<body data-page="cheatAscii" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-0.5">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Redes IP</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
+            </a><a href="/calculadora-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.</div>
+            </a><a href="/calculadora-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</div>
+            </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Sistemas Digitales</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/conversor-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</div>
+            </a><a href="/mapa-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mapa de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</div>
+            </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a><a href="/tablas-de-verdad" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tablas de Verdad</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Codificación</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID y chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Chuletas</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/tabla-subredes-cidr" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tabla Completa CIDR (/0 a /32)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Las 33 máscaras, wildcards, hosts útiles, rangos RFC 1918 y potencias de 2.</div>
+            </a><a href="/tabla-ascii-binario-hex" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tabla ASCII, Binario y Hex (0–127)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Los 128 códigos ASCII con conversor de texto en tiempo real y filtros por categoría.</div>
+            </a><a href="/leyes-algebra-de-boole" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Leyes de Boole y Puertas Lógicas</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Las 7 puertas lógicas con SVG, leyes de De Morgan y comprobador en Tablas de Verdad.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/tabla-ascii-binario-hex" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">es</a><a href="/en/ascii-binary-hex-table" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/table-ascii-binaire-hex" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Revela los pasos uno a uno" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Modo Estudio</span>
+      </button>
+
+      <a href="/modo-examen" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Modo Examen</span>
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Codificación</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Chuletas</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/tabla-subredes-cidr" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tabla Completa CIDR (/0 a /32)</a><a href="/tabla-ascii-binario-hex" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tabla ASCII, Binario y Hex (0–127)</a><a href="/leyes-algebra-de-boole" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Leyes de Boole y Puertas Lógicas</a>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/modo-examen" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Modo Examen</a>
+    </div>
+  </div>
+</header>
+  <main class="max-w-6xl mx-auto px-4 py-8 sm:py-10">
+    <div class="mb-6 flex flex-wrap items-start justify-between gap-3">
+      <div>
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-2">Chuletas</span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Tabla ASCII, Binario, Octal y Hexadecimal (0–127)</h1>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-3xl">Todos los 128 códigos ASCII estándar con mini-conversor de texto a binario/hex en tiempo real y filtros por categoría.</p>
+      </div>
+      <button id="cheat-print-btn" type="button" class="cheat-no-print px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm font-semibold hover:border-cyan-500 shrink-0">Guardar PDF</button>
+    </div>
+
+    
+      <div class="cheat-no-print p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-6 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h2 class="text-sm font-bold">Conversor rápido Texto → ASCII (Binario / Hex)</h2>
+          <div class="flex gap-2">
+            <button id="ascii-copy-bin" type="button" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-semibold hover:border-cyan-500">Copiar Binario</button>
+            <button id="ascii-copy-hex" type="button" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-semibold hover:border-cyan-500">Copiar Hex</button>
+          </div>
+        </div>
+        <input id="ascii-live-input" type="text" value="Bits" placeholder="Escribe aquí (ej. Bits)..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm" />
+        <div id="ascii-live-output" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div class="cheat-no-print mb-4 space-y-3">
+        <input id="ascii-filter" type="text" placeholder="Buscar carácter, decimal (65) o hex (0x41)..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono text-sm" />
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" data-ascii-cat="all" class="px-3 py-1 rounded-lg border text-xs font-semibold bg-cyan-600 text-white border-cyan-600">Todos</button><button type="button" data-ascii-cat="control" class="px-3 py-1 rounded-lg border text-xs font-semibold border-slate-300 dark:border-slate-700">Control (0–31, 127)</button><button type="button" data-ascii-cat="digit" class="px-3 py-1 rounded-lg border text-xs font-semibold border-slate-300 dark:border-slate-700">Números (0–9)</button><button type="button" data-ascii-cat="upper" class="px-3 py-1 rounded-lg border text-xs font-semibold border-slate-300 dark:border-slate-700">Mayúsculas (A–Z)</button><button type="button" data-ascii-cat="lower" class="px-3 py-1 rounded-lg border text-xs font-semibold border-slate-300 dark:border-slate-700">Minúsculas (a–z)</button><button type="button" data-ascii-cat="symbol" class="px-3 py-1 rounded-lg border text-xs font-semibold border-slate-300 dark:border-slate-700">Símbolos</button>
+        </div>
+      </div>
+
+      <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+          <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <tr>
+              <th class="px-3 py-2">Dec</th>
+              <th class="px-3 py-2">Binario (8-bit)</th>
+              <th class="px-3 py-2">Oct</th>
+              <th class="px-3 py-2">Hex</th>
+              <th class="px-3 py-2">Símbolo</th>
+              <th class="px-3 py-2">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="0 00000000 0x00 nul carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">0</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">000</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x00</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">NUL</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="1 00000001 0x01 soh carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">1</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">001</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x01</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">SOH</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="2 00000010 0x02 stx carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">2</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">002</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x02</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">STX</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="3 00000011 0x03 etx carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">3</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">003</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x03</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">ETX</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="4 00000100 0x04 eot carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">4</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">004</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x04</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">EOT</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="5 00000101 0x05 enq carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">5</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">005</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x05</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">ENQ</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="6 00000110 0x06 ack carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">6</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">006</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x06</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">ACK</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="7 00000111 0x07 bel carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">7</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00000111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">007</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x07</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">BEL</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="8 00001000 0x08 bs carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">8</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">010</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x08</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">BS</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="9 00001001 0x09 tab carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">9</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">011</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x09</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">TAB</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="10 00001010 0x0a lf carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">10</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">012</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x0A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">LF</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="11 00001011 0x0b vt carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">11</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">013</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x0B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">VT</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="12 00001100 0x0c ff carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">12</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">014</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x0C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">FF</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="13 00001101 0x0d cr carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">13</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">015</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x0D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">CR</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="14 00001110 0x0e so carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">14</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">016</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x0E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">SO</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="15 00001111 0x0f si carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">15</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00001111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">017</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x0F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">SI</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="16 00010000 0x10 dle carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">16</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">020</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x10</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">DLE</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="17 00010001 0x11 dc1 carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">17</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">021</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x11</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">DC1</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="18 00010010 0x12 dc2 carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">18</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">022</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x12</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">DC2</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="19 00010011 0x13 dc3 carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">19</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">023</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x13</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">DC3</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="20 00010100 0x14 dc4 carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">20</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">024</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x14</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">DC4</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="21 00010101 0x15 nak carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">21</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">025</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x15</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">NAK</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="22 00010110 0x16 syn carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">22</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">026</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x16</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">SYN</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="23 00010111 0x17 etb carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">23</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00010111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">027</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x17</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">ETB</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="24 00011000 0x18 can carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">24</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">030</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x18</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">CAN</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="25 00011001 0x19 em carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">25</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">031</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x19</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">EM</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="26 00011010 0x1a sub carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">26</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">032</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x1A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">SUB</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="27 00011011 0x1b esc carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">27</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">033</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x1B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">ESC</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="28 00011100 0x1c fs carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">28</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">034</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x1C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">FS</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="29 00011101 0x1d gs carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">29</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">035</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x1D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">GS</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="30 00011110 0x1e rs carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">30</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">036</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x1E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">RS</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="31 00011111 0x1f us carácter de control" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">31</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00011111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">037</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x1F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">US</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Carácter de control</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="32 00100000 0x20 spc espacio en blanco" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">32</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">040</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x20</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">SPC</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Espacio en blanco</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="33 00100001 0x21 ! símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">33</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">041</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x21</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">!</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="34 00100010 0x22 &quot; símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">34</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">042</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x22</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">&quot;</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="35 00100011 0x23 # símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">35</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">043</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x23</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">#</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="36 00100100 0x24 $ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">36</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">044</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x24</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">$</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="37 00100101 0x25 % símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">37</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">045</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x25</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">%</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="38 00100110 0x26 &amp; símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">38</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">046</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x26</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">&amp;</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="39 00100111 0x27 ' símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">39</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00100111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">047</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x27</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">'</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="40 00101000 0x28 ( símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">40</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">050</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x28</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">(</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="41 00101001 0x29 ) símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">41</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">051</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x29</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">)</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="42 00101010 0x2a * símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">42</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">052</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x2A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">*</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="43 00101011 0x2b + símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">43</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">053</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x2B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">+</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="44 00101100 0x2c , símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">44</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">054</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x2C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">,</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="45 00101101 0x2d - símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">45</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">055</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x2D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">-</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="46 00101110 0x2e . símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">46</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">056</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x2E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">.</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="47 00101111 0x2f / símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">47</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00101111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">057</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x2F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">/</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="48 00110000 0x30 0 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">48</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">060</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x30</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">0</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="49 00110001 0x31 1 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">49</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">061</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x31</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">1</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="50 00110010 0x32 2 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">50</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">062</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x32</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">2</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="51 00110011 0x33 3 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">51</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">063</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x33</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">3</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="52 00110100 0x34 4 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">52</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">064</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x34</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">4</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="53 00110101 0x35 5 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">53</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">065</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x35</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">5</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="54 00110110 0x36 6 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">54</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">066</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x36</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">6</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="55 00110111 0x37 7 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">55</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00110111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">067</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x37</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">7</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="56 00111000 0x38 8 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">56</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">070</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x38</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">8</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="digit" data-ascii-hay="57 00111001 0x39 9 dígito numérico" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">57</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">071</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x39</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">9</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Dígito numérico</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="58 00111010 0x3a : símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">58</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">072</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x3A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">:</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="59 00111011 0x3b ; símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">59</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">073</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x3B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">;</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="60 00111100 0x3c &lt; símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">60</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">074</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x3C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">&lt;</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="61 00111101 0x3d = símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">61</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">075</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x3D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">=</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="62 00111110 0x3e &gt; símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">62</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">076</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x3E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">&gt;</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="63 00111111 0x3f ? símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">63</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">00111111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">077</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x3F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">?</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="64 01000000 0x40 @ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">64</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">100</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x40</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">@</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="65 01000001 0x41 a letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">65</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">101</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x41</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">A</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="66 01000010 0x42 b letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">66</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">102</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x42</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">B</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="67 01000011 0x43 c letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">67</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">103</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x43</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">C</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="68 01000100 0x44 d letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">68</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">104</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x44</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">D</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="69 01000101 0x45 e letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">69</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">105</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x45</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">E</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="70 01000110 0x46 f letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">70</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">106</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x46</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">F</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="71 01000111 0x47 g letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">71</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01000111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">107</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x47</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">G</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="72 01001000 0x48 h letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">72</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">110</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x48</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">H</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="73 01001001 0x49 i letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">73</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">111</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x49</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">I</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="74 01001010 0x4a j letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">74</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">112</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x4A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">J</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="75 01001011 0x4b k letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">75</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">113</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x4B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">K</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="76 01001100 0x4c l letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">76</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">114</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x4C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">L</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="77 01001101 0x4d m letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">77</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">115</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x4D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">M</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="78 01001110 0x4e n letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">78</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">116</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x4E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">N</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="79 01001111 0x4f o letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">79</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01001111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">117</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x4F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">O</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="80 01010000 0x50 p letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">80</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">120</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x50</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">P</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="81 01010001 0x51 q letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">81</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">121</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x51</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">Q</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="82 01010010 0x52 r letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">82</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">122</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x52</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">R</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="83 01010011 0x53 s letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">83</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">123</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x53</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">S</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="84 01010100 0x54 t letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">84</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">124</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x54</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">T</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="85 01010101 0x55 u letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">85</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">125</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x55</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">U</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="86 01010110 0x56 v letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">86</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">126</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x56</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">V</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="87 01010111 0x57 w letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">87</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01010111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">127</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x57</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">W</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="88 01011000 0x58 x letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">88</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">130</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x58</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">X</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="89 01011001 0x59 y letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">89</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">131</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x59</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">Y</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="upper" data-ascii-hay="90 01011010 0x5a z letra mayúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">90</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">132</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x5A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">Z</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra mayúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="91 01011011 0x5b [ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">91</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">133</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x5B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">[</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="92 01011100 0x5c \ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">92</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">134</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x5C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">\</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="93 01011101 0x5d ] símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">93</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">135</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x5D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">]</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="94 01011110 0x5e ^ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">94</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">136</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x5E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">^</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="95 01011111 0x5f _ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">95</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01011111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">137</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x5F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">_</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="96 01100000 0x60 ` símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">96</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">140</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x60</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">`</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="97 01100001 0x61 a letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">97</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">141</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x61</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">a</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="98 01100010 0x62 b letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">98</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">142</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x62</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">b</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="99 01100011 0x63 c letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">99</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">143</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x63</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">c</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="100 01100100 0x64 d letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">100</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">144</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x64</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">d</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="101 01100101 0x65 e letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">101</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">145</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x65</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">e</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="102 01100110 0x66 f letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">102</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">146</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x66</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">f</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="103 01100111 0x67 g letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">103</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01100111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">147</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x67</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">g</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="104 01101000 0x68 h letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">104</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">150</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x68</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">h</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="105 01101001 0x69 i letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">105</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">151</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x69</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">i</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="106 01101010 0x6a j letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">106</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">152</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x6A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">j</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="107 01101011 0x6b k letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">107</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">153</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x6B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">k</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="108 01101100 0x6c l letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">108</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">154</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x6C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">l</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="109 01101101 0x6d m letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">109</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">155</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x6D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">m</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="110 01101110 0x6e n letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">110</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">156</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x6E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">n</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="111 01101111 0x6f o letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">111</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01101111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">157</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x6F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">o</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="112 01110000 0x70 p letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">112</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">160</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x70</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">p</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="113 01110001 0x71 q letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">113</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">161</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x71</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">q</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="114 01110010 0x72 r letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">114</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">162</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x72</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">r</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="115 01110011 0x73 s letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">115</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">163</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x73</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">s</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="116 01110100 0x74 t letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">116</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">164</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x74</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">t</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="117 01110101 0x75 u letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">117</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">165</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x75</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">u</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="118 01110110 0x76 v letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">118</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">166</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x76</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">v</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="119 01110111 0x77 w letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">119</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01110111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">167</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x77</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">w</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="120 01111000 0x78 x letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">120</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111000</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">170</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x78</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">x</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="121 01111001 0x79 y letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">121</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111001</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">171</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x79</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">y</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="lower" data-ascii-hay="122 01111010 0x7a z letra minúscula" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">122</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111010</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">172</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x7A</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">z</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Letra minúscula</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="123 01111011 0x7b { símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">123</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111011</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">173</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x7B</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">{</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="124 01111100 0x7c | símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">124</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111100</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">174</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x7C</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">|</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="125 01111101 0x7d } símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">125</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111101</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">175</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x7D</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">}</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="symbol" data-ascii-hay="126 01111110 0x7e ~ símbolo / puntuación" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">126</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111110</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">176</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x7E</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">~</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Símbolo / puntuación</td>
+                </tr><tr data-ascii-row data-ascii-cat-val="control" data-ascii-hay="127 01111111 0x7f del suprimir (control)" class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="px-3 py-1.5 font-mono font-bold">127</td>
+                  <td class="px-3 py-1.5 font-mono text-cyan-600 dark:text-cyan-400">01111111</td>
+                  <td class="px-3 py-1.5 font-mono text-slate-500">177</td>
+                  <td class="px-3 py-1.5 font-mono font-semibold">0x7F</td>
+                  <td class="px-3 py-1.5 font-mono font-extrabold text-emerald-600 dark:text-emerald-400">DEL</td>
+                  <td class="px-3 py-1.5 text-xs text-slate-600 dark:text-slate-300">Suprimir (Control)</td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+    
+
+    <div class="cheat-no-print"><section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Por qué el ASCII estándar llega hasta 127?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Porque utiliza 7 bits (2^7 = 128 códigos, de 0x00 a 0x7F), aunque suele almacenarse en bytes de 8 bits.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Qué diferencia hay entre A (65) y a (97)?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Difieren exactamente en 32 (el bit 5: 01000001 vs 01100001), lo que facilita convertir mayúsculas y minúsculas.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Qué son los códigos 0 al 31 y 127?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Son caracteres de control no imprimibles como NUL (0), TAB (9), LF (10), CR (13), ESC (27) y DEL (127).</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo uso el conversor de texto?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Escribe cualquier palabra en el cuadro superior para ver al instante su secuencia decimal, binaria y hexadecimal.</p>
+          </details>
+    </div>
+  </section></div>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Herramientas educativas de código abierto para Redes IP y Sistemas Digitales.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/tabla-subredes-cidr" class="hover:text-cyan-600 dark:hover:text-cyan-400">Tabla Completa CIDR (/0 a /32)</a><a href="/tabla-ascii-binario-hex" class="hover:text-cyan-600 dark:hover:text-cyan-400">Tabla ASCII, Binario y Hex (0–127)</a><a href="/leyes-algebra-de-boole" class="hover:text-cyan-600 dark:hover:text-cyan-400">Leyes de Boole y Puertas Lógicas</a>
+      <a href="/sobre-nosotros" class="hover:text-cyan-600 dark:hover:text-cyan-400">Sobre nosotros</a>
+      <a href="/privacidad" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacidad</a>
+      <a href="/aviso-legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Aviso legal</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwuodh7p"></script>
+</body>
+</html>

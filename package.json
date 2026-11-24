@@ -1,0 +1,23 @@
+{
+  "name": "bitspasoapaso",
+  "version": "1.0.0",
+  "description": "Calculadoras paso a paso de Redes IP y Sistemas Digitales en ES, EN y FR",
+  "type": "module",
+  "scripts": {
+    "build:ssg": "node generate-ssg.mjs",
+    "build:css": "npx -y tailwindcss@3 -c ./tailwind.config.cjs -i ./css/tailwind-input.css -o ./css/tailwind.min.css --minify",
+    "dev": "node server.mjs"
+  },
+  "keywords": [
+    "vlsm",
+    "subnetting",
+    "ieee-754",
+    "karnaugh",
+    "twos-complement",
+    "hamming",
+    "crc",
+    "networking",
+    "digital-systems"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+  }
+}
+
+.step-card {
+  break-inside: avoid;
+}
+
+.kmap-cell-btn {
+  transition: transform 0.1s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.kmap-cell-btn:active {
+  transform: scale(0.95);
+}
+
+.bit-toggle-btn {
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.bit-toggle-btn:hover {
+  filter: brightness(1.1);
+}
+
+.bit-toggle-btn:active {
+  transform: scale(0.92);
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  header,
+  footer,
+  nav,
+  .no-print,
+  #tool-form-card,
+  #seo-content-section,
+  #study-controls,
+  #history-bar,
+  #examples-bar {
+    display: none !important;
+  }
+
+  .print-only-header {
+    display: block !important;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #0f172a;
+  }
+
+  .step-card,
+  .result-summary-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+
+  .step-hidden-in-study {
+    display: block !important;
+  }
+}

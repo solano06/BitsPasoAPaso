@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convertisseur IEEE-754 32 et 64 bits étape par étape — BitsPasoAPaso</title>
+  <meta name="description" content="Convertissez en virgule flottante IEEE-754 32 bits et 64 bits étape par étape avec bits interactifs de signe, exposant et mantisse." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/fr/convertisseur-ieee-754" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/conversor-ieee-754" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ieee-754-converter" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/convertisseur-ieee-754" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/conversor-ieee-754" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Convertisseur IEEE-754 32 et 64 bits étape par étape — BitsPasoAPaso" />
+  <meta property="og:description" content="Convertissez en virgule flottante IEEE-754 32 bits et 64 bits étape par étape avec bits interactifs de signe, exposant et mantisse." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/fr/convertisseur-ieee-754" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Convertisseur IEEE-754 32 et 64 bits étape par étape — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Convertissez en virgule flottante IEEE-754 32 bits et 64 bits étape par étape avec bits interactifs de signe, exposant et mantisse." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwukojcs" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Convertisseur IEEE-754 32 et 64 bits étape par étape — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/fr/convertisseur-ieee-754","description":"Convertissez en virgule flottante IEEE-754 32 bits et 64 bits étape par étape avec bits interactifs de signe, exposant et mantisse.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://bitspasoapaso.vercel.app/fr"},{"@type":"ListItem","position":2,"name":"IEEE-754 (32/64)","item":"https://bitspasoapaso.vercel.app/fr/convertisseur-ieee-754"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Pourquoi 0.1 n’est-il pas exact en IEEE-754 ?","acceptedAnswer":{"@type":"Answer","text":"Car 1/10 est périodique infini en base 2 (0.0001100110011...), ce qui impose un arrondi au bit 23 ou 52."}},{"@type":"Question","name":"Comment représente-t-on -0 ?","acceptedAnswer":{"@type":"Answer","text":"Bit de signe à 1 avec exposant et mantisse à 0 (0x80000000 en 32 bits)."}},{"@type":"Question","name":"Puis-je inverser des bits individuellement ?","acceptedAnswer":{"@type":"Answer","text":"Oui, cliquez sur n’importe quel bit dans la barre interactive pour recalculer aussitôt."}},{"@type":"Question","name":"Quelle différence entre NaN et Infini ?","acceptedAnswer":{"@type":"Answer","text":"Tous deux ont un exposant tout à 1, mais l’Infini a une mantisse nulle et NaN une mantisse non nulle."}}]}]}</script>
+</head>
+<body data-tool="ieee754" data-lang="fr" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-4">
+      <a href="/fr" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span>Réseaux IP</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/fr/calculateur-sous-reseaux-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Sous-réseaux VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez CIDR, masque, wildcard, broadcast et découpage VLSM étape par étape.</div>
+            </a><a href="/fr/code-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming et CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span>Systèmes Numériques</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/fr/convertisseur-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convertissez en virgule flottante 32 et 64 bits avec bits cliquables interactifs.</div>
+            </a><a href="/fr/tableau-de-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tableau de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifiez des fonctions booléennes à 2, 3 et 4 variables en SOP et POS avec boucles.</div>
+            </a><a href="/fr/convertisseur-binaire-complement-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases &amp; C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convertissez Décimal, Binaire, Octal, Hex, Complément à 1/2, BCD et code Gray.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/conversor-ieee-754" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">es</a><a href="/en/ieee-754-converter" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/convertisseur-ieee-754" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Révéler les étapes une par une" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Mode Étude</span>
+      </button>
+
+      <button id="theme-toggle" type="button" aria-label="Changer le thème clair/sombre" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Réseaux IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/code-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Code de Hamming et CRC</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Systèmes Numériques</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a>
+      </div>
+    </div>
+  </div>
+</header>
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="print-only-header hidden">
+      <div class="text-xl font-bold">Convertisseur IEEE-754 32 et 64 bits étape par étape</div>
+      <div class="text-xs text-slate-500">Rapport étape par étape généré par BitsPasoAPaso</div>
+    </div>
+
+    <div class="mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-2">Systèmes Numériques</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Convertisseur IEEE-754 32 et 64 bits étape par étape</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Visualisez signe, exposant biaisé et mantisse avec bits cliquables, cas spéciaux (NaN, Infini, dénormalisés) et erreur d’arrondi exacte.</p>
+    </div>
+
+    <section id="tool-form-card" class="p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-mode-btn="dec2bin32" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-cyan-600 text-white border-cyan-600">Décimal → 32 bits (Float)</button><button type="button" data-mode-btn="dec2bin64" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">Décimal → 64 bits (Double)</button><button type="button" data-mode-btn="hex2dec32" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">Hex/Bin → 32 bits</button><button type="button" data-mode-btn="hex2dec64" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">Hex/Bin → 64 bits</button>
+        </div>
+        
+      </div>
+
+      <form id="calc-form" class="space-y-3">
+        <label for="calc-input" class="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">Valeur décimale ou Hex/Binaire (ex. -13.625 ou 0xC15A0000)</label>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <input id="calc-input" type="text" autocomplete="off" spellcheck="false" placeholder="Ex : -13.625" class="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shrink-0 shadow-sm">Calculer étape par étape</button>
+        </div>
+        
+      </form>
+
+      <div id="examples-bar" class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Exemples d'examen:</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-example-idx="0" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">-13.625 (32 bits)</button><button type="button" data-example-idx="1" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">0.1 (Arrondi 32 bits)</button><button type="button" data-example-idx="2" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">0xC15A0000 (Hex → Déc)</button><button type="button" data-example-idx="3" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">3.141592653589793 (64 bits)</button>
+        </div>
+      </div>
+
+      <div id="history-bar" class="hidden mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Historique récent:</span>
+          <button id="clear-history-btn" type="button" class="text-xs text-rose-600 dark:text-rose-400 hover:underline">Effacer</button>
+        </div>
+        <div id="history-list" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </section>
+
+    <div id="calc-error" class="hidden mt-4 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-sm font-medium"></div>
+
+    <section id="calc-results" class="hidden mt-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-end gap-2 no-print">
+        <button id="copy-result-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copier le résultat</button>
+        <button id="copy-link-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copier le lien</button>
+        <button id="save-pdf-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Enregistrer PDF</button>
+      </div>
+
+      <div id="study-banner" class="hidden p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-200 text-xs sm:text-sm font-medium">Mode Étude actif : le résumé final reste masqué jusqu’à la révélation de toutes les étapes.</div>
+
+      <div id="result-summary" class="result-summary-card p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"></div>
+      <div id="result-visual" class="hidden"></div>
+      <div id="result-steps" class="space-y-3"></div>
+
+      <div id="study-controls" class="hidden p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <span id="study-progress" class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300"></span>
+        <div class="flex items-center gap-2">
+          <button id="study-next-btn" type="button" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs sm:text-sm font-semibold">Voir l'étape suivante</button>
+          <button id="study-all-btn" type="button" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold">Tout afficher</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="seo-content-section" class="mt-12 space-y-10">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Guide rapide et principes</h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">La norme IEEE-754 code les réels en binaire selon trois champs : Signe (1 bit), Exposant biaisé (8 bits, biais 127 en 32 bits ; 11 bits, biais 1023 en 64 bits) et Mantisse (23 ou 52 bits).</p><p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Les nombres normalisés possèdent un 1 implicite (1.M × 2^e). Un exposant nul code zéro ou les dénormalisés ; un exposant tout à 1 code l’Infini ou NaN.</p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Tableau de référence clé</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+              <tr><th class="px-4 py-2.5">Format</th><th class="px-4 py-2.5">Signe</th><th class="px-4 py-2.5">Exposant (Biais)</th><th class="px-4 py-2.5">Mantisse</th><th class="px-4 py-2.5">Total</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Simple (float32)</td><td class="px-4 py-2.5 font-mono">1 bit</td><td class="px-4 py-2.5 font-mono">8 bits (127)</td><td class="px-4 py-2.5 font-mono">23 bits</td><td class="px-4 py-2.5 font-mono">32 bits</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Double (float64)</td><td class="px-4 py-2.5 font-mono">1 bit</td><td class="px-4 py-2.5 font-mono">11 bits (1023)</td><td class="px-4 py-2.5 font-mono">52 bits</td><td class="px-4 py-2.5 font-mono">64 bits</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3 conseils pratiques d'examen</h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <li>Convertissez séparément la partie entière (divisions par 2) et fractionnaire (multiplications par 2).</li><li>Ajoutez toujours le biais (+127 en 32 bits, +1023 en 64 bits) à l’exposant réel.</li><li>Sous 2^-126 (en 32 bits), le nombre devient dénormalisé et perd le 1 implicite.</li>
+        </ul>
+      </div>
+
+      <section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Questions fréquentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Pourquoi 0.1 n’est-il pas exact en IEEE-754 ?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Car 1/10 est périodique infini en base 2 (0.0001100110011...), ce qui impose un arrondi au bit 23 ou 52.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Comment représente-t-on -0 ?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Bit de signe à 1 avec exposant et mantisse à 0 (0x80000000 en 32 bits).</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Puis-je inverser des bits individuellement ?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Oui, cliquez sur n’importe quel bit dans la barre interactive pour recalculer aussitôt.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Quelle différence entre NaN et Infini ?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Tous deux ont un exposant tout à 1, mais l’Infini a une mantisse nulle et NaN une mantisse non nulle.</p>
+          </details>
+    </div>
+  </section>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Outils associés</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/fr/convertisseur-binaire-complement-a-2" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Systèmes Numériques</div>
+                <div class="font-bold text-slate-900 dark:text-white">Bases et Complément à 2</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Convertissez Décimal, Binaire, Octal, Hex, Complément à 1/2, BCD et code Gray.</p>
+              </a><a href="/fr/tableau-de-karnaugh" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Systèmes Numériques</div>
+                <div class="font-bold text-slate-900 dark:text-white">Tableau de Karnaugh</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Simplifiez des fonctions booléennes à 2, 3 et 4 variables en SOP et POS avec boucles.</p>
+              </a><a href="/fr/calculateur-sous-reseaux-vlsm" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Réseaux IP</div>
+                <div class="font-bold text-slate-900 dark:text-white">Sous-réseaux IPv4 et VLSM</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Calculez CIDR, masque, wildcard, broadcast et découpage VLSM étape par étape.</p>
+              </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Outils éducatifs pour les Réseaux IP et les Systèmes Numériques.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/fr/a-propos" class="hover:text-cyan-600 dark:hover:text-cyan-400">À propos</a>
+      <a href="/fr/confidentialite" class="hover:text-cyan-600 dark:hover:text-cyan-400">Confidentialité</a>
+      <a href="/fr/mentions-legales" class="hover:text-cyan-600 dark:hover:text-cyan-400">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwukojcs"></script>
+</body>
+</html>

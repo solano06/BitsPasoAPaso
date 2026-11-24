@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simplificador de Mapas de Karnaugh (2, 3 y 4 variables) — BitsPasoAPaso</title>
+  <meta name="description" content="Resuelve y simplifica Mapas de Karnaugh de 2, 3 y 4 variables paso a paso. Cuadrícula interactiva en código Gray, SOP, POS y lazos visuales." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/mapa-karnaugh" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/mapa-karnaugh" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/karnaugh-map-solver" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/tableau-de-karnaugh" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/mapa-karnaugh" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Simplificador de Mapas de Karnaugh (2, 3 y 4 variables) — BitsPasoAPaso" />
+  <meta property="og:description" content="Resuelve y simplifica Mapas de Karnaugh de 2, 3 y 4 variables paso a paso. Cuadrícula interactiva en código Gray, SOP, POS y lazos visuales." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/mapa-karnaugh" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Simplificador de Mapas de Karnaugh (2, 3 y 4 variables) — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Resuelve y simplifica Mapas de Karnaugh de 2, 3 y 4 variables paso a paso. Cuadrícula interactiva en código Gray, SOP, POS y lazos visuales." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwukojcs" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Simplificador de Mapas de Karnaugh (2, 3 y 4 variables) — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/mapa-karnaugh","description":"Resuelve y simplifica Mapas de Karnaugh de 2, 3 y 4 variables paso a paso. Cuadrícula interactiva en código Gray, SOP, POS y lazos visuales.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"Mapa de Karnaugh","item":"https://bitspasoapaso.vercel.app/mapa-karnaugh"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Por qué se usa código Gray (00, 01, 11, 10)?","acceptedAnswer":{"@type":"Answer","text":"Porque garantiza que al pasar de una celda a la siguiente solo cambie 1 bit, permitiendo eliminar esa variable al agrupar."}},{"@type":"Question","name":"¿Qué diferencia hay entre SOP y POS?","acceptedAnswer":{"@type":"Answer","text":"SOP (Suma de Productos) agrupa los 1s como suma de términos AND. POS (Producto de Sumas) agrupa los 0s como producto de términos OR."}},{"@type":"Question","name":"¿Puedo editar el mapa haciendo clic en las celdas?","acceptedAnswer":{"@type":"Answer","text":"Sí, cada clic sobre una celda alterna su valor entre 0, 1 y X y actualiza los lazos y expresiones al instante."}},{"@type":"Question","name":"¿Cómo garantiza la solución mínima?","acceptedAnswer":{"@type":"Answer","text":"Calculando todos los implicantes primos mediante Quine-McCluskey y resolviendo la cobertura exacta (implicantes esenciales + mínimo conjunto restante)."}}]}]}</script>
+</head>
+<body data-tool="karnaugh" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-4">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span>Redes IP</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
+            </a><a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span>Sistemas Digitales</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/conversor-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</div>
+            </a><a href="/mapa-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mapa de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</div>
+            </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/mapa-karnaugh" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">es</a><a href="/en/karnaugh-map-solver" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/tableau-de-karnaugh" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Revela los pasos uno a uno" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Modo Estudio</span>
+      </button>
+
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a>
+      </div>
+    </div>
+  </div>
+</header>
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="print-only-header hidden">
+      <div class="text-xl font-bold">Simplificador de Mapas de Karnaugh paso a paso</div>
+      <div class="text-xs text-slate-500">Informe paso a paso generado en BitsPasoAPaso</div>
+    </div>
+
+    <div class="mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-2">Sistemas Digitales</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Simplificador de Mapas de Karnaugh paso a paso</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Toca la Tabla de Verdad o el Mapa en código Gray (0 → 1 → X) sin teclado, o introduce una ecuación booleana para simplificar en SOP y POS con lazos interactivos.</p>
+    </div>
+
+    <section id="tool-form-card" class="p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-mode-btn="2" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-cyan-600 text-white border-cyan-600">2 variables (A, B)</button><button type="button" data-mode-btn="3" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">3 variables (A, B, C)</button><button type="button" data-mode-btn="4" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">4 variables (A, B, C, D)</button>
+        </div>
+        <div class="flex flex-wrap gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+                <button type="button" data-kmap-submode="table" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-cyan-600 text-white">Tabla / Mapa → Ecuación</button>
+                <button type="button" data-kmap-submode="expr" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300">Ecuación → Tabla y Mapa</button>
+              </div>
+      </div>
+
+      <form id="calc-form" class="space-y-3">
+        <label for="calc-input" class="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">Ecuación booleana (ej. A'B + BC') o mintérminos (ej. m(0,1,2,5,6,7) d(3))</label>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <input id="calc-input" type="text" autocomplete="off" spellcheck="false" placeholder="Ej: A'B' + A'B + AB  o  m(0,1,2,5,6,7) d(3)" class="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shrink-0 shadow-sm">Calcular paso a paso</button>
+        </div>
+        <div id="kmap-keypad" class="hidden flex-wrap items-center gap-1.5 pt-1">
+                <button type="button" data-kmap-sym="A" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">A</button><button type="button" data-kmap-sym="B" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">B</button><button type="button" data-kmap-sym="C" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">C</button><button type="button" data-kmap-sym="D" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">D</button><button type="button" data-kmap-sym="'" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">'</button><button type="button" data-kmap-sym="·" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">·</button><button type="button" data-kmap-sym="+" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">+</button><button type="button" data-kmap-sym="(" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">(</button><button type="button" data-kmap-sym=")" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">)</button><button type="button" data-kmap-sym="⊕" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">⊕</button>
+                <button type="button" data-kmap-sym="BACK" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:border-rose-500 font-mono text-xs font-semibold">⌫</button>
+                <button type="button" data-kmap-sym="CLEAR" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:border-rose-500 text-xs font-semibold">CLR</button>
+              </div>
+      </form>
+
+      <div id="examples-bar" class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Ejemplos de examen:</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-example-idx="0" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">3 vars: m(0,1,2,5,6,7)</button><button type="button" data-example-idx="1" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Ecuación: A'B' + A'B + AB</button><button type="button" data-example-idx="2" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">4 vars con X: m(1,3,7,11,15) d(0,2,5)</button><button type="button" data-example-idx="3" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Ecuación 3v: !A·B + B·C' + A⊕C</button>
+        </div>
+      </div>
+
+      <div id="history-bar" class="hidden mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Historial reciente:</span>
+          <button id="clear-history-btn" type="button" class="text-xs text-rose-600 dark:text-rose-400 hover:underline">Limpiar</button>
+        </div>
+        <div id="history-list" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </section>
+
+    <div id="calc-error" class="hidden mt-4 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-sm font-medium"></div>
+
+    <section id="calc-results" class="hidden mt-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-end gap-2 no-print">
+        <button id="copy-result-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar resultado</button>
+        <button id="copy-link-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar enlace</button>
+        <button id="save-pdf-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Guardar PDF</button>
+      </div>
+
+      <div id="study-banner" class="hidden p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-200 text-xs sm:text-sm font-medium">Modo Estudio activo: el resumen final permanece oculto hasta completar todos los pasos.</div>
+
+      <div id="result-summary" class="result-summary-card p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"></div>
+      <div id="result-visual" class="hidden"></div>
+      <div id="result-steps" class="space-y-3"></div>
+
+      <div id="study-controls" class="hidden p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <span id="study-progress" class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300"></span>
+        <div class="flex items-center gap-2">
+          <button id="study-next-btn" type="button" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs sm:text-sm font-semibold">Ver siguiente paso</button>
+          <button id="study-all-btn" type="button" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold">Mostrar todo</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="seo-content-section" class="mt-12 space-y-10">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Guía rápida y fundamentos</h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Un Mapa de Karnaugh ordena las filas y columnas siguiendo el código Gray (00, 01, 11, 10) para que dos celdas adyacentes —incluidos los bordes opuestos y las esquinas— difieran en exactamente una variable.</p><p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Para minimizar en Suma de Productos (SOP) se agrupan los 1s (aprovechando las X solo si amplían el grupo) en rectángulos de tamaño potencia de 2 (1, 2, 4, 8, 16). Este motor aplica Quine-McCluskey con cobertura mínima exacta.</p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Tabla de referencia clave</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+              <tr><th class="px-4 py-2.5">Tamaño del lazo</th><th class="px-4 py-2.5">Variables eliminadas</th><th class="px-4 py-2.5">Literales en 4 vars</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">1 celda (2^0)</td><td class="px-4 py-2.5 font-mono">0 variables</td><td class="px-4 py-2.5 font-mono">4 literales (ej. A·B·C·D)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">2 celdas (2^1)</td><td class="px-4 py-2.5 font-mono">1 variable</td><td class="px-4 py-2.5 font-mono">3 literales</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">4 celdas (2^2)</td><td class="px-4 py-2.5 font-mono">2 variables</td><td class="px-4 py-2.5 font-mono">2 literales</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">8 celdas (2^3)</td><td class="px-4 py-2.5 font-mono">3 variables</td><td class="px-4 py-2.5 font-mono">1 literal</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">16 celdas (2^4)</td><td class="px-4 py-2.5 font-mono">4 variables</td><td class="px-4 py-2.5 font-mono">Constante 1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3 consejos prácticos de examen</h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <li>Los bordes izquierdo/derecho y superior/inferior son adyacentes: ¡recuerda comprobar siempre las esquinas!</li><li>Un término &quot;don’t care&quot; (X) es opcional: úsalo para hacer un grupo más grande, pero nunca formes un grupo que solo contenga X.</li><li>Si todas las celdas son 0, la función es 0; si todas son 1 (o 1 y X), la función es 1.</li>
+        </ul>
+      </div>
+
+      <section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Por qué se usa código Gray (00, 01, 11, 10)?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Porque garantiza que al pasar de una celda a la siguiente solo cambie 1 bit, permitiendo eliminar esa variable al agrupar.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Qué diferencia hay entre SOP y POS?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">SOP (Suma de Productos) agrupa los 1s como suma de términos AND. POS (Producto de Sumas) agrupa los 0s como producto de términos OR.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Puedo editar el mapa haciendo clic en las celdas?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Sí, cada clic sobre una celda alterna su valor entre 0, 1 y X y actualiza los lazos y expresiones al instante.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo garantiza la solución mínima?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Calculando todos los implicantes primos mediante Quine-McCluskey y resolviendo la cobertura exacta (implicantes esenciales + mínimo conjunto restante).</p>
+          </details>
+    </div>
+  </section>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Otras herramientas relacionadas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/conversor-binario-complemento-a-2" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Sistemas Digitales</div>
+                <div class="font-bold text-slate-900 dark:text-white">Bases y Complemento a 2</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</p>
+              </a><a href="/conversor-ieee-754" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Sistemas Digitales</div>
+                <div class="font-bold text-slate-900 dark:text-white">Conversor IEEE-754</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</p>
+              </a><a href="/codigo-hamming-crc" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Redes y Codificación</div>
+                <div class="font-bold text-slate-900 dark:text-white">Código Hamming y CRC</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</p>
+              </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Herramientas educativas de código abierto para Redes IP y Sistemas Digitales.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/sobre-nosotros" class="hover:text-cyan-600 dark:hover:text-cyan-400">Sobre nosotros</a>
+      <a href="/privacidad" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacidad</a>
+      <a href="/aviso-legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Aviso legal</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwukojcs"></script>
+</body>
+</html>

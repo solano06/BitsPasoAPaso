@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BitsPasoAPaso — Step-by-step IP Networking &amp; Digital Systems Calculators</title>
+  <meta name="description" content="Free educational calculators with step-by-step breakdowns: IPv4 VLSM subnetting, IEEE-754 32/64-bit, Karnaugh maps, Two's complement, Hamming code, and CRC." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/en" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BitsPasoAPaso — Step-by-step IP Networking &amp; Digital Systems Calculators" />
+  <meta property="og:description" content="Free educational calculators with step-by-step breakdowns: IPv4 VLSM subnetting, IEEE-754 32/64-bit, Karnaugh maps, Two's complement, Hamming code, and CRC." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/en" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BitsPasoAPaso — Step-by-step IP Networking &amp; Digital Systems Calculators" />
+  <meta name="twitter:description" content="Free educational calculators with step-by-step breakdowns: IPv4 VLSM subnetting, IEEE-754 32/64-bit, Karnaugh maps, Two's complement, Hamming code, and CRC." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwukojcs" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"BitsPasoAPaso — Step-by-step IP Networking & Digital Systems Calculators","url":"https://bitspasoapaso.vercel.app/en","description":"Free educational calculators with step-by-step breakdowns: IPv4 VLSM subnetting, IEEE-754 32/64-bit, Karnaugh maps, Two's complement, Hamming code, and CRC.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bitspasoapaso.vercel.app/en"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my input data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Every calculator in BitsPasoAPaso runs 100% client-side in pure JavaScript, ensuring complete privacy and instant results."}},{"@type":"Question","name":"How does Study Mode work?","acceptedAnswer":{"@type":"Answer","text":"Study Mode hides the final summary and lets you reveal intermediate steps one by one, making it ideal for self-testing before checking the final answer."}},{"@type":"Question","name":"Can I share a solved exercise with classmates or students?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every calculation syncs with URL parameters; clicking \"Copy link\" gives you a direct URL that loads the exact same problem."}},{"@type":"Question","name":"How accurate are the IEEE-754 and Two's Complement engines?","acceptedAnswer":{"@type":"Answer","text":"They rely on native binary buffers (ArrayBuffer/DataView) and arbitrary-precision BigInt math for exact 32-bit and 64-bit representations."}}]}]}</script>
+</head>
+<body data-lang="en" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-4">
+      <a href="/en" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span>IP Networking</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv4 &amp; VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compute CIDR, subnet mask, wildcard, broadcast, and VLSM partitioning step by step.</div>
+            </a><a href="/en/hamming-crc-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming &amp; CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Encode, detect, and correct 1-bit Hamming errors and run step-by-step CRC XOR division.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span>Digital Systems</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/ieee-754-converter" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convert decimals to 32-bit and 64-bit floating point with interactive clickable bits.</div>
+            </a><a href="/en/karnaugh-map-solver" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Karnaugh Map</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplify 2, 3, and 4-variable Boolean functions into SOP and POS with visual loops.</div>
+            </a><a href="/en/binary-twos-complement-converter" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases &amp; 2's Comp</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convert Decimal, Binary, Octal, Hex, 1's/2's Complement, BCD, and Gray code.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">es</a><a href="/en" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">en</a><a href="/fr" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Reveal steps one by one" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Study Mode</span>
+      </button>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Open menu" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">IP Networking</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 &amp; VLSM Subnet Calculator</a><a href="/en/hamming-crc-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Hamming Code &amp; CRC</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Digital Systems</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a>
+      </div>
+    </div>
+  </div>
+</header>
+  <main class="max-w-6xl mx-auto px-4 py-10 sm:py-14">
+    <section class="text-center max-w-3xl mx-auto">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 mb-4">100% Client-Side · No sign-up · Instant</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">Master IP Networking and Digital Systems step by step</h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">Solve exam problems and engineering tasks with bit-by-bit explanations, interactive diagrams, and Study Mode.</p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <a href="#tools-grid" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shadow-sm">Explore calculators</a>
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-cyan-500 text-slate-800 dark:text-slate-200 font-semibold text-sm">Try VLSM now</a>
+      </div>
+    </section>
+
+    <section id="tools-grid" class="mt-14 space-y-10">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">IP Networking &amp; Error Coding</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><a href="/en/ipv4-vlsm-subnet-calculator" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">IP Networking</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">IPv4 &amp; VLSM Subnet Calculator</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Compute CIDR, subnet mask, wildcard, broadcast, and VLSM partitioning step by step.</p>
+    </a><a href="/en/hamming-crc-calculator" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Coding &amp; Error Check</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Hamming Code &amp; CRC</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Encode, detect, and correct 1-bit Hamming errors and run step-by-step CRC XOR division.</p>
+    </a></div>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Digital Systems &amp; Computer Architecture</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4"><a href="/en/ieee-754-converter" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Digital Systems</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">IEEE-754 Converter</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert decimals to 32-bit and 64-bit floating point with interactive clickable bits.</p>
+    </a><a href="/en/karnaugh-map-solver" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Digital Systems</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Karnaugh Map Solver</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Simplify 2, 3, and 4-variable Boolean functions into SOP and POS with visual loops.</p>
+    </a><a href="/en/binary-twos-complement-converter" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Digital Systems</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Binary &amp; Two's Complement</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert Decimal, Binary, Octal, Hex, 1's/2's Complement, BCD, and Gray code.</p>
+    </a></div>
+      </div>
+    </section>
+
+    <section class="mt-14 p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-5">Built for studying, verifying, and teaching</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+              <h3 class="font-bold text-slate-900 dark:text-white">Bit-level accuracy</h3>
+              <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">Exact arithmetic using BigInt and DataView with zero floating-point drift.</p>
+            </div><div>
+              <h3 class="font-bold text-slate-900 dark:text-white">Interactive Study Mode</h3>
+              <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">Hide the final answer and reveal each step at your own pace to test yourself.</p>
+            </div><div>
+              <h3 class="font-bold text-slate-900 dark:text-white">PDF &amp; URL export</h3>
+              <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">Share any exercise with a direct link or print clean study notes.</p>
+            </div>
+      </div>
+    </section>
+
+    <section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Frequently asked questions</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Is my input data sent to a server?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">No. Every calculator in BitsPasoAPaso runs 100% client-side in pure JavaScript, ensuring complete privacy and instant results.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>How does Study Mode work?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Study Mode hides the final summary and lets you reveal intermediate steps one by one, making it ideal for self-testing before checking the final answer.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Can I share a solved exercise with classmates or students?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Yes. Every calculation syncs with URL parameters; clicking &quot;Copy link&quot; gives you a direct URL that loads the exact same problem.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>How accurate are the IEEE-754 and Two's Complement engines?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">They rely on native binary buffers (ArrayBuffer/DataView) and arbitrary-precision BigInt math for exact 32-bit and 64-bit representations.</p>
+          </details>
+    </div>
+  </section>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Educational tools for IP Networking and Digital Systems.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/en/about" class="hover:text-cyan-600 dark:hover:text-cyan-400">About</a>
+      <a href="/en/privacy" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacy</a>
+      <a href="/en/legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Legal Notice</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwukojcs"></script>
+</body>
+</html>

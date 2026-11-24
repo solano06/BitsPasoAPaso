@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora RAID (0/1/5/6/10) y Permisos Linux chmod / umask — BitsPasoAPaso</title>
+  <meta name="description" content="Calcula capacidad útil, paridad y tolerancia a fallos RAID, y usa la matriz interactiva chmod (octal/simbólico) y umask paso a paso." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/raid-chmod-calculator" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-raid-chmod" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Calculadora RAID (0/1/5/6/10) y Permisos Linux chmod / umask — BitsPasoAPaso" />
+  <meta property="og:description" content="Calcula capacidad útil, paridad y tolerancia a fallos RAID, y usa la matriz interactiva chmod (octal/simbólico) y umask paso a paso." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calculadora RAID (0/1/5/6/10) y Permisos Linux chmod / umask — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Calcula capacidad útil, paridad y tolerancia a fallos RAID, y usa la matriz interactiva chmod (octal/simbólico) y umask paso a paso." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwul1p4r" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Calculadora RAID (0/1/5/6/10) y Permisos Linux chmod / umask — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/calculadora-raid-chmod","description":"Calcula capacidad útil, paridad y tolerancia a fallos RAID, y usa la matriz interactiva chmod (octal/simbólico) y umask paso a paso.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"RAID y chmod","item":"https://bitspasoapaso.vercel.app/calculadora-raid-chmod"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántos discos aguanta perder un RAID 5?","acceptedAnswer":{"@type":"Answer","text":"Exactamente 1 disco. Si falla un segundo disco durante la reconstrucción, se pierde el arreglo."}},{"@type":"Question","name":"¿Por qué RAID 10 exige un número par de discos?","acceptedAnswer":{"@type":"Answer","text":"Porque agrupa los discos en parejas espejo (RAID 1) sobre las que aplica striping (RAID 0)."}},{"@type":"Question","name":"¿Cómo funciona la matriz interactiva chmod?","acceptedAnswer":{"@type":"Answer","text":"Haz clic en las casillas de Propietario, Grupo u Otros para alternar permisos y ver al instante el octal y el comando."}},{"@type":"Question","name":"¿Cómo se calcula umask 022 sobre archivos?","acceptedAnswer":{"@type":"Answer","text":"Mediante 666 AND NOT 022 = 644 (rw-r--r--); sobre directorios, 777 AND NOT 022 = 755."}}]}]}</script>
+</head>
+<body data-tool="raidChmod" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Redes IP</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
+            </a><a href="/calculadora-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.</div>
+            </a><a href="/calculadora-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</div>
+            </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Sistemas Digitales</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/conversor-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</div>
+            </a><a href="/mapa-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mapa de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</div>
+            </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a><a href="/tablas-de-verdad" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tablas de Verdad</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Códigos y Sistemas</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID y chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/calculadora-raid-chmod" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">es</a><a href="/en/raid-chmod-calculator" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/calculateur-raid-chmod" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Revela los pasos uno a uno" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Modo Estudio</span>
+      </button>
+
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Códigos y Sistemas</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a>
+      </div>
+    </div>
+  </div>
+</header>
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="print-only-header hidden">
+      <div class="text-xl font-bold">Calculadora RAID y Permisos Linux chmod / umask</div>
+      <div class="text-xs text-slate-500">Informe paso a paso generado en BitsPasoAPaso</div>
+    </div>
+
+    <div class="mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-2">Códigos y Sistemas</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Calculadora RAID y Permisos Linux chmod / umask</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Calcula capacidad útil y tolerancia de arreglos RAID (0, 1, 5, 6, 10) o configura permisos chmod y umask sin teclado con matriz 3×3.</p>
+    </div>
+
+    <section id="tool-form-card" class="p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-mode-btn="raid" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-cyan-600 text-white border-cyan-600">Calculadora RAID</button><button type="button" data-mode-btn="chmod" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">Permisos chmod / umask</button>
+        </div>
+        
+      </div>
+
+      <form id="calc-form" class="space-y-3">
+        <label for="calc-input" class="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">RAID: Nivel ; discos ; tamaño (ej. RAID 5 ; 4 ; 4 TB) — o chmod: octal/simbólico [; umask]</label>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <input id="calc-input" type="text" autocomplete="off" spellcheck="false" placeholder="Ej: RAID 5 ; 4 ; 4 TB  o  755 ; umask 022" class="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shrink-0 shadow-sm">Calcular paso a paso</button>
+        </div>
+        
+      </form>
+
+      <div id="examples-bar" class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Ejemplos de examen:</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-example-idx="0" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">RAID 5: 4 × 4 TB</button><button type="button" data-example-idx="1" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">RAID 10: 6 × 2 TB</button><button type="button" data-example-idx="2" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">chmod 755 ; umask 022</button><button type="button" data-example-idx="3" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">chmod rwxr-x--- ; umask 027</button>
+        </div>
+      </div>
+
+      <div id="history-bar" class="hidden mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Historial reciente:</span>
+          <button id="clear-history-btn" type="button" class="text-xs text-rose-600 dark:text-rose-400 hover:underline">Limpiar</button>
+        </div>
+        <div id="history-list" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </section>
+
+    <div id="calc-error" class="hidden mt-4 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-sm font-medium"></div>
+
+    <section id="calc-results" class="hidden mt-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-end gap-2 no-print">
+        <button id="copy-result-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar resultado</button>
+        <button id="copy-link-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar enlace</button>
+        <button id="save-pdf-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Guardar PDF</button>
+      </div>
+
+      <div id="study-banner" class="hidden p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-200 text-xs sm:text-sm font-medium">Modo Estudio activo: el resumen final permanece oculto hasta completar todos los pasos.</div>
+
+      <div id="result-summary" class="result-summary-card p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"></div>
+      <div id="result-visual" class="hidden"></div>
+      <div id="result-steps" class="space-y-3"></div>
+
+      <div id="study-controls" class="hidden p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <span id="study-progress" class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300"></span>
+        <div class="flex items-center gap-2">
+          <button id="study-next-btn" type="button" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs sm:text-sm font-semibold">Ver siguiente paso</button>
+          <button id="study-all-btn" type="button" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold">Mostrar todo</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="seo-content-section" class="mt-12 space-y-10">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Guía rápida y fundamentos</h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Los niveles RAID equilibran rendimiento, capacidad útil y tolerancia a fallos: RAID 0 ofrece 100% de capacidad sin redundancia; RAID 5 dedica 1 disco a paridad distribuida; RAID 6 dedica 2 discos y RAID 10 combina espejo y striping.</p><p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">En Linux, cada permiso r (4), w (2), x (1) forma una terna binaria de 3 bits para Propietario, Grupo y Otros. El umask resta bits de 666 (archivos) y 777 (directorios) mediante AND NOT.</p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Tabla de referencia clave</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+              <tr><th class="px-4 py-2.5">Nivel RAID</th><th class="px-4 py-2.5">Mín. discos</th><th class="px-4 py-2.5">Capacidad útil</th><th class="px-4 py-2.5">Tolerancia</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">RAID 0</td><td class="px-4 py-2.5 font-mono">2</td><td class="px-4 py-2.5 font-mono">N × C (100%)</td><td class="px-4 py-2.5 font-mono">0 discos</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">RAID 1</td><td class="px-4 py-2.5 font-mono">2</td><td class="px-4 py-2.5 font-mono">1 × C (50% con 2)</td><td class="px-4 py-2.5 font-mono">N - 1 discos</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">RAID 5</td><td class="px-4 py-2.5 font-mono">3</td><td class="px-4 py-2.5 font-mono">(N - 1) × C</td><td class="px-4 py-2.5 font-mono">1 disco</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">RAID 6</td><td class="px-4 py-2.5 font-mono">4</td><td class="px-4 py-2.5 font-mono">(N - 2) × C</td><td class="px-4 py-2.5 font-mono">2 discos</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">RAID 10</td><td class="px-4 py-2.5 font-mono">4 (par)</td><td class="px-4 py-2.5 font-mono">(N / 2) × C (50%)</td><td class="px-4 py-2.5 font-mono">1 por espejo</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3 consejos prácticos de examen</h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <li>RAID nunca sustituye a una copia de seguridad externa (backup).</li><li>En chmod, recuerda la suma 4 (lectura) + 2 (escritura) + 1 (ejecución) = 7 (rwx).</li><li>Un umask 022 deja archivos en 644 (rw-r--r--) y directorios en 755 (rwxr-xr-x).</li>
+        </ul>
+      </div>
+
+      <section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cuántos discos aguanta perder un RAID 5?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Exactamente 1 disco. Si falla un segundo disco durante la reconstrucción, se pierde el arreglo.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Por qué RAID 10 exige un número par de discos?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Porque agrupa los discos en parejas espejo (RAID 1) sobre las que aplica striping (RAID 0).</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo funciona la matriz interactiva chmod?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Haz clic en las casillas de Propietario, Grupo u Otros para alternar permisos y ver al instante el octal y el comando.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo se calcula umask 022 sobre archivos?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Mediante 666 AND NOT 022 = 644 (rw-r--r--); sobre directorios, 777 AND NOT 022 = 755.</p>
+          </details>
+    </div>
+  </section>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Otras herramientas relacionadas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/conversor-binario-complemento-a-2" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Sistemas Digitales</div>
+                <div class="font-bold text-slate-900 dark:text-white">Bases y Complemento a 2</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</p>
+              </a><a href="/codigo-hamming-crc" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Códigos y Sistemas</div>
+                <div class="font-bold text-slate-900 dark:text-white">Código Hamming y CRC</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</p>
+              </a><a href="/calculadora-ancho-de-banda-tcp" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Redes IP</div>
+                <div class="font-bold text-slate-900 dark:text-white">Ancho de Banda y TCP</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</p>
+              </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Herramientas educativas de código abierto para Redes IP y Sistemas Digitales.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/sobre-nosotros" class="hover:text-cyan-600 dark:hover:text-cyan-400">Sobre nosotros</a>
+      <a href="/privacidad" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacidad</a>
+      <a href="/aviso-legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Aviso legal</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwul1p4r"></script>
+</body>
+</html>

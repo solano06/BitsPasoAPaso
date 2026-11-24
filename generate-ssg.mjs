@@ -248,10 +248,11 @@ function buildHeader(routeKey, lang) {
   const ui = UI[lang];
   const netTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'networking');
   const digTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'digital');
+  const sysTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'systems');
 
   const renderDropdown = (label, keys) => `
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>${esc(label)}</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -278,7 +279,7 @@ function buildHeader(routeKey, lang) {
 
   return `<header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
   <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
       <a href="${getRoutePath('home', lang)}" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
         <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
         <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
@@ -286,6 +287,7 @@ function buildHeader(routeKey, lang) {
       <nav class="hidden lg:flex items-center gap-1">
         ${renderDropdown(ui.nav.networking, netTools)}
         ${renderDropdown(ui.nav.digital, digTools)}
+        ${renderDropdown(ui.nav.systems, sysTools)}
       </nav>
     </div>
 
@@ -321,6 +323,12 @@ function buildHeader(routeKey, lang) {
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">${esc(ui.nav.digital)}</div>
       <div class="grid grid-cols-1 gap-1">
         ${digTools.map((k) => `<a href="${getRoutePath(k, lang)}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(ui.tools[k].name)}</a>`).join('')}
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">${esc(ui.nav.systems)}</div>
+      <div class="grid grid-cols-1 gap-1">
+        ${sysTools.map((k) => `<a href="${getRoutePath(k, lang)}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(ui.tools[k].name)}</a>`).join('')}
       </div>
     </div>
   </div>
@@ -367,10 +375,12 @@ function buildHomeHtml(lang) {
   const h = ui.home;
   const netTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'networking');
   const digTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'digital');
+  const sysTools = TOOL_KEYS.filter((k) => ui.tools[k].category === 'systems');
 
   const renderCard = (k) => {
     const t = ui.tools[k];
-    return `<a href="${getRoutePath(k, lang)}" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+    const searchBlob = `${t.name} ${t.shortName} ${t.description} ${k}`.toLowerCase();
+    return `<a href="${getRoutePath(k, lang)}" data-tool-card="${esc(searchBlob)}" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
       <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">${esc(t.badge)}</div>
       <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">${esc(t.name)}</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${esc(t.description)}</p>
@@ -394,13 +404,22 @@ ${buildHead({ title: h.metaTitle, description: h.metaDescription, routeKey: 'hom
     </section>
 
     <section id="tools-grid" class="mt-14 space-y-10">
-      <div>
-        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">${esc(h.sectionNetworking)}</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${netTools.map(renderCard).join('')}</div>
+      <div class="max-w-xl mx-auto">
+        <input id="home-tool-search" type="search" placeholder="${esc(h.searchPlaceholder)}" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
       </div>
-      <div>
+      <div id="home-no-results" class="hidden text-center text-sm text-slate-500 dark:text-slate-400">${esc(h.noResults)}</div>
+
+      <div data-tool-section>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">${esc(h.sectionNetworking)}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">${netTools.map(renderCard).join('')}</div>
+      </div>
+      <div data-tool-section>
         <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">${esc(h.sectionDigital)}</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">${digTools.map(renderCard).join('')}</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">${digTools.map(renderCard).join('')}</div>
+      </div>
+      <div data-tool-section>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">${esc(h.sectionSystems)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${sysTools.map(renderCard).join('')}</div>
       </div>
     </section>
 
@@ -487,7 +506,13 @@ ${buildHead({ title: c.metaTitle, description: c.metaDescription, routeKey: tool
                 <button type="button" data-kmap-sym="BACK" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:border-rose-500 font-mono text-xs font-semibold">⌫</button>
                 <button type="button" data-kmap-sym="CLEAR" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:border-rose-500 text-xs font-semibold">CLR</button>
               </div>`
-            : ''
+            : toolKey === 'truthTable'
+              ? `<div class="flex flex-wrap items-center gap-1.5 pt-1">
+                  ${['A', 'B', 'C', 'D', '¬', '∧', '∨', '⊕', '→', '↔', '(', ')'].map((sym) => `<button type="button" data-kmap-sym="${esc(sym)}" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 font-mono text-xs font-bold">${esc(sym)}</button>`).join('')}
+                  <button type="button" data-kmap-sym="BACK" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:border-rose-500 font-mono text-xs font-semibold">⌫</button>
+                  <button type="button" data-kmap-sym="CLEAR" class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:border-rose-500 text-xs font-semibold">CLR</button>
+                </div>`
+              : ''
         }
       </form>
 

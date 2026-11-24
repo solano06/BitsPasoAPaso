@@ -26,14 +26,14 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwukojcs" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwul1p4r" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"BitsPasoAPaso — Calculateurs étape par étape de Réseaux IP et Systèmes Numériques","url":"https://bitspasoapaso.vercel.app/fr","description":"Calculateurs éducatifs gratuits avec résolution détaillée : sous-réseaux IPv4 VLSM, IEEE-754 32/64 bits, tableaux de Karnaugh, complément à 2, Hamming et CRC.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://bitspasoapaso.vercel.app/fr"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mes données sont-elles envoyées à un serveur ?","acceptedAnswer":{"@type":"Answer","text":"Non. Tous les calculateurs de BitsPasoAPaso s’exécutent à 100 % dans votre navigateur en JavaScript pur."}},{"@type":"Question","name":"À quoi sert le Mode Étude ?","acceptedAnswer":{"@type":"Answer","text":"Le Mode Étude masque le résultat final et vous permet de révéler les étapes intermédiaires une par une pour vous auto-évaluer."}},{"@type":"Question","name":"Puis-je partager un exercice résolu avec des camarades ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Chaque calcul met à jour l’URL ; le bouton « Copier le lien » génère une adresse ouvrant exactement le même exercice."}},{"@type":"Question","name":"Quelle est la précision des moteurs IEEE-754 et Complément à 2 ?","acceptedAnswer":{"@type":"Answer","text":"Ils utilisent des tampons binaires natifs (ArrayBuffer/DataView) et BigInt pour une exactitude totale sur 32 et 64 bits."}}]}]}</script>
 </head>
 <body data-lang="fr" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
   <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
   <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
       <a href="/fr" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
         <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
         <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
@@ -41,7 +41,7 @@
       <nav class="hidden lg:flex items-center gap-1">
         
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>Réseaux IP</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -49,16 +49,22 @@
         <a href="/fr/calculateur-sous-reseaux-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Sous-réseaux VLSM</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez CIDR, masque, wildcard, broadcast et découpage VLSM étape par étape.</div>
-            </a><a href="/fr/code-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming et CRC</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</div>
+            </a><a href="/fr/calculateur-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Agrégez des routes IPv4 en binaire et décomposez des plages IP en blocs CIDR minimaux.</div>
+            </a><a href="/fr/calculateur-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Sous-réseaux IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compressez selon RFC 5952, analysez les /64 et générez des adresses EUI-64.</div>
+            </a><a href="/fr/calculateur-bande-passante-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bande Passante / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez temps de transfert (SI/IEC), BDP, fenêtre glissante et borne de Mathis.</div>
             </a>
       </div>
     </div>
   
         
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>Systèmes Numériques</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -72,6 +78,26 @@
             </a><a href="/fr/convertisseur-binaire-complement-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases &amp; C2</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convertissez Décimal, Binaire, Octal, Hex, Complément à 1/2, BCD et code Gray.</div>
+            </a><a href="/fr/table-de-verite" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tables de Vérité</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Évaluez des formules logiques, détectez les tautologies et vérifiez l’équivalence.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Codage &amp; Systèmes</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/fr/code-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming et CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</div>
+            </a><a href="/fr/calculateur-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID et chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez capacité utile RAID (0/1/5/6/10) et matrice interactive chmod/umask.</div>
             </a>
       </div>
     </div>
@@ -104,13 +130,19 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Réseaux IP</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/code-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Code de Hamming et CRC</a>
+        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/calculateur-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR et Supernetting</a><a href="/fr/calculateur-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculateur IPv6</a><a href="/fr/calculateur-bande-passante-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bande Passante et TCP</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Systèmes Numériques</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a>
+        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a><a href="/fr/table-de-verite" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tables de Vérité</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Codage &amp; Systèmes</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/fr/code-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Code de Hamming et CRC</a><a href="/fr/calculateur-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID et Permissions chmod</a>
       </div>
     </div>
   </div>
@@ -127,32 +159,61 @@
     </section>
 
     <section id="tools-grid" class="mt-14 space-y-10">
-      <div>
-        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Réseaux IP et Codage de Trames</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><a href="/fr/calculateur-sous-reseaux-vlsm" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="max-w-xl mx-auto">
+        <input id="home-tool-search" type="search" placeholder="Filtrer les calculateurs (ex. IPv6, CIDR, RAID, chmod, Karnaugh...)" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+      </div>
+      <div id="home-no-results" class="hidden text-center text-sm text-slate-500 dark:text-slate-400">Aucun calculateur ne correspond à votre recherche.</div>
+
+      <div data-tool-section>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Réseaux IP et Connectivité</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"><a href="/fr/calculateur-sous-reseaux-vlsm" data-tool-card="sous-réseaux ipv4 et vlsm sous-réseaux vlsm calculez cidr, masque, wildcard, broadcast et découpage vlsm étape par étape. vlsm" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
       <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Réseaux IP</div>
       <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Sous-réseaux IPv4 et VLSM</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Calculez CIDR, masque, wildcard, broadcast et découpage VLSM étape par étape.</p>
-    </a><a href="/fr/code-hamming-crc" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
-      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Codage &amp; Contrôle</div>
-      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Code de Hamming et CRC</h3>
-      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</p>
+    </a><a href="/fr/calculateur-cidr-supernetting" data-tool-card="cidr et supernetting cidr / supernetting agrégez des routes ipv4 en binaire et décomposez des plages ip en blocs cidr minimaux. cidr" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Réseaux IP</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">CIDR et Supernetting</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Agrégez des routes IPv4 en binaire et décomposez des plages IP en blocs CIDR minimaux.</p>
+    </a><a href="/fr/calculateur-ipv6" data-tool-card="calculateur ipv6 sous-réseaux ipv6 compressez selon rfc 5952, analysez les /64 et générez des adresses eui-64. ipv6" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Réseaux IP</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Calculateur IPv6</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Compressez selon RFC 5952, analysez les /64 et générez des adresses EUI-64.</p>
+    </a><a href="/fr/calculateur-bande-passante-tcp" data-tool-card="bande passante et tcp bande passante / tcp calculez temps de transfert (si/iec), bdp, fenêtre glissante et borne de mathis. bandwidth" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Réseaux IP</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Bande Passante et TCP</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Calculez temps de transfert (SI/IEC), BDP, fenêtre glissante et borne de Mathis.</p>
     </a></div>
       </div>
-      <div>
-        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Systèmes Numériques et Architecture</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4"><a href="/fr/convertisseur-ieee-754" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div data-tool-section>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Systèmes Numériques et Logique</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"><a href="/fr/convertisseur-ieee-754" data-tool-card="convertisseur ieee-754 ieee-754 (32/64) convertissez en virgule flottante 32 et 64 bits avec bits cliquables interactifs. ieee754" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
       <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Systèmes Numériques</div>
       <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Convertisseur IEEE-754</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convertissez en virgule flottante 32 et 64 bits avec bits cliquables interactifs.</p>
-    </a><a href="/fr/tableau-de-karnaugh" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+    </a><a href="/fr/tableau-de-karnaugh" data-tool-card="tableau de karnaugh tableau de karnaugh simplifiez des fonctions booléennes à 2, 3 et 4 variables en sop et pos avec boucles. karnaugh" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
       <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Systèmes Numériques</div>
       <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Tableau de Karnaugh</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Simplifiez des fonctions booléennes à 2, 3 et 4 variables en SOP et POS avec boucles.</p>
-    </a><a href="/fr/convertisseur-binaire-complement-a-2" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+    </a><a href="/fr/convertisseur-binaire-complement-a-2" data-tool-card="bases et complément à 2 bases &amp; c2 convertissez décimal, binaire, octal, hex, complément à 1/2, bcd et code gray. bases" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
       <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Systèmes Numériques</div>
       <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Bases et Complément à 2</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convertissez Décimal, Binaire, Octal, Hex, Complément à 1/2, BCD et code Gray.</p>
+    </a><a href="/fr/table-de-verite" data-tool-card="tables de vérité tables de vérité évaluez des formules logiques, détectez les tautologies et vérifiez l’équivalence. truthtable" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Systèmes Numériques</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Tables de Vérité</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Évaluez des formules logiques, détectez les tautologies et vérifiez l’équivalence.</p>
+    </a></div>
+      </div>
+      <div data-tool-section>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Codage, Stockage et Systèmes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><a href="/fr/code-hamming-crc" data-tool-card="code de hamming et crc hamming et crc codez, détectez et corrigez 1 bit avec hamming et effectuez la division xor crc. hamming" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Codage &amp; Systèmes</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">Code de Hamming et CRC</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</p>
+    </a><a href="/fr/calculateur-raid-chmod" data-tool-card="raid et permissions chmod raid et chmod calculez capacité utile raid (0/1/5/6/10) et matrice interactive chmod/umask. raidchmod" class="group block p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 shadow-sm hover:shadow-md transition">
+      <div class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-3">Codage &amp; Systèmes</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400">RAID et Permissions chmod</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Calculez capacité utile RAID (0/1/5/6/10) et matrice interactive chmod/umask.</p>
     </a></div>
       </div>
     </section>
@@ -216,6 +277,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwukojcs"></script>
+  <script type="module" src="/js/app.js?v=mwul1p4r"></script>
 </body>
 </html>

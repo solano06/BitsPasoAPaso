@@ -5,13 +5,23 @@ import { solveIeee754 } from './engines/ieee754.js';
 import { solveKarnaugh } from './engines/karnaugh.js';
 import { solveBases } from './engines/bases.js';
 import { solveHamming } from './engines/hamming.js';
+import { solveCidr } from './engines/cidr.js';
+import { solveIpv6 } from './engines/ipv6.js';
+import { solveTruthTable } from './engines/truth-table.js';
+import { solveBandwidth } from './engines/bandwidth.js';
+import { solveRaidChmod } from './engines/raid-chmod.js';
 
 const ENGINES = {
   vlsm: solveVlsm,
   ieee754: solveIeee754,
   karnaugh: solveKarnaugh,
   bases: solveBases,
-  hamming: solveHamming
+  hamming: solveHamming,
+  cidr: solveCidr,
+  ipv6: solveIpv6,
+  truthTable: solveTruthTable,
+  bandwidth: solveBandwidth,
+  raidChmod: solveRaidChmod
 };
 
 const STORAGE_STUDY = 'bits_study_mode';
@@ -296,6 +306,25 @@ function initCalculator(tool, lang) {
         runCalculation(false);
       });
     });
+
+    // chmod clickable 3x3 matrix
+    visualEl.querySelectorAll('[data-chmod-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const [who, bitStr] = btn.getAttribute('data-chmod-toggle').split(':');
+        const bit = Number(bitStr);
+        const oct = btn.getAttribute('data-chmod-oct').split('').map(Number);
+        const umask = btn.getAttribute('data-chmod-umask') || '022';
+        const idxMap = { u: 1, g: 2, o: 3 };
+        const idx = idxMap[who];
+        if (idx !== undefined) {
+          oct[idx] = oct[idx] ^ bit;
+          const nextOct = oct[0] > 0 ? oct.join('') : oct.slice(1).join('');
+          setActiveMode('chmod');
+          inputEl.value = `${nextOct} ; umask ${umask}`;
+          runCalculation(false);
+        }
+      });
+    });
   }
 
   function runCalculation(pushHistory = true) {
@@ -477,11 +506,36 @@ function initStudyToggle() {
   });
 }
 
+function initHomeSearch() {
+  const input = document.getElementById('home-tool-search');
+  if (!input) return;
+  const cards = document.querySelectorAll('[data-tool-card]');
+  const sections = document.querySelectorAll('[data-tool-section]');
+  const emptyMsg = document.getElementById('home-no-results');
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const hay = card.getAttribute('data-tool-card') || '';
+      const match = !q || hay.includes(q);
+      card.classList.toggle('hidden', !match);
+      if (match) visible++;
+    });
+    sections.forEach((sec) => {
+      const anyVisible = sec.querySelectorAll('[data-tool-card]:not(.hidden)').length > 0;
+      sec.classList.toggle('hidden', !anyVisible);
+    });
+    emptyMsg?.classList.toggle('hidden', visible > 0);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMobileMenu();
   initDropdowns();
   initStudyToggle();
+  initHomeSearch();
 
   const tool = document.body.getAttribute('data-tool');
   const lang = document.body.getAttribute('data-lang') || 'es';

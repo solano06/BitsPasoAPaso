@@ -33,6 +33,31 @@ export const ROUTES = {
     en: '/en/hamming-crc-calculator',
     fr: '/fr/code-hamming-crc'
   },
+  cidr: {
+    es: '/calculadora-cidr-supernetting',
+    en: '/en/cidr-supernetting-calculator',
+    fr: '/fr/calculateur-cidr-supernetting'
+  },
+  ipv6: {
+    es: '/calculadora-ipv6',
+    en: '/en/ipv6-subnet-calculator',
+    fr: '/fr/calculateur-ipv6'
+  },
+  truthTable: {
+    es: '/tablas-de-verdad',
+    en: '/en/truth-table-generator',
+    fr: '/fr/table-de-verite'
+  },
+  bandwidth: {
+    es: '/calculadora-ancho-de-banda-tcp',
+    en: '/en/bandwidth-tcp-throughput-calculator',
+    fr: '/fr/calculateur-bande-passante-tcp'
+  },
+  raidChmod: {
+    es: '/calculadora-raid-chmod',
+    en: '/en/raid-chmod-calculator',
+    fr: '/fr/calculateur-raid-chmod'
+  },
   about: {
     es: '/sobre-nosotros',
     en: '/en/about',
@@ -50,7 +75,11 @@ export const ROUTES = {
   }
 };
 
-export const TOOL_KEYS = ['vlsm', 'ieee754', 'karnaugh', 'bases', 'hamming'];
+export const TOOL_KEYS = [
+  'vlsm', 'cidr', 'ipv6', 'bandwidth',
+  'ieee754', 'karnaugh', 'bases', 'truthTable',
+  'hamming', 'raidChmod'
+];
 export const LEGAL_KEYS = ['about', 'privacy', 'legal'];
 export const ALL_ROUTE_KEYS = ['home', ...TOOL_KEYS, ...LEGAL_KEYS];
 
@@ -72,6 +101,7 @@ export const UI = {
     nav: {
       networking: 'Redes IP',
       digital: 'Sistemas Digitales',
+      systems: 'Códigos y Sistemas',
       studyMode: 'Modo Estudio',
       studyModeHint: 'Revela los pasos uno a uno',
       themeToggle: 'Cambiar tema claro/oscuro',
@@ -110,9 +140,44 @@ export const UI = {
       hamming: {
         name: 'Código Hamming y CRC',
         shortName: 'Hamming y CRC',
-        category: 'networking',
-        badge: 'Redes y Codificación',
+        category: 'systems',
+        badge: 'Códigos y Sistemas',
         description: 'Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.'
+      },
+      cidr: {
+        name: 'CIDR y Supernetting',
+        shortName: 'CIDR / Supernetting',
+        category: 'networking',
+        badge: 'Redes IP',
+        description: 'Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.'
+      },
+      ipv6: {
+        name: 'Calculadora IPv6',
+        shortName: 'Subredes IPv6',
+        category: 'networking',
+        badge: 'Redes IP',
+        description: 'Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.'
+      },
+      truthTable: {
+        name: 'Tablas de Verdad',
+        shortName: 'Tablas de Verdad',
+        category: 'digital',
+        badge: 'Sistemas Digitales',
+        description: 'Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.'
+      },
+      bandwidth: {
+        name: 'Ancho de Banda y TCP',
+        shortName: 'Ancho de Banda / TCP',
+        category: 'networking',
+        badge: 'Redes IP',
+        description: 'Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.'
+      },
+      raidChmod: {
+        name: 'RAID y Permisos chmod',
+        shortName: 'RAID y chmod',
+        category: 'systems',
+        badge: 'Códigos y Sistemas',
+        description: 'Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.'
       }
     },
     actions: {
@@ -143,8 +208,11 @@ export const UI = {
       heroSubtitle: 'Resuelve ejercicios de examen y práctica profesional con explicaciones detalladas bit a bit, gráficos interactivos y Modo Estudio.',
       ctaPrimary: 'Explorar calculadoras',
       ctaSecondary: 'Probar VLSM ahora',
-      sectionNetworking: 'Redes IP y Codificación de Tramas',
-      sectionDigital: 'Sistemas Digitales y Arquitectura',
+      sectionNetworking: 'Redes IP y Conectividad',
+      sectionDigital: 'Sistemas Digitales y Lógica',
+      sectionSystems: 'Códigos, Almacenamiento y Sistemas',
+      searchPlaceholder: 'Filtrar calculadoras (ej. IPv6, CIDR, RAID, chmod, Karnaugh...)',
+      noResults: 'No hay calculadoras que coincidan con tu búsqueda.',
       featuresTitle: 'Diseñado para estudiar, verificar y enseñar',
       features: [
         { title: 'Exactitud bit a bit', desc: 'Aritmética exacta con BigInt y DataView sin errores de redondeo en coma flotante.' },
@@ -239,6 +307,7 @@ export const UI = {
     nav: {
       networking: 'IP Networking',
       digital: 'Digital Systems',
+      systems: 'Coding & Systems',
       studyMode: 'Study Mode',
       studyModeHint: 'Reveal steps one by one',
       themeToggle: 'Toggle light/dark theme',
@@ -277,9 +346,44 @@ export const UI = {
       hamming: {
         name: 'Hamming Code & CRC',
         shortName: 'Hamming & CRC',
-        category: 'networking',
-        badge: 'Coding & Error Check',
+        category: 'systems',
+        badge: 'Coding & Systems',
         description: 'Encode, detect, and correct 1-bit Hamming errors and run step-by-step CRC XOR division.'
+      },
+      cidr: {
+        name: 'CIDR & Supernetting',
+        shortName: 'CIDR / Supernetting',
+        category: 'networking',
+        badge: 'IP Networking',
+        description: 'Summarize IPv4 routes in binary and decompose IP ranges into minimal CIDR blocks.'
+      },
+      ipv6: {
+        name: 'IPv6 Subnet Calculator',
+        shortName: 'IPv6 Subnets',
+        category: 'networking',
+        badge: 'IP Networking',
+        description: 'Compress per RFC 5952, analyze /64 subnets, and derive EUI-64 addresses from MAC.'
+      },
+      truthTable: {
+        name: 'Truth Table Generator',
+        shortName: 'Truth Tables',
+        category: 'digital',
+        badge: 'Digital Systems',
+        description: 'Evaluate logic formulas, detect tautologies, extract DNF/CNF, and check equivalences.'
+      },
+      bandwidth: {
+        name: 'Bandwidth & TCP Throughput',
+        shortName: 'Bandwidth / TCP',
+        category: 'networking',
+        badge: 'IP Networking',
+        description: 'Compute transfer times (SI/IEC), BDP, sliding window throughput, and Mathis bound.'
+      },
+      raidChmod: {
+        name: 'RAID & chmod Calculator',
+        shortName: 'RAID & chmod',
+        category: 'systems',
+        badge: 'Coding & Systems',
+        description: 'Calculate RAID (0/1/5/6/10) usable capacity & fault tolerance and interactive chmod/umask.'
       }
     },
     actions: {
@@ -310,8 +414,11 @@ export const UI = {
       heroSubtitle: 'Solve exam problems and engineering tasks with bit-by-bit explanations, interactive diagrams, and Study Mode.',
       ctaPrimary: 'Explore calculators',
       ctaSecondary: 'Try VLSM now',
-      sectionNetworking: 'IP Networking & Error Coding',
-      sectionDigital: 'Digital Systems & Computer Architecture',
+      sectionNetworking: 'IP Networking & Connectivity',
+      sectionDigital: 'Digital Systems & Logic',
+      sectionSystems: 'Coding, Storage & Systems',
+      searchPlaceholder: 'Filter calculators (e.g. IPv6, CIDR, RAID, chmod, Karnaugh...)',
+      noResults: 'No calculators match your search.',
       featuresTitle: 'Built for studying, verifying, and teaching',
       features: [
         { title: 'Bit-level accuracy', desc: 'Exact arithmetic using BigInt and DataView with zero floating-point drift.' },
@@ -406,6 +513,7 @@ export const UI = {
     nav: {
       networking: 'Réseaux IP',
       digital: 'Systèmes Numériques',
+      systems: 'Codage & Systèmes',
       studyMode: 'Mode Étude',
       studyModeHint: 'Révéler les étapes une par une',
       themeToggle: 'Changer le thème clair/sombre',
@@ -444,9 +552,44 @@ export const UI = {
       hamming: {
         name: 'Code de Hamming et CRC',
         shortName: 'Hamming et CRC',
-        category: 'networking',
-        badge: 'Codage & Contrôle',
+        category: 'systems',
+        badge: 'Codage & Systèmes',
         description: 'Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.'
+      },
+      cidr: {
+        name: 'CIDR et Supernetting',
+        shortName: 'CIDR / Supernetting',
+        category: 'networking',
+        badge: 'Réseaux IP',
+        description: 'Agrégez des routes IPv4 en binaire et décomposez des plages IP en blocs CIDR minimaux.'
+      },
+      ipv6: {
+        name: 'Calculateur IPv6',
+        shortName: 'Sous-réseaux IPv6',
+        category: 'networking',
+        badge: 'Réseaux IP',
+        description: 'Compressez selon RFC 5952, analysez les /64 et générez des adresses EUI-64.'
+      },
+      truthTable: {
+        name: 'Tables de Vérité',
+        shortName: 'Tables de Vérité',
+        category: 'digital',
+        badge: 'Systèmes Numériques',
+        description: 'Évaluez des formules logiques, détectez les tautologies et vérifiez l’équivalence.'
+      },
+      bandwidth: {
+        name: 'Bande Passante et TCP',
+        shortName: 'Bande Passante / TCP',
+        category: 'networking',
+        badge: 'Réseaux IP',
+        description: 'Calculez temps de transfert (SI/IEC), BDP, fenêtre glissante et borne de Mathis.'
+      },
+      raidChmod: {
+        name: 'RAID et Permissions chmod',
+        shortName: 'RAID et chmod',
+        category: 'systems',
+        badge: 'Codage & Systèmes',
+        description: 'Calculez capacité utile RAID (0/1/5/6/10) et matrice interactive chmod/umask.'
       }
     },
     actions: {
@@ -477,8 +620,11 @@ export const UI = {
       heroSubtitle: 'Résolvez vos exercices d’examen avec des explications bit à bit, des schémas interactifs et le Mode Étude.',
       ctaPrimary: 'Explorer les calculateurs',
       ctaSecondary: 'Essayer VLSM',
-      sectionNetworking: 'Réseaux IP et Codage de Trames',
-      sectionDigital: 'Systèmes Numériques et Architecture',
+      sectionNetworking: 'Réseaux IP et Connectivité',
+      sectionDigital: 'Systèmes Numériques et Logique',
+      sectionSystems: 'Codage, Stockage et Systèmes',
+      searchPlaceholder: 'Filtrer les calculateurs (ex. IPv6, CIDR, RAID, chmod, Karnaugh...)',
+      noResults: 'Aucun calculateur ne correspond à votre recherche.',
       featuresTitle: 'Conçu pour étudier, vérifier et enseigner',
       features: [
         { title: 'Précision bit à bit', desc: 'Arithmétique exacte avec BigInt et DataView sans dérive en virgule flottante.' },

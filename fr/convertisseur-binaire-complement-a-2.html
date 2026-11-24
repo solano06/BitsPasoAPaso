@@ -26,14 +26,14 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwukojcs" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwul1p4r" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Convertisseur Binaire, Complément à 2 et BCD étape par étape — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/fr/convertisseur-binaire-complement-a-2","description":"Convertissez entre Décimal, Binaire, Octal, Hexadécimal, Complément à 1 et 2 (8/16/32 bits), BCD et code Gray étape par étape.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://bitspasoapaso.vercel.app/fr"},{"@type":"ListItem","position":2,"name":"Bases & C2","item":"https://bitspasoapaso.vercel.app/fr/convertisseur-binaire-complement-a-2"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quand y a-t-il dépassement en complément à 2 ?","acceptedAnswer":{"@type":"Answer","text":"Lorsque la valeur sort de [-2^(n-1), 2^(n-1)-1], par exemple +128 ou -129 sur 8 bits."}},{"@type":"Question","name":"Comment indiquer la base d’entrée ?","acceptedAnswer":{"@type":"Answer","text":"Utilisez 0b (binaire), 0o (octal), 0x (hexadécimal) ou saisissez directement un entier décimal."}},{"@type":"Question","name":"Quelle différence entre binaire pur et BCD ?","acceptedAnswer":{"@type":"Answer","text":"Le BCD code chaque chiffre décimal sur 4 bits (42 → 0100 0010), tandis que le binaire pur donne 00101010."}},{"@type":"Question","name":"Pourquoi n’y a-t-il qu’un seul zéro en complément à 2 ?","acceptedAnswer":{"@type":"Answer","text":"Inverser 00000000 donne 11111111 ; ajouter 1 déborde et ramène à 00000000."}}]}]}</script>
 </head>
 <body data-tool="bases" data-lang="fr" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
   <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
   <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
       <a href="/fr" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
         <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
         <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
@@ -41,7 +41,7 @@
       <nav class="hidden lg:flex items-center gap-1">
         
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>Réseaux IP</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -49,16 +49,22 @@
         <a href="/fr/calculateur-sous-reseaux-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Sous-réseaux VLSM</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez CIDR, masque, wildcard, broadcast et découpage VLSM étape par étape.</div>
-            </a><a href="/fr/code-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming et CRC</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</div>
+            </a><a href="/fr/calculateur-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Agrégez des routes IPv4 en binaire et décomposez des plages IP en blocs CIDR minimaux.</div>
+            </a><a href="/fr/calculateur-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Sous-réseaux IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compressez selon RFC 5952, analysez les /64 et générez des adresses EUI-64.</div>
+            </a><a href="/fr/calculateur-bande-passante-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bande Passante / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez temps de transfert (SI/IEC), BDP, fenêtre glissante et borne de Mathis.</div>
             </a>
       </div>
     </div>
   
         
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>Systèmes Numériques</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -72,6 +78,26 @@
             </a><a href="/fr/convertisseur-binaire-complement-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases &amp; C2</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convertissez Décimal, Binaire, Octal, Hex, Complément à 1/2, BCD et code Gray.</div>
+            </a><a href="/fr/table-de-verite" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tables de Vérité</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Évaluez des formules logiques, détectez les tautologies et vérifiez l’équivalence.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Codage &amp; Systèmes</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/fr/code-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming et CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codez, détectez et corrigez 1 bit avec Hamming et effectuez la division XOR CRC.</div>
+            </a><a href="/fr/calculateur-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID et chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez capacité utile RAID (0/1/5/6/10) et matrice interactive chmod/umask.</div>
             </a>
       </div>
     </div>
@@ -104,13 +130,19 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Réseaux IP</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/code-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Code de Hamming et CRC</a>
+        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/calculateur-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR et Supernetting</a><a href="/fr/calculateur-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculateur IPv6</a><a href="/fr/calculateur-bande-passante-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bande Passante et TCP</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Systèmes Numériques</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a>
+        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a><a href="/fr/table-de-verite" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tables de Vérité</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Codage &amp; Systèmes</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/fr/code-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Code de Hamming et CRC</a><a href="/fr/calculateur-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID et Permissions chmod</a>
       </div>
     </div>
   </div>
@@ -253,10 +285,10 @@
                 <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Systèmes Numériques</div>
                 <div class="font-bold text-slate-900 dark:text-white">Tableau de Karnaugh</div>
                 <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Simplifiez des fonctions booléennes à 2, 3 et 4 variables en SOP et POS avec boucles.</p>
-              </a><a href="/fr/calculateur-sous-reseaux-vlsm" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
-                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Réseaux IP</div>
-                <div class="font-bold text-slate-900 dark:text-white">Sous-réseaux IPv4 et VLSM</div>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Calculez CIDR, masque, wildcard, broadcast et découpage VLSM étape par étape.</p>
+              </a><a href="/fr/calculateur-raid-chmod" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Codage &amp; Systèmes</div>
+                <div class="font-bold text-slate-900 dark:text-white">RAID et Permissions chmod</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Calculez capacité utile RAID (0/1/5/6/10) et matrice interactive chmod/umask.</p>
               </a>
         </div>
       </div>
@@ -274,6 +306,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwukojcs"></script>
+  <script type="module" src="/js/app.js?v=mwul1p4r"></script>
 </body>
 </html>

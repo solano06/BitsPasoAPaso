@@ -26,14 +26,14 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwukojcs" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwul1p4r" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Conversor IEEE-754 de 32 y 64 bits paso a paso — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/conversor-ieee-754","description":"Convierte números decimales a formato IEEE-754 de 32 bits (Simple) y 64 bits (Doble) paso a paso. Bits interactivos de signo, exponente y mantisa.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"IEEE-754 (32/64)","item":"https://bitspasoapaso.vercel.app/conversor-ieee-754"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Por qué 0.1 no es exacto en IEEE-754?","acceptedAnswer":{"@type":"Answer","text":"Porque 1/10 en base 2 es un binario periódico infinito (0.0001100110011...), por lo que debe redondearse al bit 23 o 52."}},{"@type":"Question","name":"¿Cómo se representa el -0?","acceptedAnswer":{"@type":"Answer","text":"Con bit de signo 1 y todos los bits de exponente y mantisa a 0 (0x80000000 en 32 bits)."}},{"@type":"Question","name":"¿Puedo modificar bits individuales?","acceptedAnswer":{"@type":"Answer","text":"Sí, haz clic sobre cualquier bit de Signo, Exponente o Mantisa en la tira interactiva para invertirlo y ver el nuevo valor decimal."}},{"@type":"Question","name":"¿Qué diferencia hay entre NaN e Infinity?","acceptedAnswer":{"@type":"Answer","text":"Ambos tienen el exponente todo a 1s, pero Infinity tiene la mantisa a 0 y NaN tiene la mantisa distinta de 0."}}]}]}</script>
 </head>
 <body data-tool="ieee754" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
   <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
   <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
       <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
         <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
         <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
@@ -41,7 +41,7 @@
       <nav class="hidden lg:flex items-center gap-1">
         
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>Redes IP</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -49,16 +49,22 @@
         <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
-            </a><a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.</div>
+            </a><a href="/calculadora-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</div>
+            </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
             </a>
       </div>
     </div>
   
         
     <div class="relative" data-dropdown>
-      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
         <span>Sistemas Digitales</span>
         <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
       </button>
@@ -72,6 +78,26 @@
             </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a><a href="/tablas-de-verdad" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tablas de Verdad</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Códigos y Sistemas</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID y chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.</div>
             </a>
       </div>
     </div>
@@ -104,13 +130,19 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a>
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a>
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Códigos y Sistemas</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a>
       </div>
     </div>
   </div>
@@ -253,10 +285,10 @@
                 <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Sistemas Digitales</div>
                 <div class="font-bold text-slate-900 dark:text-white">Mapa de Karnaugh</div>
                 <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</p>
-              </a><a href="/calculadora-subredes-vlsm" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
-                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Redes IP</div>
-                <div class="font-bold text-slate-900 dark:text-white">Subredes IPv4 y VLSM</div>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</p>
+              </a><a href="/tablas-de-verdad" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Sistemas Digitales</div>
+                <div class="font-bold text-slate-900 dark:text-white">Tablas de Verdad</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</p>
               </a>
         </div>
       </div>
@@ -274,6 +306,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwukojcs"></script>
+  <script type="module" src="/js/app.js?v=mwul1p4r"></script>
 </body>
 </html>

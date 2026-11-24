@@ -1,4 +1,7 @@
+import { PHASE2_CONTENT } from './seo-content-phase2.js';
+
 export const TOOL_CONTENT = {
+  ...PHASE2_CONTENT,
   vlsm: {
     es: {
       metaTitle: 'Calculadora de Subredes IPv4 y VLSM paso a paso — BitsPasoAPaso',
@@ -42,7 +45,7 @@ export const TOOL_CONTENT = {
         { q: '¿Cómo sé si una IP es privada según RFC 1918?', a: 'Son privadas las direcciones dentro de 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16.' },
         { q: '¿Qué pasa si la suma de subredes supera la red padre?', a: 'La calculadora detecta el desbordamiento de direcciones y te indica exactamente en qué subred se supera el límite del bloque padre.' }
       ],
-      related: ['hamming', 'bases', 'ieee754']
+      related: ['cidr', 'ipv6', 'bandwidth']
     },
     en: {
       metaTitle: 'IPv4 & VLSM Subnet Calculator Step by Step — BitsPasoAPaso',
@@ -86,7 +89,7 @@ export const TOOL_CONTENT = {
         { q: 'How do I identify an RFC 1918 private IP?', a: 'Private IPv4 ranges are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.' },
         { q: 'What happens if subnets exceed the parent block?', a: 'The engine detects the overflow and reports which subnet exceeds the available parent IP space.' }
       ],
-      related: ['hamming', 'bases', 'ieee754']
+      related: ['cidr', 'ipv6', 'bandwidth']
     },
     fr: {
       metaTitle: 'Calculateur de Sous-réseaux IPv4 et VLSM étape par étape — BitsPasoAPaso',
@@ -130,7 +133,7 @@ export const TOOL_CONTENT = {
         { q: 'Comment reconnaître une IP privée RFC 1918 ?', a: 'Les plages privées sont 10.0.0.0/8, 172.16.0.0/12 et 192.168.0.0/16.' },
         { q: 'Que se passe-t-il si les sous-réseaux dépassent le bloc parent ?', a: 'Le calculateur signale le dépassement et indique exactement quel sous-réseau excède la capacité.' }
       ],
-      related: ['hamming', 'bases', 'ieee754']
+      related: ['cidr', 'ipv6', 'bandwidth']
     }
   },
   ieee754: {
@@ -170,7 +173,7 @@ export const TOOL_CONTENT = {
         { q: '¿Puedo modificar bits individuales?', a: 'Sí, haz clic sobre cualquier bit de Signo, Exponente o Mantisa en la tira interactiva para invertirlo y ver el nuevo valor decimal.' },
         { q: '¿Qué diferencia hay entre NaN e Infinity?', a: 'Ambos tienen el exponente todo a 1s, pero Infinity tiene la mantisa a 0 y NaN tiene la mantisa distinta de 0.' }
       ],
-      related: ['bases', 'karnaugh', 'vlsm']
+      related: ['bases', 'karnaugh', 'truthTable']
     },
     en: {
       metaTitle: 'IEEE-754 32-bit & 64-bit Converter Step by Step — BitsPasoAPaso',
@@ -208,7 +211,7 @@ export const TOOL_CONTENT = {
         { q: 'Can I flip individual bits?', a: 'Yes, click any Sign, Exponent, or Mantissa bit in the interactive strip to toggle it and recalculate.' },
         { q: 'What separates NaN from Infinity?', a: 'Both have all-ones exponents, but Infinity has a zero mantissa while NaN has a non-zero mantissa.' }
       ],
-      related: ['bases', 'karnaugh', 'vlsm']
+      related: ['bases', 'karnaugh', 'truthTable']
     },
     fr: {
       metaTitle: 'Convertisseur IEEE-754 32 et 64 bits étape par étape — BitsPasoAPaso',
@@ -246,7 +249,7 @@ export const TOOL_CONTENT = {
         { q: 'Puis-je inverser des bits individuellement ?', a: 'Oui, cliquez sur n’importe quel bit dans la barre interactive pour recalculer aussitôt.' },
         { q: 'Quelle différence entre NaN et Infini ?', a: 'Tous deux ont un exposant tout à 1, mais l’Infini a une mantisse nulle et NaN une mantisse non nulle.' }
       ],
-      related: ['bases', 'karnaugh', 'vlsm']
+      related: ['bases', 'karnaugh', 'truthTable']
     }
   },
   karnaugh: {
@@ -290,7 +293,7 @@ export const TOOL_CONTENT = {
         { q: '¿Puedo editar el mapa haciendo clic en las celdas?', a: 'Sí, cada clic sobre una celda alterna su valor entre 0, 1 y X y actualiza los lazos y expresiones al instante.' },
         { q: '¿Cómo garantiza la solución mínima?', a: 'Calculando todos los implicantes primos mediante Quine-McCluskey y resolviendo la cobertura exacta (implicantes esenciales + mínimo conjunto restante).' }
       ],
-      related: ['bases', 'ieee754', 'hamming']
+      related: ['truthTable', 'bases', 'ieee754']
     },
     en: {
       metaTitle: 'Karnaugh Map Solver (2, 3 & 4 Variables) Step by Step — BitsPasoAPaso',
@@ -332,7 +335,7 @@ export const TOOL_CONTENT = {
         { q: 'Can I edit the map by clicking cells?', a: 'Yes, clicking any cell cycles between 0, 1, and X and updates loops and expressions immediately.' },
         { q: 'How is minimality guaranteed?', a: 'By generating all prime implicants via Quine-McCluskey and finding the exact minimum cover.' }
       ],
-      related: ['bases', 'ieee754', 'hamming']
+      related: ['truthTable', 'bases', 'ieee754']
     },
     fr: {
       metaTitle: 'Simplificateur de Tableau de Karnaugh (2, 3 et 4 variables) — BitsPasoAPaso',
@@ -374,7 +377,7 @@ export const TOOL_CONTENT = {
         { q: 'Puis-je modifier le tableau en cliquant ?', a: 'Oui, chaque clic fait tourner la case entre 0, 1 et X et met à jour les boucles immédiatement.' },
         { q: 'Comment la minimalité est-elle garantie ?', a: 'Par génération des implicants premiers (Quine-McCluskey) et recherche de la couverture exacte.' }
       ],
-      related: ['bases', 'ieee754', 'hamming']
+      related: ['truthTable', 'bases', 'ieee754']
     }
   },
   bases: {
@@ -415,7 +418,7 @@ export const TOOL_CONTENT = {
         { q: '¿Qué diferencia hay entre binario puro y BCD?', a: 'En BCD cada dígito decimal (0-9) ocupa 4 bits independientes; por ejemplo, 42 en BCD es 0100 0010, mientras que en binario puro es 00101010.' },
         { q: '¿Por qué el Complemento a 2 solo tiene un cero?', a: 'Al sumar 1 tras invertir 00000000 (11111111 + 1), se desborda el bit extra y vuelve a 00000000, evitando el -0 del Complemento a 1.' }
       ],
-      related: ['ieee754', 'karnaugh', 'vlsm']
+      related: ['ieee754', 'karnaugh', 'raidChmod']
     },
     en: {
       metaTitle: "Binary, Two's Complement & BCD Converter Step by Step — BitsPasoAPaso",
@@ -454,7 +457,7 @@ export const TOOL_CONTENT = {
         { q: 'How does BCD differ from pure binary?', a: 'BCD encodes each decimal digit (0-9) as a 4-bit nibble: 42 in BCD is 0100 0010, whereas pure binary is 00101010.' },
         { q: "Why does Two's complement have only one zero?", a: 'Inverting 00000000 gives 11111111; adding 1 wraps around to 00000000, eliminating negative zero.' }
       ],
-      related: ['ieee754', 'karnaugh', 'vlsm']
+      related: ['ieee754', 'karnaugh', 'raidChmod']
     },
     fr: {
       metaTitle: 'Convertisseur Binaire, Complément à 2 et BCD étape par étape — BitsPasoAPaso',
@@ -493,7 +496,7 @@ export const TOOL_CONTENT = {
         { q: 'Quelle différence entre binaire pur et BCD ?', a: 'Le BCD code chaque chiffre décimal sur 4 bits (42 → 0100 0010), tandis que le binaire pur donne 00101010.' },
         { q: 'Pourquoi n’y a-t-il qu’un seul zéro en complément à 2 ?', a: 'Inverser 00000000 donne 11111111 ; ajouter 1 déborde et ramène à 00000000.' }
       ],
-      related: ['ieee754', 'karnaugh', 'vlsm']
+      related: ['ieee754', 'karnaugh', 'raidChmod']
     }
   },
   hamming: {
@@ -540,7 +543,7 @@ export const TOOL_CONTENT = {
         { q: '¿Puedo simular un error en Hamming?', a: 'Sí, en el resultado de Hamming puedes hacer clic en cualquier bit para invertirlo y observar el cálculo del síndrome corrector.' },
         { q: '¿Qué significa que el CRC dé resto 0 al verificar?', a: 'Significa que la trama recibida es un múltiplo exacto del polinomio generador y no se han detectado errores de transmisión.' }
       ],
-      related: ['vlsm', 'bases', 'karnaugh']
+      related: ['bandwidth', 'vlsm', 'raidChmod']
     },
     en: {
       metaTitle: 'Hamming Code & CRC Calculator Step by Step — BitsPasoAPaso',
@@ -585,7 +588,7 @@ export const TOOL_CONTENT = {
         { q: 'Can I simulate a bit flip in Hamming?', a: 'Yes, click any bit in the encoded Hamming output to flip it and watch the syndrome locate and fix it.' },
         { q: 'What does a 0 remainder mean when verifying CRC?', a: 'The received frame is divisible by the generator polynomial, indicating no detected transmission errors.' }
       ],
-      related: ['vlsm', 'bases', 'karnaugh']
+      related: ['bandwidth', 'vlsm', 'raidChmod']
     },
     fr: {
       metaTitle: 'Calculateur Code de Hamming et CRC étape par étape — BitsPasoAPaso',
@@ -630,7 +633,7 @@ export const TOOL_CONTENT = {
         { q: 'Puis-je simuler une erreur en Hamming ?', a: 'Oui, cliquez sur n’importe quel bit du mot codé pour l’inverser et observer le syndrome.' },
         { q: 'Que signifie un reste CRC nul ?', a: 'La trame reçue est divisible par le générateur : aucune erreur de transmission n’est détectée.' }
       ],
-      related: ['vlsm', 'bases', 'karnaugh']
+      related: ['bandwidth', 'vlsm', 'raidChmod']
     }
   }
 };

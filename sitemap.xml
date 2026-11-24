@@ -49,6 +49,78 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/cidr-supernetting-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-cidr-supernetting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/cidr-supernetting-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/cidr-supernetting-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-cidr-supernetting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/calculateur-cidr-supernetting</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/cidr-supernetting-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-cidr-supernetting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-cidr-supernetting" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/calculadora-ipv6</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-ipv6" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv6-subnet-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-ipv6" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-ipv6" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/ipv6-subnet-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-ipv6" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv6-subnet-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-ipv6" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-ipv6" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/calculateur-ipv6</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-ipv6" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv6-subnet-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-ipv6" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-ipv6" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/bandwidth-tcp-throughput-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-bande-passante-tcp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/bandwidth-tcp-throughput-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/bandwidth-tcp-throughput-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-bande-passante-tcp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/calculateur-bande-passante-tcp</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/bandwidth-tcp-throughput-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-bande-passante-tcp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-ancho-de-banda-tcp" />
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://bitspasoapaso.vercel.app/conversor-ieee-754</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/conversor-ieee-754" />
     <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ieee-754-converter" />
@@ -121,6 +193,30 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://bitspasoapaso.vercel.app/tablas-de-verdad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/tablas-de-verdad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/truth-table-generator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/table-de-verite" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/tablas-de-verdad" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/truth-table-generator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/tablas-de-verdad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/truth-table-generator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/table-de-verite" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/tablas-de-verdad" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/table-de-verite</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/tablas-de-verdad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/truth-table-generator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/table-de-verite" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/tablas-de-verdad" />
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://bitspasoapaso.vercel.app/codigo-hamming-crc</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/codigo-hamming-crc" />
     <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/hamming-crc-calculator" />
@@ -142,6 +238,30 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/hamming-crc-calculator" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/code-hamming-crc" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/codigo-hamming-crc" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/calculadora-raid-chmod</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/raid-chmod-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-raid-chmod" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/raid-chmod-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/raid-chmod-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-raid-chmod" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/calculateur-raid-chmod</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/raid-chmod-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-raid-chmod" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-raid-chmod" />
     <priority>0.9</priority>
   </url>
   <url>

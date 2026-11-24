@@ -10,6 +10,9 @@ import { solveHamming } from './hamming.js';
 import { solveRaidChmod } from './raid-chmod.js';
 import { solveCache } from './cache.js';
 import { solveLineCoding, encodeAmi, encodeHdb3 } from './line-coding.js';
+import { solveAlu } from './alu.js';
+import { solveDijkstra } from './dijkstra.js';
+import { solveIpv4Header } from './ipv4-header.js';
 
 export const EXAM_ENGINES = {
   vlsm: solveVlsm,
@@ -23,7 +26,10 @@ export const EXAM_ENGINES = {
   hamming: solveHamming,
   raidChmod: solveRaidChmod,
   cache: solveCache,
-  lineCoding: solveLineCoding
+  lineCoding: solveLineCoding,
+  alu: solveAlu,
+  dijkstra: solveDijkstra,
+  ipv4Header: solveIpv4Header
 };
 
 const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -542,6 +548,84 @@ function genLineCoding(diff, lang) {
   };
 }
 
+function genAlu(diff, lang) {
+  const cases = [
+    { a: 100, b: 50, op: 'ADD' },
+    { a: 200, b: 100, op: 'ADD' },
+    { a: 45, b: 60, op: 'SUB' },
+    { a: 90, b: 55, op: 'ADD' },
+    { a: 180, b: 90, op: 'ADD' }
+  ];
+  const c = diff === 'basic' ? cases[0] : pick(cases);
+  const q = `${c.a} ; ${c.b}`;
+  const mode = `8_${c.op}`;
+  const res = solveAlu(q, mode, lang);
+  const hex = res.copyText.match(/(0x[0-9A-F]+)/)?.[1] || '';
+  const promptText = {
+    es: `En una ALU de 8 bits, calcula ${c.a} ${c.op === 'SUB' ? '-' : '+'} ${c.b} e indica el resultado en hexadecimal y los flags Z, N, C, V.`,
+    en: `On an 8-bit ALU, compute ${c.a} ${c.op === 'SUB' ? '-' : '+'} ${c.b} and give the hex result plus Z, N, C, V flags.`,
+    fr: `Sur une ALU 8 bits, calculez ${c.a} ${c.op === 'SUB' ? '-' : '+'} ${c.b} et donnez le résultat hex et les drapeaux Z, N, C, V.`
+  }[lang];
+  return {
+    topic: 'alu',
+    difficulty: diff,
+    promptText,
+    engineInput: q,
+    engineMode: mode,
+    expectedAnswer: hex,
+    answerHint: '0x96'
+  };
+}
+
+function genDijkstra(diff, lang) {
+  const w1 = randInt(2, 6);
+  const w2 = randInt(1, 4);
+  const w3 = randInt(1, 3);
+  const w4 = randInt(3, 7);
+  const w5 = randInt(2, 5);
+  const q = `A-B:${w1}, A-C:${w2}, B-C:${w3}, B-D:${w4}, C-D:${w4 + 2}, C-E:${w4 + w5 + 2}, D-E:${w5} ; A ; E`;
+  const res = solveDijkstra(q, 'undirected', lang);
+  const cost = res.copyText.match(/Cost\s+([\d.]+)/)?.[1] || '';
+  const promptText = {
+    es: `Aplica Dijkstra desde A hasta E sobre el grafo no dirigido: ${q.split(';')[0].trim()}.`,
+    en: `Run Dijkstra from A to E on the undirected graph: ${q.split(';')[0].trim()}.`,
+    fr: `Appliquez Dijkstra de A vers E sur le graphe non orienté : ${q.split(';')[0].trim()}.`
+  }[lang];
+  return {
+    topic: 'dijkstra',
+    difficulty: diff,
+    promptText,
+    engineInput: q,
+    engineMode: 'undirected',
+    expectedAnswer: cost,
+    answerHint: '10'
+  };
+}
+
+function genIpv4Header(diff, lang) {
+  const ttl = pick([64, 128, 32]);
+  const proto = pick([6, 17, 1]);
+  const len = pick([60, 84, 115, 140]);
+  const dstLast = randInt(10, 220);
+  const q = `192.168.0.1 ; 192.168.0.${dstLast} ; ${ttl} ; ${proto} ; ${len}`;
+  const res = solveIpv4Header(q, 'build', lang);
+  const csum = res.copyText.match(/Checksum=(0x[0-9A-F]+)/)?.[1] || '';
+  const promptText = {
+    es: `Construye la cabecera IPv4 (192.168.0.1 → 192.168.0.${dstLast}, TTL=${ttl}, Proto=${proto}, Longitud=${len}) y calcula su checksum de 16 bits.`,
+    en: `Build the IPv4 header (192.168.0.1 → 192.168.0.${dstLast}, TTL=${ttl}, Proto=${proto}, Length=${len}) and compute its 16-bit checksum.`,
+    fr: `Construisez l'en-tête IPv4 (192.168.0.1 → 192.168.0.${dstLast}, TTL=${ttl}, Proto=${proto}, Longueur=${len}) et calculez son checksum 16 bits.`
+  }[lang];
+  return {
+    topic: 'ipv4Header',
+    difficulty: diff,
+    promptText,
+    engineInput: q,
+    engineMode: 'build',
+    expectedAnswer: csum,
+    answerHint: '0xB861'
+  };
+}
+
 const GENERATORS = {
   vlsm: genVlsm,
   cidr: genCidr,
@@ -554,7 +638,10 @@ const GENERATORS = {
   hamming: genHamming,
   raidChmod: genRaidChmod,
   cache: genCache,
-  lineCoding: genLineCoding
+  lineCoding: genLineCoding,
+  alu: genAlu,
+  dijkstra: genDijkstra,
+  ipv4Header: genIpv4Header
 };
 
 export function generateExam(selectedTopics, difficulty = 'standard', lang = 'es', count = 10) {

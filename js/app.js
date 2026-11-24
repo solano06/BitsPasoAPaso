@@ -12,6 +12,9 @@ import { solveBandwidth } from './engines/bandwidth.js';
 import { solveRaidChmod } from './engines/raid-chmod.js';
 import { solveCache } from './engines/cache.js';
 import { solveLineCoding } from './engines/line-coding.js';
+import { solveAlu } from './engines/alu.js';
+import { solveDijkstra } from './engines/dijkstra.js';
+import { solveIpv4Header } from './engines/ipv4-header.js';
 import { initExamPage } from './exam-ui.js';
 import { initCheatSheet } from './cheatsheets-ui.js';
 
@@ -27,7 +30,10 @@ const ENGINES = {
   bandwidth: solveBandwidth,
   raidChmod: solveRaidChmod,
   cache: solveCache,
-  lineCoding: solveLineCoding
+  lineCoding: solveLineCoding,
+  alu: solveAlu,
+  dijkstra: solveDijkstra,
+  ipv4Header: solveIpv4Header
 };
 
 const STORAGE_STUDY = 'bits_study_mode';

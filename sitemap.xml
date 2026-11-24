@@ -145,6 +145,54 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/algorithme-dijkstra-pas-a-pas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/algorithme-dijkstra-pas-a-pas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/algorithme-dijkstra-pas-a-pas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/algorithme-dijkstra-pas-a-pas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv4-header-checksum-decoder" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/decodeur-entete-ipv4-checksum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/ipv4-header-checksum-decoder</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv4-header-checksum-decoder" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/decodeur-entete-ipv4-checksum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/decodeur-entete-ipv4-checksum</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv4-header-checksum-decoder" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/decodeur-entete-ipv4-checksum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://bitspasoapaso.vercel.app/conversor-ieee-754</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/conversor-ieee-754" />
     <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ieee-754-converter" />
@@ -262,6 +310,30 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/cache-memory-simulator" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/simulateur-memoire-cache" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/simulador-memoria-cache" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/calculadora-alu-flags</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-alu-flags" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/binary-alu-flags-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-alu-flags" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-alu-flags" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/binary-alu-flags-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-alu-flags" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/binary-alu-flags-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-alu-flags" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-alu-flags" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/calculateur-alu-flags</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-alu-flags" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/binary-alu-flags-calculator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/calculateur-alu-flags" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/calculadora-alu-flags" />
     <priority>0.9</priority>
   </url>
   <url>

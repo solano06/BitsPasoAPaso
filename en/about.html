@@ -26,7 +26,7 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuou4f3" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuran3b" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"About Us — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/en/about","description":"Learn about BitsPasoAPaso: free step-by-step calculators for IP Networking and Digital Systems.","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"en"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bitspasoapaso.vercel.app/en"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://bitspasoapaso.vercel.app/en/about"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is BitsPasoAPaso free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, all calculators and Study Mode are completely free with no account required."}},{"@type":"Question","name":"Can I use these tools in lectures or study groups?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can project them in class or export clean PDFs for study handouts."}},{"@type":"Question","name":"Which languages are supported?","acceptedAnswer":{"@type":"Answer","text":"The entire platform is available in English, Spanish, and French."}},{"@type":"Question","name":"How can I contact the team?","acceptedAnswer":{"@type":"Answer","text":"You can send feedback or bug reports to contacto@bitspasoapaso.com."}}]}]}</script>
 </head>
@@ -58,6 +58,12 @@
             </a><a href="/en/bandwidth-tcp-throughput-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bandwidth / TCP</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compute transfer times (SI/IEC), BDP, sliding window throughput, and Mathis bound.</div>
+            </a><a href="/en/dijkstra-algorithm-step-by-step" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Dijkstra SPF</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Step-by-step shortest paths with iteration table, SVG graph, and routing table.</div>
+            </a><a href="/en/ipv4-header-checksum-decoder" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv4 Header</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Decode hex IPv4 headers, verify RFC 791 checksum, and build custom headers.</div>
             </a>
       </div>
     </div>
@@ -84,6 +90,9 @@
             </a><a href="/en/cache-memory-simulator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Cache Memory</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simulate Tag/Index/Offset, Hits/Misses, LRU/FIFO replacement, and final cache state.</div>
+            </a><a href="/en/binary-alu-flags-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ALU &amp; Flags</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">4/8/16-bit binary ADD, SUB, logic &amp; shifts with carries and Z, N, C, V flags.</div>
             </a>
       </div>
     </div>
@@ -161,13 +170,13 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">IP Networking</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/en/ipv4-vlsm-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 &amp; VLSM Subnet Calculator</a><a href="/en/cidr-supernetting-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR &amp; Supernetting</a><a href="/en/ipv6-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv6 Subnet Calculator</a><a href="/en/bandwidth-tcp-throughput-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bandwidth &amp; TCP Throughput</a>
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 &amp; VLSM Subnet Calculator</a><a href="/en/cidr-supernetting-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR &amp; Supernetting</a><a href="/en/ipv6-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv6 Subnet Calculator</a><a href="/en/bandwidth-tcp-throughput-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bandwidth &amp; TCP Throughput</a><a href="/en/dijkstra-algorithm-step-by-step" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Dijkstra's Algorithm</a><a href="/en/ipv4-header-checksum-decoder" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 Header &amp; Checksum</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Digital Systems</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a><a href="/en/truth-table-generator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Truth Table Generator</a><a href="/en/cache-memory-simulator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Cache Memory Simulator</a>
+        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a><a href="/en/truth-table-generator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Truth Table Generator</a><a href="/en/cache-memory-simulator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Cache Memory Simulator</a><a href="/en/binary-alu-flags-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary ALU &amp; Flags</a>
       </div>
     </div>
     <div>
@@ -236,6 +245,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwuou4f3"></script>
+  <script type="module" src="/js/app.js?v=mwuran3b"></script>
 </body>
 </html>

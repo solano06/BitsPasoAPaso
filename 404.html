@@ -26,7 +26,7 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuou4f3" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuran3b" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"404 — Página no encontrada","url":"https://bitspasoapaso.vercel.app/","description":"La ruta que buscas no existe o ha cambiado. Vuelve al inicio para elegir una calculadora.","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"es"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Mis cálculos se envían a algún servidor?","acceptedAnswer":{"@type":"Answer","text":"No. Todas las calculadoras de BitsPasoAPaso se ejecutan al 100% en tu navegador mediante JavaScript puro, garantizando privacidad total y respuesta instantánea."}},{"@type":"Question","name":"¿Para qué sirve el Modo Estudio?","acceptedAnswer":{"@type":"Answer","text":"El Modo Estudio oculta el resumen final y te permite revelar los pasos intermedios uno a uno, ideal para comprobar si resuelves bien ejercicios de examen antes de ver la solución."}},{"@type":"Question","name":"¿Puedo compartir un ejercicio ya resuelto con compañeros o alumnos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Cada cálculo actualiza los parámetros de la URL; pulsando \"Copiar enlace\" obtendrás una dirección que abre exactamente el mismo ejercicio."}},{"@type":"Question","name":"¿Qué precisión tienen los conversores IEEE-754 y Complemento a 2?","acceptedAnswer":{"@type":"Answer","text":"Utilizan búferes binarios nativos (ArrayBuffer/DataView) y enteros arbitrarios (BigInt) para representar exactamente los 32 o 64 bits sin aproximaciones."}}]}]}</script>
 </head>
@@ -58,6 +58,12 @@
             </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
+            </a><a href="/algoritmo-dijkstra-paso-a-paso" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Dijkstra (Caminos)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula caminos mínimos paso a paso con tabla de iteraciones, grafo SVG y rutas.</div>
+            </a><a href="/decodificador-cabecera-ipv4-checksum" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Cabecera IPv4</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Decodifica cabeceras IPv4 hex, verifica checksum RFC 791 y construye paquetes.</div>
             </a>
       </div>
     </div>
@@ -84,6 +90,9 @@
             </a><a href="/simulador-memoria-cache" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Memoria Caché</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simula Tag/Index/Offset, Hits/Misses, políticas LRU/FIFO y estado final de la caché.</div>
+            </a><a href="/calculadora-alu-flags" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ALU y Flags</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Suma, resta y operaciones lógicas en 4/8/16 bits con acarreos y flags Z, N, C, V.</div>
             </a>
       </div>
     </div>
@@ -161,13 +170,13 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a>
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a><a href="/algoritmo-dijkstra-paso-a-paso" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Algoritmo de Dijkstra</a><a href="/decodificador-cabecera-ipv4-checksum" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Cabecera IPv4 y Checksum</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a><a href="/simulador-memoria-cache" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Memoria Caché</a>
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a><a href="/simulador-memoria-cache" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Memoria Caché</a><a href="/calculadora-alu-flags" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">ALU Binaria y Flags</a>
       </div>
     </div>
     <div>
@@ -206,6 +215,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwuou4f3"></script>
+  <script type="module" src="/js/app.js?v=mwuran3b"></script>
 </body>
 </html>

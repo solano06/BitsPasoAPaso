@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decodificador de Cabecera IPv4 y Checksum RFC 791 — BitsPasoAPaso</title>
+  <meta name="description" content="Decodifica cabeceras IPv4 en hexadecimal, visualiza los 32 bits por fila y verifica o calcula el checksum de 16 bits en complemento a 1 paso a paso." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv4-header-checksum-decoder" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/decodeur-entete-ipv4-checksum" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Decodificador de Cabecera IPv4 y Checksum RFC 791 — BitsPasoAPaso" />
+  <meta property="og:description" content="Decodifica cabeceras IPv4 en hexadecimal, visualiza los 32 bits por fila y verifica o calcula el checksum de 16 bits en complemento a 1 paso a paso." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Decodificador de Cabecera IPv4 y Checksum RFC 791 — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Decodifica cabeceras IPv4 en hexadecimal, visualiza los 32 bits por fila y verifica o calcula el checksum de 16 bits en complemento a 1 paso a paso." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuran3b" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Decodificador de Cabecera IPv4 y Checksum RFC 791 — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum","description":"Decodifica cabeceras IPv4 en hexadecimal, visualiza los 32 bits por fila y verifica o calcula el checksum de 16 bits en complemento a 1 paso a paso.","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"es"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"Cabecera IPv4","item":"https://bitspasoapaso.vercel.app/decodificador-cabecera-ipv4-checksum"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué pasa si la cabecera tiene opciones (IHL > 5)?","acceptedAnswer":{"@type":"Answer","text":"El decodificador suma todas las palabras de 16 bits de los IHL × 4 bytes reales de la cabecera."}},{"@type":"Question","name":"¿Por qué el checksum IPv4 cambia en cada salto de router?","acceptedAnswer":{"@type":"Answer","text":"Porque cada router decrementa el TTL en 1, lo que obliga a recalcular el checksum de la cabecera."}},{"@type":"Question","name":"¿Cómo se interpreta Flags = 0x4000?","acceptedAnswer":{"@type":"Answer","text":"El bit 1 (0x4000) es DF (Don’t Fragment) activo y Fragment Offset = 0."}},{"@type":"Question","name":"¿IPv6 sigue usando checksum en su cabecera?","acceptedAnswer":{"@type":"Answer","text":"No, IPv6 eliminó el checksum de cabecera para acelerar el reenvío en routers."}}]}]}</script>
+</head>
+<body data-tool="ipv4Header" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-0.5">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Redes IP</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
+            </a><a href="/calculadora-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.</div>
+            </a><a href="/calculadora-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</div>
+            </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
+            </a><a href="/algoritmo-dijkstra-paso-a-paso" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Dijkstra (Caminos)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula caminos mínimos paso a paso con tabla de iteraciones, grafo SVG y rutas.</div>
+            </a><a href="/decodificador-cabecera-ipv4-checksum" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Cabecera IPv4</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Decodifica cabeceras IPv4 hex, verifica checksum RFC 791 y construye paquetes.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Sistemas Digitales</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/conversor-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</div>
+            </a><a href="/mapa-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mapa de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</div>
+            </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a><a href="/tablas-de-verdad" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tablas de Verdad</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</div>
+            </a><a href="/simulador-memoria-cache" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Memoria Caché</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simula Tag/Index/Offset, Hits/Misses, políticas LRU/FIFO y estado final de la caché.</div>
+            </a><a href="/calculadora-alu-flags" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ALU y Flags</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Suma, resta y operaciones lógicas en 4/8/16 bits con acarreos y flags Z, N, C, V.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Codificación</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID y chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.</div>
+            </a><a href="/codificacion-de-linea" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Codificación Línea</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Dibuja cronogramas SVG de NRZ-L, NRZI, Manchester, Manchester Dif., AMI y HDB3.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Chuletas</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/tabla-subredes-cidr" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tabla Completa CIDR (/0 a /32)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Las 33 máscaras, wildcards, hosts útiles, rangos RFC 1918 y potencias de 2.</div>
+            </a><a href="/tabla-ascii-binario-hex" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tabla ASCII, Binario y Hex (0–127)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Los 128 códigos ASCII con conversor de texto en tiempo real y filtros por categoría.</div>
+            </a><a href="/leyes-algebra-de-boole" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Leyes de Boole y Puertas Lógicas</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Las 7 puertas lógicas con SVG, leyes de De Morgan y comprobador en Tablas de Verdad.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/decodificador-cabecera-ipv4-checksum" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">es</a><a href="/en/ipv4-header-checksum-decoder" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/decodeur-entete-ipv4-checksum" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Revela los pasos uno a uno" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Modo Estudio</span>
+      </button>
+
+      <a href="/modo-examen" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Modo Examen</span>
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a><a href="/algoritmo-dijkstra-paso-a-paso" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Algoritmo de Dijkstra</a><a href="/decodificador-cabecera-ipv4-checksum" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Cabecera IPv4 y Checksum</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a><a href="/simulador-memoria-cache" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Memoria Caché</a><a href="/calculadora-alu-flags" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">ALU Binaria y Flags</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Codificación</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a><a href="/codificacion-de-linea" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Codificación de Línea</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Chuletas</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/tabla-subredes-cidr" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tabla Completa CIDR (/0 a /32)</a><a href="/tabla-ascii-binario-hex" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tabla ASCII, Binario y Hex (0–127)</a><a href="/leyes-algebra-de-boole" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Leyes de Boole y Puertas Lógicas</a>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/modo-examen" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Modo Examen</a>
+    </div>
+  </div>
+</header>
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="print-only-header hidden">
+      <div class="text-xl font-bold">Decodificador de Cabecera IPv4 y Checksum RFC 791</div>
+      <div class="text-xs text-slate-500">Informe paso a paso generado en BitsPasoAPaso</div>
+    </div>
+
+    <div class="mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-2">Redes IP</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Decodificador de Cabecera IPv4 y Checksum RFC 791</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Inspecciona cada campo de la cabecera IPv4 de 20+ bytes, verifica el checksum en complemento a 1 con end-around carry o construye una cabecera desde cero.</p>
+    </div>
+
+    <section id="tool-form-card" class="p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-mode-btn="decode" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-cyan-600 text-white border-cyan-600">Decodificar Hex + Checksum</button><button type="button" data-mode-btn="build" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">Construir / Calcular Checksum</button>
+        </div>
+        
+      </div>
+
+      <form id="calc-form" class="space-y-3">
+        <label for="calc-input" class="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">Cabecera Hex (mín. 40 hex) o Campos: IP_orig ; IP_dest ; TTL ; Proto ; Longitud</label>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <input id="calc-input" type="text" autocomplete="off" spellcheck="false" placeholder="Ej: 4500 0073 0000 4000 4011 b861 c0a8 0001 c0a8 00c7" class="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shrink-0 shadow-sm">Calcular paso a paso</button>
+        </div>
+        
+      </form>
+
+      <div id="examples-bar" class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Ejemplos de examen:</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-example-idx="0" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Cabecera UDP válida (RFC)</button><button type="button" data-example-idx="1" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Cabecera TCP con DF=1</button><button type="button" data-example-idx="2" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Checksum corrupto</button><button type="button" data-example-idx="3" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Construir: 192.168.0.1 → .199</button>
+        </div>
+      </div>
+
+      <div id="history-bar" class="hidden mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Historial reciente:</span>
+          <button id="clear-history-btn" type="button" class="text-xs text-rose-600 dark:text-rose-400 hover:underline">Limpiar</button>
+        </div>
+        <div id="history-list" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </section>
+
+    <div id="calc-error" class="hidden mt-4 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-sm font-medium"></div>
+
+    <section id="calc-results" class="hidden mt-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-end gap-2 no-print">
+        <button id="copy-result-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar resultado</button>
+        <button id="copy-csv-btn" type="button" class="hidden px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar CSV</button>
+        <button id="copy-latex-btn" type="button" class="hidden px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar LaTeX</button>
+        <button id="copy-link-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copiar enlace</button>
+        <button id="save-pdf-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Guardar PDF</button>
+      </div>
+
+      <div id="study-banner" class="hidden p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-200 text-xs sm:text-sm font-medium">Modo Estudio activo: el resumen final permanece oculto hasta completar todos los pasos.</div>
+
+      <div id="result-summary" class="result-summary-card p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"></div>
+      <div id="result-visual" class="hidden"></div>
+      <div id="result-steps" class="space-y-3"></div>
+
+      <div id="study-controls" class="hidden p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <span id="study-progress" class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300"></span>
+        <div class="flex items-center gap-2">
+          <button id="study-next-btn" type="button" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs sm:text-sm font-semibold">Ver siguiente paso</button>
+          <button id="study-all-btn" type="button" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold">Mostrar todo</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="seo-content-section" class="mt-12 space-y-10">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Guía rápida y fundamentos</h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">La cabecera IPv4 estándar tiene 20 bytes (IHL = 5 palabras de 32 bits). El campo Checksum protege únicamente la cabecera (no la carga útil) mediante suma en complemento a 1 de palabras de 16 bits.</p><p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Al verificar en el receptor, si se suman todas las palabras de 16 bits incluido el checksum recibido y se pliegan los acarreos (end-around carry), el resultado en complemento a 1 debe ser 0xFFFF (y su complemento 0x0000).</p>
+        
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Tabla de referencia clave</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+              <tr><th class="px-4 py-2.5">Campo</th><th class="px-4 py-2.5">Bits</th><th class="px-4 py-2.5">Descripción</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Version / IHL</td><td class="px-4 py-2.5 font-mono">4 + 4</td><td class="px-4 py-2.5 font-mono">4 (IPv4) / 5 (20 bytes)</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Total Length</td><td class="px-4 py-2.5 font-mono">16</td><td class="px-4 py-2.5 font-mono">Longitud total del paquete</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Flags / Offset</td><td class="px-4 py-2.5 font-mono">3 + 13</td><td class="px-4 py-2.5 font-mono">DF (Don’t Fragment), MF</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">TTL / Protocol</td><td class="px-4 py-2.5 font-mono">8 + 8</td><td class="px-4 py-2.5 font-mono">Saltos / ICMP=1, TCP=6, UDP=17</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Header Checksum</td><td class="px-4 py-2.5 font-mono">16</td><td class="px-4 py-2.5 font-mono">Complemento a 1 de 16 bits</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3 consejos prácticos de examen</h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <li>IHL indica el número de palabras de 32 bits: multiplica IHL × 4 para obtener los bytes de cabecera.</li><li>Al calcular el checksum desde cero, el campo Checksum se inicializa a 0x0000 antes de sumar.</li><li>Si la suma supera 0xFFFF, suma el acarreo superior a los 16 bits inferiores (end-around carry) y aplica NOT bit a bit.</li>
+        </ul>
+      </div>
+
+      <section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Qué pasa si la cabecera tiene opciones (IHL &gt; 5)?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">El decodificador suma todas las palabras de 16 bits de los IHL × 4 bytes reales de la cabecera.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Por qué el checksum IPv4 cambia en cada salto de router?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Porque cada router decrementa el TTL en 1, lo que obliga a recalcular el checksum de la cabecera.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo se interpreta Flags = 0x4000?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">El bit 1 (0x4000) es DF (Don’t Fragment) activo y Fragment Offset = 0.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿IPv6 sigue usando checksum en su cabecera?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">No, IPv6 eliminó el checksum de cabecera para acelerar el reenvío en routers.</p>
+          </details>
+    </div>
+  </section>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Otras herramientas relacionadas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/calculadora-subredes-vlsm" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Redes IP</div>
+                <div class="font-bold text-slate-900 dark:text-white">Subredes IPv4 y VLSM</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</p>
+              </a><a href="/codigo-hamming-crc" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Códigos y Sistemas</div>
+                <div class="font-bold text-slate-900 dark:text-white">Código Hamming y CRC</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</p>
+              </a><a href="/calculadora-ipv6" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">Redes IP</div>
+                <div class="font-bold text-slate-900 dark:text-white">Calculadora IPv6</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</p>
+              </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Herramientas educativas de código abierto para Redes IP y Sistemas Digitales.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/tabla-subredes-cidr" class="hover:text-cyan-600 dark:hover:text-cyan-400">Tabla Completa CIDR (/0 a /32)</a><a href="/tabla-ascii-binario-hex" class="hover:text-cyan-600 dark:hover:text-cyan-400">Tabla ASCII, Binario y Hex (0–127)</a><a href="/leyes-algebra-de-boole" class="hover:text-cyan-600 dark:hover:text-cyan-400">Leyes de Boole y Puertas Lógicas</a>
+      <a href="/sobre-nosotros" class="hover:text-cyan-600 dark:hover:text-cyan-400">Sobre nosotros</a>
+      <a href="/privacidad" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacidad</a>
+      <a href="/aviso-legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Aviso legal</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwuran3b"></script>
+</body>
+</html>

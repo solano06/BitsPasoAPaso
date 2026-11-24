@@ -26,7 +26,7 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuou4f3" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuran3b" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Table ASCII, Binaire (8 bits), Octal et Hexadécimal (0–127) — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/fr/table-ascii-binaire-hex","description":"Table complète des 128 codes ASCII (0 à 127) avec binaire 8 bits, octal, hexadécimal et convertisseur texte en direct.","inLanguage":"fr"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://bitspasoapaso.vercel.app/fr"},{"@type":"ListItem","position":2,"name":"Table ASCII, Binaire et Hex (0–127)","item":"https://bitspasoapaso.vercel.app/fr/table-ascii-binaire-hex"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Pourquoi l’ASCII standard s’arrête-t-il à 127 ?","acceptedAnswer":{"@type":"Answer","text":"Il est codé sur 7 bits (2^7 = 128 valeurs, de 0x00 à 0x7F)."}},{"@type":"Question","name":"Quelle différence entre A (65) et a (97) ?","acceptedAnswer":{"@type":"Answer","text":"Un écart de 32 (bit 5 : 01000001 vs 01100001)."}},{"@type":"Question","name":"Que sont les codes 0 à 31 et 127 ?","acceptedAnswer":{"@type":"Answer","text":"Des caractères de contrôle non imprimables comme NUL (0), TAB (9), LF (10), CR (13), ESC (27) et DEL (127)."}},{"@type":"Question","name":"Comment utiliser le convertisseur texte ?","acceptedAnswer":{"@type":"Answer","text":"Tapez un mot ci-dessus pour obtenir aussitôt son binaire et hexadécimal."}}]}]}</script>
 </head>
@@ -58,6 +58,12 @@
             </a><a href="/fr/calculateur-bande-passante-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bande Passante / TCP</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculez temps de transfert (SI/IEC), BDP, fenêtre glissante et borne de Mathis.</div>
+            </a><a href="/fr/algorithme-dijkstra-pas-a-pas" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Dijkstra (SPF)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Plus courts chemins étape par étape avec graphe SVG et table d’itérations.</div>
+            </a><a href="/fr/decodeur-entete-ipv4-checksum" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">En-tête IPv4</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Décodez l’en-tête IPv4 hex, vérifiez le checksum RFC 791 et construisez des paquets.</div>
             </a>
       </div>
     </div>
@@ -84,6 +90,9 @@
             </a><a href="/fr/simulateur-memoire-cache" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mémoire Cache</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simulez Tag/Index/Offset, Hits/Misses, LRU/FIFO et état final du cache.</div>
+            </a><a href="/fr/calculateur-alu-flags" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ALU &amp; Flags</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">ADD, SUB, logique et décalages 4/8/16 bits avec retenues et drapeaux Z, N, C, V.</div>
             </a>
       </div>
     </div>
@@ -161,13 +170,13 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Réseaux IP</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/calculateur-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR et Supernetting</a><a href="/fr/calculateur-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculateur IPv6</a><a href="/fr/calculateur-bande-passante-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bande Passante et TCP</a>
+        <a href="/fr/calculateur-sous-reseaux-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sous-réseaux IPv4 et VLSM</a><a href="/fr/calculateur-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR et Supernetting</a><a href="/fr/calculateur-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculateur IPv6</a><a href="/fr/calculateur-bande-passante-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bande Passante et TCP</a><a href="/fr/algorithme-dijkstra-pas-a-pas" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Algorithme de Dijkstra</a><a href="/fr/decodeur-entete-ipv4-checksum" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">En-tête IPv4 et Checksum</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Systèmes Numériques</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a><a href="/fr/table-de-verite" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tables de Vérité</a><a href="/fr/simulateur-memoire-cache" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Simulateur Mémoire Cache</a>
+        <a href="/fr/convertisseur-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Convertisseur IEEE-754</a><a href="/fr/tableau-de-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tableau de Karnaugh</a><a href="/fr/convertisseur-binaire-complement-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases et Complément à 2</a><a href="/fr/table-de-verite" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tables de Vérité</a><a href="/fr/simulateur-memoire-cache" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Simulateur Mémoire Cache</a><a href="/fr/calculateur-alu-flags" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">ALU Binaire et Flags</a>
       </div>
     </div>
     <div>
@@ -1176,6 +1185,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwuou4f3"></script>
+  <script type="module" src="/js/app.js?v=mwuran3b"></script>
 </body>
 </html>

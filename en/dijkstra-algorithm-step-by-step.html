@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dijkstra's Algorithm Step by Step (SVG Graph &amp; Iteration Table) — BitsPasoAPaso</title>
+  <meta name="description" content="Solve Dijkstra's shortest path algorithm step by step with SVG graph, exam iteration table, SPF tree, and final routing table." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/algorithme-dijkstra-pas-a-pas" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/algoritmo-dijkstra-paso-a-paso" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dijkstra's Algorithm Step by Step (SVG Graph &amp; Iteration Table) — BitsPasoAPaso" />
+  <meta property="og:description" content="Solve Dijkstra's shortest path algorithm step by step with SVG graph, exam iteration table, SPF tree, and final routing table." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dijkstra's Algorithm Step by Step (SVG Graph &amp; Iteration Table) — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Solve Dijkstra's shortest path algorithm step by step with SVG graph, exam iteration table, SPF tree, and final routing table." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuran3b" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Dijkstra's Algorithm Step by Step (SVG Graph & Iteration Table) — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step","description":"Solve Dijkstra's shortest path algorithm step by step with SVG graph, exam iteration table, SPF tree, and final routing table.","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"en"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bitspasoapaso.vercel.app/en"},{"@type":"ListItem","position":2,"name":"Dijkstra SPF","item":"https://bitspasoapaso.vercel.app/en/dijkstra-algorithm-step-by-step"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why are negative weights disallowed?","acceptedAnswer":{"@type":"Answer","text":"Dijkstra assumes path costs never decrease when extending an already finalized node."}},{"@type":"Question","name":"What is N' in the iteration table?","acceptedAnswer":{"@type":"Answer","text":"The set of visited nodes whose shortest distance from source is finalized."}},{"@type":"Question","name":"How do I read the routing table?","acceptedAnswer":{"@type":"Answer","text":"It lists each destination, total cost, Next Hop from source, and full path."}},{"@type":"Question","name":"Does it support directed graphs?","acceptedAnswer":{"@type":"Answer","text":"Yes, toggle \"Directed Graph\" at the top."}}]}]}</script>
+</head>
+<body data-tool="dijkstra" data-lang="en" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/en" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-0.5">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>IP Networking</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv4 &amp; VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compute CIDR, subnet mask, wildcard, broadcast, and VLSM partitioning step by step.</div>
+            </a><a href="/en/cidr-supernetting-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Summarize IPv4 routes in binary and decompose IP ranges into minimal CIDR blocks.</div>
+            </a><a href="/en/ipv6-subnet-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv6 Subnets</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compress per RFC 5952, analyze /64 subnets, and derive EUI-64 addresses from MAC.</div>
+            </a><a href="/en/bandwidth-tcp-throughput-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bandwidth / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Compute transfer times (SI/IEC), BDP, sliding window throughput, and Mathis bound.</div>
+            </a><a href="/en/dijkstra-algorithm-step-by-step" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Dijkstra SPF</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Step-by-step shortest paths with iteration table, SVG graph, and routing table.</div>
+            </a><a href="/en/ipv4-header-checksum-decoder" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IPv4 Header</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Decode hex IPv4 headers, verify RFC 791 checksum, and build custom headers.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Digital Systems</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/ieee-754-converter" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convert decimals to 32-bit and 64-bit floating point with interactive clickable bits.</div>
+            </a><a href="/en/karnaugh-map-solver" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Karnaugh Map</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplify 2, 3, and 4-variable Boolean functions into SOP and POS with visual loops.</div>
+            </a><a href="/en/binary-twos-complement-converter" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases &amp; 2's Comp</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convert Decimal, Binary, Octal, Hex, 1's/2's Complement, BCD, and Gray code.</div>
+            </a><a href="/en/truth-table-generator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Truth Tables</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evaluate logic formulas, detect tautologies, extract DNF/CNF, and check equivalences.</div>
+            </a><a href="/en/cache-memory-simulator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Cache Memory</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simulate Tag/Index/Offset, Hits/Misses, LRU/FIFO replacement, and final cache state.</div>
+            </a><a href="/en/binary-alu-flags-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ALU &amp; Flags</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">4/8/16-bit binary ADD, SUB, logic &amp; shifts with carries and Z, N, C, V flags.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Coding &amp; Sys</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/hamming-crc-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming &amp; CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Encode, detect, and correct 1-bit Hamming errors and run step-by-step CRC XOR division.</div>
+            </a><a href="/en/raid-chmod-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID &amp; chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculate RAID (0/1/5/6/10) usable capacity &amp; fault tolerance and interactive chmod/umask.</div>
+            </a><a href="/en/line-coding-simulator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Line Coding</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Render SVG waveforms for NRZ-L, NRZI, Manchester, Diff. Manchester, AMI, and HDB3.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Cheat Sheets</span>
+        <svg class="w-3.5 h-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/en/cidr-subnet-cheat-sheet" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Complete CIDR Table (/0 to /32)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">All 33 subnet masks, wildcards, usable hosts, RFC 1918 ranges &amp; powers of 2.</div>
+            </a><a href="/en/ascii-binary-hex-table" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">ASCII, Binary &amp; Hex Table (0–127)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">All 128 ASCII codes with live text-to-binary/hex converter &amp; category filters.</div>
+            </a><a href="/en/boolean-algebra-laws" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Boolean Algebra Laws &amp; Logic Gates</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">All 7 logic gates with SVG symbols, De Morgan laws &amp; Truth Table checker.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/algoritmo-dijkstra-paso-a-paso" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">es</a><a href="/en/dijkstra-algorithm-step-by-step" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">en</a><a href="/fr/algorithme-dijkstra-pas-a-pas" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Reveal steps one by one" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Study Mode</span>
+      </button>
+
+      <a href="/en/exam-mode" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Exam Mode</span>
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Open menu" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">IP Networking</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/ipv4-vlsm-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 &amp; VLSM Subnet Calculator</a><a href="/en/cidr-supernetting-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR &amp; Supernetting</a><a href="/en/ipv6-subnet-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv6 Subnet Calculator</a><a href="/en/bandwidth-tcp-throughput-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bandwidth &amp; TCP Throughput</a><a href="/en/dijkstra-algorithm-step-by-step" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Dijkstra's Algorithm</a><a href="/en/ipv4-header-checksum-decoder" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IPv4 Header &amp; Checksum</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Digital Systems</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a><a href="/en/truth-table-generator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Truth Table Generator</a><a href="/en/cache-memory-simulator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Cache Memory Simulator</a><a href="/en/binary-alu-flags-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary ALU &amp; Flags</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Coding &amp; Sys</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/hamming-crc-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Hamming Code &amp; CRC</a><a href="/en/raid-chmod-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID &amp; chmod Calculator</a><a href="/en/line-coding-simulator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Line Coding Simulator</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Cheat Sheets</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/en/cidr-subnet-cheat-sheet" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Complete CIDR Table (/0 to /32)</a><a href="/en/ascii-binary-hex-table" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">ASCII, Binary &amp; Hex Table (0–127)</a><a href="/en/boolean-algebra-laws" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Boolean Algebra Laws &amp; Logic Gates</a>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/en/exam-mode" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Exam Mode</a>
+    </div>
+  </div>
+</header>
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="print-only-header hidden">
+      <div class="text-xl font-bold">Dijkstra's Algorithm Step by Step</div>
+      <div class="text-xs text-slate-500">Step-by-step report generated by BitsPasoAPaso</div>
+    </div>
+
+    <div class="mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 mb-2">IP Networking</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Dijkstra's Algorithm Step by Step</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Visualize the graph in SVG, inspect the classic exam iteration table (N', distance, predecessor), and view the final routing table.</p>
+    </div>
+
+    <section id="tool-form-card" class="p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-mode-btn="undirected" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-cyan-600 text-white border-cyan-600">Undirected Graph</button><button type="button" data-mode-btn="directed" class="px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700">Directed Graph</button>
+        </div>
+        
+      </div>
+
+      <form id="calc-form" class="space-y-3">
+        <label for="calc-input" class="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">Weighted edges ; Source node [; Optional target node]</label>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <input id="calc-input" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. A-B:4, A-C:2, B-C:1, B-D:5, C-D:8, C-E:10, D-E:2 ; A ; E" class="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shrink-0 shadow-sm">Calculate step by step</button>
+        </div>
+        
+      </form>
+
+      <div id="examples-bar" class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Exam examples:</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-example-idx="0" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Exam graph A → E (5 nodes)</button><button type="button" data-example-idx="1" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Routers R1 → R6</button><button type="button" data-example-idx="2" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Directed A → D</button><button type="button" data-example-idx="3" class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/15 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Full SPF tree from S</button>
+        </div>
+      </div>
+
+      <div id="history-bar" class="hidden mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Recent history:</span>
+          <button id="clear-history-btn" type="button" class="text-xs text-rose-600 dark:text-rose-400 hover:underline">Clear</button>
+        </div>
+        <div id="history-list" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </section>
+
+    <div id="calc-error" class="hidden mt-4 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-sm font-medium"></div>
+
+    <section id="calc-results" class="hidden mt-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-end gap-2 no-print">
+        <button id="copy-result-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copy result</button>
+        <button id="copy-csv-btn" type="button" class="hidden px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copy CSV</button>
+        <button id="copy-latex-btn" type="button" class="hidden px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copy LaTeX</button>
+        <button id="copy-link-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Copy link</button>
+        <button id="save-pdf-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">Save PDF</button>
+      </div>
+
+      <div id="study-banner" class="hidden p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-200 text-xs sm:text-sm font-medium">Study Mode active: the final summary stays hidden until all steps are revealed.</div>
+
+      <div id="result-summary" class="result-summary-card p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"></div>
+      <div id="result-visual" class="hidden"></div>
+      <div id="result-steps" class="space-y-3"></div>
+
+      <div id="study-controls" class="hidden p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <span id="study-progress" class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300"></span>
+        <div class="flex items-center gap-2">
+          <button id="study-next-btn" type="button" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs sm:text-sm font-semibold">Reveal next step</button>
+          <button id="study-all-btn" type="button" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold">Show all</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="seo-content-section" class="mt-12 space-y-10">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Quick guide &amp; fundamentals</h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Dijkstra's algorithm (used by OSPF and IS-IS) computes shortest paths from a source node to all others on graphs with non-negative weights (w &gt;= 0).</p><p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">At each step it picks the unvisited node with minimum distance, adds it to N', and relaxes outgoing edges: if d(u) + w(u,v) &lt; d(v), update d(v) and predecessor.</p>
+        
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Key reference table</h2>
+        <div class="min-w-0 max-w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+              <tr><th class="px-4 py-2.5">Concept</th><th class="px-4 py-2.5">Formula / Rule</th><th class="px-4 py-2.5">OSPF Role</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Init</td><td class="px-4 py-2.5 font-mono">d(src) = 0, others = ∞</td><td class="px-4 py-2.5 font-mono">Start SPF tree</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Pick</td><td class="px-4 py-2.5 font-mono">min d(u) for u ∉ N'</td><td class="px-4 py-2.5 font-mono">Lock next node</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Relax</td><td class="px-4 py-2.5 font-mono">d(u) + w(u,v) &lt; d(v)</td><td class="px-4 py-2.5 font-mono">Improve path via u</td></tr><tr class="border-t border-slate-200 dark:border-slate-800"><td class="px-4 py-2.5 font-mono">Constraint</td><td class="px-4 py-2.5 font-mono">w(u,v) ≥ 0 always</td><td class="px-4 py-2.5 font-mono">No negative weights</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3 practical exam tips</h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <li>Negative weights break Dijkstra’s greedy invariant (use Bellman-Ford instead).</li><li>Next Hop is the first node after the source along the shortest path.</li><li>In undirected graphs, A-B:w adds both A→B and B→A.</li>
+        </ul>
+      </div>
+
+      <section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Frequently asked questions</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Why are negative weights disallowed?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Dijkstra assumes path costs never decrease when extending an already finalized node.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>What is N' in the iteration table?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">The set of visited nodes whose shortest distance from source is finalized.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>How do I read the routing table?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">It lists each destination, total cost, Next Hop from source, and full path.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>Does it support directed graphs?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Yes, toggle &quot;Directed Graph&quot; at the top.</p>
+          </details>
+    </div>
+  </section>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Related calculators</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/en/cidr-supernetting-calculator" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">IP Networking</div>
+                <div class="font-bold text-slate-900 dark:text-white">CIDR &amp; Supernetting</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Summarize IPv4 routes in binary and decompose IP ranges into minimal CIDR blocks.</p>
+              </a><a href="/en/ipv4-vlsm-subnet-calculator" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">IP Networking</div>
+                <div class="font-bold text-slate-900 dark:text-white">IPv4 &amp; VLSM Subnet Calculator</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Compute CIDR, subnet mask, wildcard, broadcast, and VLSM partitioning step by step.</p>
+              </a><a href="/en/bandwidth-tcp-throughput-calculator" class="block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 transition">
+                <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">IP Networking</div>
+                <div class="font-bold text-slate-900 dark:text-white">Bandwidth &amp; TCP Throughput</div>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Compute transfer times (SI/IEC), BDP, sliding window throughput, and Mathis bound.</p>
+              </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Educational tools for IP Networking and Digital Systems.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/en/cidr-subnet-cheat-sheet" class="hover:text-cyan-600 dark:hover:text-cyan-400">Complete CIDR Table (/0 to /32)</a><a href="/en/ascii-binary-hex-table" class="hover:text-cyan-600 dark:hover:text-cyan-400">ASCII, Binary &amp; Hex Table (0–127)</a><a href="/en/boolean-algebra-laws" class="hover:text-cyan-600 dark:hover:text-cyan-400">Boolean Algebra Laws &amp; Logic Gates</a>
+      <a href="/en/about" class="hover:text-cyan-600 dark:hover:text-cyan-400">About</a>
+      <a href="/en/privacy" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacy</a>
+      <a href="/en/legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Legal Notice</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwuran3b"></script>
+</body>
+</html>

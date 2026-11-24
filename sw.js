@@ -1,8 +1,8 @@
-const CACHE_NAME = 'bitspasoapaso-mwuou4f3';
+const CACHE_NAME = 'bitspasoapaso-mwuran3b';
 const PRECACHE_URLS = [
   '/',
-  '/css/tailwind.min.css?v=mwuou4f3',
-  '/js/app.js?v=mwuou4f3',
+  '/css/tailwind.min.css?v=mwuran3b',
+  '/js/app.js?v=mwuran3b',
   '/js/i18n.js',
   '/favicon.svg'
 ];

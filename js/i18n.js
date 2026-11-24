@@ -68,6 +68,21 @@ export const ROUTES = {
     en: '/en/line-coding-simulator',
     fr: '/fr/codage-en-ligne'
   },
+  alu: {
+    es: '/calculadora-alu-flags',
+    en: '/en/binary-alu-flags-calculator',
+    fr: '/fr/calculateur-alu-flags'
+  },
+  dijkstra: {
+    es: '/algoritmo-dijkstra-paso-a-paso',
+    en: '/en/dijkstra-algorithm-step-by-step',
+    fr: '/fr/algorithme-dijkstra-pas-a-pas'
+  },
+  ipv4Header: {
+    es: '/decodificador-cabecera-ipv4-checksum',
+    en: '/en/ipv4-header-checksum-decoder',
+    fr: '/fr/decodeur-entete-ipv4-checksum'
+  },
   exam: {
     es: '/modo-examen',
     en: '/en/exam-mode',
@@ -106,8 +121,8 @@ export const ROUTES = {
 };
 
 export const TOOL_KEYS = [
-  'vlsm', 'cidr', 'ipv6', 'bandwidth',
-  'ieee754', 'karnaugh', 'bases', 'truthTable', 'cache',
+  'vlsm', 'cidr', 'ipv6', 'bandwidth', 'dijkstra', 'ipv4Header',
+  'ieee754', 'karnaugh', 'bases', 'truthTable', 'cache', 'alu',
   'hamming', 'raidChmod', 'lineCoding'
 ];
 export const CHEAT_KEYS = ['cheatCidr', 'cheatAscii', 'cheatBoolean'];
@@ -225,6 +240,27 @@ export const UI = {
         category: 'systems',
         badge: 'Codificación',
         description: 'Dibuja cronogramas SVG de NRZ-L, NRZI, Manchester, Manchester Dif., AMI y HDB3.'
+      },
+      alu: {
+        name: 'ALU Binaria y Flags',
+        shortName: 'ALU y Flags',
+        category: 'digital',
+        badge: 'Sistemas Digitales',
+        description: 'Suma, resta y operaciones lógicas en 4/8/16 bits con acarreos y flags Z, N, C, V.'
+      },
+      dijkstra: {
+        name: 'Algoritmo de Dijkstra',
+        shortName: 'Dijkstra (Caminos)',
+        category: 'networking',
+        badge: 'Redes IP',
+        description: 'Calcula caminos mínimos paso a paso con tabla de iteraciones, grafo SVG y rutas.'
+      },
+      ipv4Header: {
+        name: 'Cabecera IPv4 y Checksum',
+        shortName: 'Cabecera IPv4',
+        category: 'networking',
+        badge: 'Redes IP',
+        description: 'Decodifica cabeceras IPv4 hex, verifica checksum RFC 791 y construye paquetes.'
       }
     },
     actions: {
@@ -459,6 +495,27 @@ export const UI = {
         category: 'systems',
         badge: 'Coding & Systems',
         description: 'Render SVG waveforms for NRZ-L, NRZI, Manchester, Diff. Manchester, AMI, and HDB3.'
+      },
+      alu: {
+        name: 'Binary ALU & Flags',
+        shortName: 'ALU & Flags',
+        category: 'digital',
+        badge: 'Digital Systems',
+        description: '4/8/16-bit binary ADD, SUB, logic & shifts with carries and Z, N, C, V flags.'
+      },
+      dijkstra: {
+        name: "Dijkstra's Algorithm",
+        shortName: 'Dijkstra SPF',
+        category: 'networking',
+        badge: 'IP Networking',
+        description: 'Step-by-step shortest paths with iteration table, SVG graph, and routing table.'
+      },
+      ipv4Header: {
+        name: 'IPv4 Header & Checksum',
+        shortName: 'IPv4 Header',
+        category: 'networking',
+        badge: 'IP Networking',
+        description: 'Decode hex IPv4 headers, verify RFC 791 checksum, and build custom headers.'
       }
     },
     actions: {
@@ -693,6 +750,27 @@ export const UI = {
         category: 'systems',
         badge: 'Codage & Systèmes',
         description: 'Tracez les chronogrammes SVG NRZ-L, NRZI, Manchester, Manchester Diff., AMI et HDB3.'
+      },
+      alu: {
+        name: 'ALU Binaire et Flags',
+        shortName: 'ALU & Flags',
+        category: 'digital',
+        badge: 'Systèmes Numériques',
+        description: 'ADD, SUB, logique et décalages 4/8/16 bits avec retenues et drapeaux Z, N, C, V.'
+      },
+      dijkstra: {
+        name: 'Algorithme de Dijkstra',
+        shortName: 'Dijkstra (SPF)',
+        category: 'networking',
+        badge: 'Réseaux IP',
+        description: 'Plus courts chemins étape par étape avec graphe SVG et table d’itérations.'
+      },
+      ipv4Header: {
+        name: 'En-tête IPv4 et Checksum',
+        shortName: 'En-tête IPv4',
+        category: 'networking',
+        badge: 'Réseaux IP',
+        description: 'Décodez l’en-tête IPv4 hex, vérifiez le checksum RFC 791 et construisez des paquets.'
       }
     },
     actions: {

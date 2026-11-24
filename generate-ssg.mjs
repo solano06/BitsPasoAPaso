@@ -301,6 +301,11 @@ function buildHeader(routeKey, lang) {
         <span class="hidden md:inline">${esc(ui.nav.studyMode)}</span>
       </button>
 
+      <a href="${getRoutePath('exam', lang)}" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">${esc(ui.nav.examMode)}</span>
+      </a>
+
       <button id="theme-toggle" type="button" aria-label="${esc(ui.nav.themeToggle)}" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
         <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -330,6 +335,9 @@ function buildHeader(routeKey, lang) {
       <div class="grid grid-cols-1 gap-1">
         ${sysTools.map((k) => `<a href="${getRoutePath(k, lang)}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(ui.tools[k].name)}</a>`).join('')}
       </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="${getRoutePath('exam', lang)}" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">${esc(ui.nav.examMode)}</a>
     </div>
   </div>
 </header>`;
@@ -401,6 +409,15 @@ ${buildHead({ title: h.metaTitle, description: h.metaDescription, routeKey: 'hom
         <a href="#tools-grid" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shadow-sm">${esc(h.ctaPrimary)}</a>
         <a href="${getRoutePath('vlsm', lang)}" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-cyan-500 text-slate-800 dark:text-slate-200 font-semibold text-sm">${esc(h.ctaSecondary)}</a>
       </div>
+    </section>
+
+    <section class="mt-10 p-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-slate-900/5 border border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div>
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-600 text-white mb-2">${esc(h.examBannerBadge)}</span>
+        <h2 class="text-xl font-extrabold text-slate-900 dark:text-white">${esc(h.examBannerTitle)}</h2>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">${esc(h.examBannerDesc)}</p>
+      </div>
+      <a href="${getRoutePath('exam', lang)}" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shrink-0 shadow-sm">${esc(h.examBannerCta)} →</a>
     </section>
 
     <section id="tools-grid" class="mt-14 space-y-10">
@@ -693,12 +710,77 @@ function writeOut(relPath, content) {
   fs.writeFileSync(fullPath, content, 'utf8');
 }
 
+const EXAM_META = {
+  es: {
+    metaTitle: 'Modo Examen (10 ejercicios aleatorios paso a paso) — BitsPasoAPaso',
+    metaDescription: 'Practica exámenes de Redes IP y Sistemas Digitales con 10 ejercicios aleatorios, temporizador opcional, impresión en PDF y corrección paso a paso.',
+    h1: 'Modo Examen: Simulacro de 10 ejercicios',
+    subtitle: 'Selecciona tus temas, resuelve en pantalla o en papel (PDF) y desbloquea las 10 soluciones completas paso a paso a la vez.',
+    faqs: [
+      { q: '¿Cómo funciona el Modo Examen?', a: 'Eliges los temas, la dificultad y un temporizador opcional. Se generan 10 ejercicios aleatorios sin soluciones visibles hasta que pulses corregir.' },
+      { q: '¿Puedo hacer el examen en papel?', a: 'Sí. Durante el examen puedes pulsar "Imprimir solo enunciados (PDF)" y dejar los campos de respuesta vacíos sin penalización.' },
+      { q: '¿Cómo se generan las soluciones?', a: 'Cada solución invoca los mismos motores exactos de BitsPasoAPaso, mostrando el desarrollo completo bit a bit.' },
+      { q: '¿Se guardan mis notas en algún servidor?', a: 'No. Todo se ejecuta localmente y el historial de los últimos 8 exámenes se guarda solo en tu navegador.' }
+    ]
+  },
+  en: {
+    metaTitle: 'Exam Mode (10 Randomized Step-by-Step Exercises) — BitsPasoAPaso',
+    metaDescription: 'Practice IP Networking and Digital Systems exams with 10 randomized exercises, optional timer, PDF printouts, and step-by-step grading.',
+    h1: 'Exam Mode: 10-Exercise Practice Test',
+    subtitle: 'Pick your topics, solve on screen or on paper (PDF), and reveal all 10 full step-by-step solutions at once.',
+    faqs: [
+      { q: 'How does Exam Mode work?', a: 'Select topics, difficulty, and an optional timer. 10 unique exercises are generated with zero spoilers until you click reveal.' },
+      { q: 'Can I solve the exam on paper?', a: 'Yes. Click "Print statements only (PDF)" and leave answer fields blank with no penalty.' },
+      { q: 'How are solutions computed?', a: 'Every solution runs directly through BitsPasoAPaso’s exact engines with full step-by-step breakdowns.' },
+      { q: 'Are my scores sent anywhere?', a: 'No. Everything runs 100% locally and your last 8 exams are stored only in your browser.' }
+    ]
+  },
+  fr: {
+    metaTitle: 'Mode Examen (10 exercices aléatoires étape par étape) — BitsPasoAPaso',
+    metaDescription: 'Préparez vos examens de Réseaux IP et Systèmes Numériques avec 10 exercices aléatoires, chronomètre optionnel, PDF et correction détaillée.',
+    h1: 'Mode Examen : Simulation de 10 exercices',
+    subtitle: 'Choisissez vos thèmes, résolvez à l’écran ou sur papier (PDF) et débloquez les 10 solutions complètes d’un coup.',
+    faqs: [
+      { q: 'Comment fonctionne le Mode Examen ?', a: 'Vous choisissez les thèmes, la difficulté et un chronomètre optionnel. 10 exercices uniques sont générés sans aucun spoiler.' },
+      { q: 'Puis-je faire l’examen sur papier ?', a: 'Oui. Cliquez sur « Imprimer les énoncés seuls (PDF) » et laissez les champs vides sans pénalité.' },
+      { q: 'Comment sont calculées les solutions ?', a: 'Chaque solution utilise les moteurs exacts de BitsPasoAPaso avec toutes les étapes détaillées.' },
+      { q: 'Mes résultats sont-ils envoyés à un serveur ?', a: 'Non. Tout est local et l’historique des 8 derniers examens reste dans votre navigateur.' }
+    ]
+  }
+};
+
+function buildExamHtml(lang) {
+  const ui = UI[lang];
+  const em = EXAM_META[lang];
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+${buildHead({ title: em.metaTitle, description: em.metaDescription, routeKey: 'exam', lang, faqs: em.faqs, breadcrumbName: ui.nav.examMode })}
+<body data-page="exam" data-lang="${lang}" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  ${buildHeader('exam', lang)}
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="exam-no-print mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-2">${esc(ui.nav.examMode)}</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">${esc(em.h1)}</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">${esc(em.subtitle)}</p>
+    </div>
+    <div id="exam-app"></div>
+    <div class="exam-no-print">${buildFaqSection(em.faqs, ui.actions.faqTitle)}</div>
+  </main>
+  ${buildFooter(lang)}
+  <script type="module" src="/js/app.js?v=${BUILD_VERSION}"></script>
+</body>
+</html>`;
+}
+
 function main() {
   generateOgCoverPng(path.join(__dirname, 'og-cover.png'));
 
   let count = 0;
   for (const lang of LANGUAGES) {
     writeOut(getOutputFile('home', lang), buildHomeHtml(lang));
+    count++;
+
+    writeOut(getOutputFile('exam', lang), buildExamHtml(lang));
     count++;
 
     for (const toolKey of TOOL_KEYS) {

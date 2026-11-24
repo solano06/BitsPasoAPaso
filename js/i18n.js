@@ -58,6 +58,11 @@ export const ROUTES = {
     en: '/en/raid-chmod-calculator',
     fr: '/fr/calculateur-raid-chmod'
   },
+  exam: {
+    es: '/modo-examen',
+    en: '/en/exam-mode',
+    fr: '/fr/mode-examen'
+  },
   about: {
     es: '/sobre-nosotros',
     en: '/en/about',
@@ -81,7 +86,7 @@ export const TOOL_KEYS = [
   'hamming', 'raidChmod'
 ];
 export const LEGAL_KEYS = ['about', 'privacy', 'legal'];
-export const ALL_ROUTE_KEYS = ['home', ...TOOL_KEYS, ...LEGAL_KEYS];
+export const ALL_ROUTE_KEYS = ['home', 'exam', ...TOOL_KEYS, ...LEGAL_KEYS];
 
 export function getRoutePath(key, lang) {
   return ROUTES[key]?.[lang] || ROUTES.home[lang] || '/';
@@ -104,6 +109,7 @@ export const UI = {
       systems: 'Códigos y Sistemas',
       studyMode: 'Modo Estudio',
       studyModeHint: 'Revela los pasos uno a uno',
+      examMode: 'Modo Examen',
       themeToggle: 'Cambiar tema claro/oscuro',
       menuOpen: 'Abrir menú',
       home: 'Inicio'
@@ -213,6 +219,10 @@ export const UI = {
       sectionSystems: 'Códigos, Almacenamiento y Sistemas',
       searchPlaceholder: 'Filtrar calculadoras (ej. IPv6, CIDR, RAID, chmod, Karnaugh...)',
       noResults: 'No hay calculadoras que coincidan con tu búsqueda.',
+      examBannerBadge: 'Nuevo · Simulacro de Examen',
+      examBannerTitle: 'Modo Examen: 10 ejercicios aleatorios con corrección paso a paso',
+      examBannerDesc: 'Elige tus temas de Redes IP o Sistemas Digitales, resuelve en papel o en pantalla y desbloquea las 10 soluciones completas a la vez.',
+      examBannerCta: 'Iniciar Modo Examen',
       featuresTitle: 'Diseñado para estudiar, verificar y enseñar',
       features: [
         { title: 'Exactitud bit a bit', desc: 'Aritmética exacta con BigInt y DataView sin errores de redondeo en coma flotante.' },
@@ -310,6 +320,7 @@ export const UI = {
       systems: 'Coding & Systems',
       studyMode: 'Study Mode',
       studyModeHint: 'Reveal steps one by one',
+      examMode: 'Exam Mode',
       themeToggle: 'Toggle light/dark theme',
       menuOpen: 'Open menu',
       home: 'Home'
@@ -419,6 +430,10 @@ export const UI = {
       sectionSystems: 'Coding, Storage & Systems',
       searchPlaceholder: 'Filter calculators (e.g. IPv6, CIDR, RAID, chmod, Karnaugh...)',
       noResults: 'No calculators match your search.',
+      examBannerBadge: 'New · Practice Exam',
+      examBannerTitle: 'Exam Mode: 10 randomized problems with step-by-step grading',
+      examBannerDesc: 'Pick your IP Networking or Digital Systems topics, solve on paper or screen, and reveal all 10 full solutions at once.',
+      examBannerCta: 'Start Exam Mode',
       featuresTitle: 'Built for studying, verifying, and teaching',
       features: [
         { title: 'Bit-level accuracy', desc: 'Exact arithmetic using BigInt and DataView with zero floating-point drift.' },
@@ -516,6 +531,7 @@ export const UI = {
       systems: 'Codage & Systèmes',
       studyMode: 'Mode Étude',
       studyModeHint: 'Révéler les étapes une par une',
+      examMode: 'Mode Examen',
       themeToggle: 'Changer le thème clair/sombre',
       menuOpen: 'Ouvrir le menu',
       home: 'Accueil'
@@ -625,6 +641,10 @@ export const UI = {
       sectionSystems: 'Codage, Stockage et Systèmes',
       searchPlaceholder: 'Filtrer les calculateurs (ex. IPv6, CIDR, RAID, chmod, Karnaugh...)',
       noResults: 'Aucun calculateur ne correspond à votre recherche.',
+      examBannerBadge: 'Nouveau · Examen Blanc',
+      examBannerTitle: 'Mode Examen : 10 exercices aléatoires avec correction étape par étape',
+      examBannerDesc: 'Choisissez vos thèmes, résolvez sur papier ou à l’écran, puis débloquez les 10 solutions détaillées d’un coup.',
+      examBannerCta: 'Lancer le Mode Examen',
       featuresTitle: 'Conçu pour étudier, vérifier et enseigner',
       features: [
         { title: 'Précision bit à bit', desc: 'Arithmétique exacte avec BigInt et DataView sans dérive en virgule flottante.' },

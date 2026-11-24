@@ -26,7 +26,7 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwul1p4r" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwullzx8" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Calculadora RAID (0/1/5/6/10) y Permisos Linux chmod / umask — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/calculadora-raid-chmod","description":"Calcula capacidad útil, paridad y tolerancia a fallos RAID, y usa la matriz interactiva chmod (octal/simbólico) y umask paso a paso.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"RAID y chmod","item":"https://bitspasoapaso.vercel.app/calculadora-raid-chmod"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántos discos aguanta perder un RAID 5?","acceptedAnswer":{"@type":"Answer","text":"Exactamente 1 disco. Si falla un segundo disco durante la reconstrucción, se pierde el arreglo."}},{"@type":"Question","name":"¿Por qué RAID 10 exige un número par de discos?","acceptedAnswer":{"@type":"Answer","text":"Porque agrupa los discos en parejas espejo (RAID 1) sobre las que aplica striping (RAID 0)."}},{"@type":"Question","name":"¿Cómo funciona la matriz interactiva chmod?","acceptedAnswer":{"@type":"Answer","text":"Haz clic en las casillas de Propietario, Grupo u Otros para alternar permisos y ver al instante el octal y el comando."}},{"@type":"Question","name":"¿Cómo se calcula umask 022 sobre archivos?","acceptedAnswer":{"@type":"Answer","text":"Mediante 666 AND NOT 022 = 644 (rw-r--r--); sobre directorios, 777 AND NOT 022 = 755."}}]}]}</script>
 </head>
@@ -115,6 +115,11 @@
         <span class="hidden md:inline">Modo Estudio</span>
       </button>
 
+      <a href="/modo-examen" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Modo Examen</span>
+      </a>
+
       <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
         <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -144,6 +149,9 @@
       <div class="grid grid-cols-1 gap-1">
         <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a>
       </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/modo-examen" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Modo Examen</a>
     </div>
   </div>
 </header>
@@ -306,6 +314,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwul1p4r"></script>
+  <script type="module" src="/js/app.js?v=mwullzx8"></script>
 </body>
 </html>

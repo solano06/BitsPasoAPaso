@@ -26,7 +26,7 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwul1p4r" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwullzx8" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"BitsPasoAPaso — Step-by-step IP Networking & Digital Systems Calculators","url":"https://bitspasoapaso.vercel.app/en","description":"Free educational calculators with step-by-step breakdowns: IPv4 VLSM subnetting, IEEE-754 32/64-bit, Karnaugh maps, Two's complement, Hamming code, and CRC.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bitspasoapaso.vercel.app/en"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my input data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Every calculator in BitsPasoAPaso runs 100% client-side in pure JavaScript, ensuring complete privacy and instant results."}},{"@type":"Question","name":"How does Study Mode work?","acceptedAnswer":{"@type":"Answer","text":"Study Mode hides the final summary and lets you reveal intermediate steps one by one, making it ideal for self-testing before checking the final answer."}},{"@type":"Question","name":"Can I share a solved exercise with classmates or students?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every calculation syncs with URL parameters; clicking \"Copy link\" gives you a direct URL that loads the exact same problem."}},{"@type":"Question","name":"How accurate are the IEEE-754 and Two's Complement engines?","acceptedAnswer":{"@type":"Answer","text":"They rely on native binary buffers (ArrayBuffer/DataView) and arbitrary-precision BigInt math for exact 32-bit and 64-bit representations."}}]}]}</script>
 </head>
@@ -115,6 +115,11 @@
         <span class="hidden md:inline">Study Mode</span>
       </button>
 
+      <a href="/en/exam-mode" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Exam Mode</span>
+      </a>
+
       <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
         <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -145,6 +150,9 @@
         <a href="/en/hamming-crc-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Hamming Code &amp; CRC</a><a href="/en/raid-chmod-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID &amp; chmod Calculator</a>
       </div>
     </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/en/exam-mode" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Exam Mode</a>
+    </div>
   </div>
 </header>
   <main class="max-w-6xl mx-auto px-4 py-10 sm:py-14">
@@ -156,6 +164,15 @@
         <a href="#tools-grid" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm shadow-sm">Explore calculators</a>
         <a href="/en/ipv4-vlsm-subnet-calculator" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-cyan-500 text-slate-800 dark:text-slate-200 font-semibold text-sm">Try VLSM now</a>
       </div>
+    </section>
+
+    <section class="mt-10 p-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-slate-900/5 border border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div>
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-600 text-white mb-2">New · Practice Exam</span>
+        <h2 class="text-xl font-extrabold text-slate-900 dark:text-white">Exam Mode: 10 randomized problems with step-by-step grading</h2>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Pick your IP Networking or Digital Systems topics, solve on paper or screen, and reveal all 10 full solutions at once.</p>
+      </div>
+      <a href="/en/exam-mode" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shrink-0 shadow-sm">Start Exam Mode →</a>
     </section>
 
     <section id="tools-grid" class="mt-14 space-y-10">
@@ -277,6 +294,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwul1p4r"></script>
+  <script type="module" src="/js/app.js?v=mwullzx8"></script>
 </body>
 </html>

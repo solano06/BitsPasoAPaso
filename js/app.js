@@ -10,6 +10,7 @@ import { solveIpv6 } from './engines/ipv6.js';
 import { solveTruthTable } from './engines/truth-table.js';
 import { solveBandwidth } from './engines/bandwidth.js';
 import { solveRaidChmod } from './engines/raid-chmod.js';
+import { initExamPage } from './exam-ui.js';
 
 const ENGINES = {
   vlsm: solveVlsm,
@@ -538,8 +539,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initHomeSearch();
 
   const tool = document.body.getAttribute('data-tool');
+  const page = document.body.getAttribute('data-page');
   const lang = document.body.getAttribute('data-lang') || 'es';
-  if (tool && ENGINES[tool]) {
+  if (page === 'exam') {
+    initExamPage(lang);
+  } else if (tool && ENGINES[tool]) {
     initCalculator(tool, lang);
   }
 });

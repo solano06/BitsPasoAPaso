@@ -25,6 +25,30 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://bitspasoapaso.vercel.app/modo-examen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/modo-examen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/exam-mode" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/mode-examen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/modo-examen" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/en/exam-mode</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/modo-examen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/exam-mode" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/mode-examen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/modo-examen" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://bitspasoapaso.vercel.app/fr/mode-examen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/modo-examen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/exam-mode" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/mode-examen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/modo-examen" />
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://bitspasoapaso.vercel.app/calculadora-subredes-vlsm</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/calculadora-subredes-vlsm" />
     <xhtml:link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/ipv4-vlsm-subnet-calculator" />

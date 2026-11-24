@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modo Examen (10 ejercicios aleatorios paso a paso) — BitsPasoAPaso</title>
+  <meta name="description" content="Practica exámenes de Redes IP y Sistemas Digitales con 10 ejercicios aleatorios, temporizador opcional, impresión en PDF y corrección paso a paso." />
+  <link rel="canonical" href="https://bitspasoapaso.vercel.app/modo-examen" />
+  <link rel="alternate" hreflang="es" href="https://bitspasoapaso.vercel.app/modo-examen" />
+  <link rel="alternate" hreflang="en" href="https://bitspasoapaso.vercel.app/en/exam-mode" />
+  <link rel="alternate" hreflang="fr" href="https://bitspasoapaso.vercel.app/fr/mode-examen" />
+  <link rel="alternate" hreflang="x-default" href="https://bitspasoapaso.vercel.app/modo-examen" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Modo Examen (10 ejercicios aleatorios paso a paso) — BitsPasoAPaso" />
+  <meta property="og:description" content="Practica exámenes de Redes IP y Sistemas Digitales con 10 ejercicios aleatorios, temporizador opcional, impresión en PDF y corrección paso a paso." />
+  <meta property="og:url" content="https://bitspasoapaso.vercel.app/modo-examen" />
+  <meta property="og:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Modo Examen (10 ejercicios aleatorios paso a paso) — BitsPasoAPaso" />
+  <meta name="twitter:description" content="Practica exámenes de Redes IP y Sistemas Digitales con 10 ejercicios aleatorios, temporizador opcional, impresión en PDF y corrección paso a paso." />
+  <meta name="twitter:image" content="https://bitspasoapaso.vercel.app/og-cover.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwullzx8" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Modo Examen (10 ejercicios aleatorios paso a paso) — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/modo-examen","description":"Practica exámenes de Redes IP y Sistemas Digitales con 10 ejercicios aleatorios, temporizador opcional, impresión en PDF y corrección paso a paso.","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://bitspasoapaso.vercel.app/"},{"@type":"ListItem","position":2,"name":"Modo Examen","item":"https://bitspasoapaso.vercel.app/modo-examen"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo funciona el Modo Examen?","acceptedAnswer":{"@type":"Answer","text":"Eliges los temas, la dificultad y un temporizador opcional. Se generan 10 ejercicios aleatorios sin soluciones visibles hasta que pulses corregir."}},{"@type":"Question","name":"¿Puedo hacer el examen en papel?","acceptedAnswer":{"@type":"Answer","text":"Sí. Durante el examen puedes pulsar \"Imprimir solo enunciados (PDF)\" y dejar los campos de respuesta vacíos sin penalización."}},{"@type":"Question","name":"¿Cómo se generan las soluciones?","acceptedAnswer":{"@type":"Answer","text":"Cada solución invoca los mismos motores exactos de BitsPasoAPaso, mostrando el desarrollo completo bit a bit."}},{"@type":"Question","name":"¿Se guardan mis notas en algún servidor?","acceptedAnswer":{"@type":"Answer","text":"No. Todo se ejecuta localmente y el historial de los últimos 8 exámenes se guarda solo en tu navegador."}}]}]}</script>
+</head>
+<body data-page="exam" data-lang="es" class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight text-slate-900 dark:text-white shrink-0">
+        <img src="/favicon.svg" alt="BitsPasoAPaso" class="w-7 h-7" width="28" height="28" />
+        <span>Bits<span class="text-cyan-600 dark:text-cyan-400">PasoAPaso</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1">
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Redes IP</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/calculadora-subredes-vlsm" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes VLSM</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula CIDR, máscara, wildcard, broadcast y particionado VLSM paso a paso.</div>
+            </a><a href="/calculadora-cidr-supernetting" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">CIDR / Supernetting</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Sumariza rutas IPv4 en binario y descompone rangos IP en bloques CIDR mínimos.</div>
+            </a><a href="/calculadora-ipv6" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subredes IPv6</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Comprime según RFC 5952, analiza subredes /64 y genera direcciones EUI-64 desde MAC.</div>
+            </a><a href="/calculadora-ancho-de-banda-tcp" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Ancho de Banda / TCP</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula tiempos de transferencia (SI/IEC), BDP, ventana deslizante y cota de Mathis.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Sistemas Digitales</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/conversor-ieee-754" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">IEEE-754 (32/64)</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte números decimales a coma flotante de 32 y 64 bits con bits interactivos.</div>
+            </a><a href="/mapa-karnaugh" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Mapa de Karnaugh</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simplifica funciones booleanas de 2, 3 y 4 variables en SOP y POS con lazos visuales.</div>
+            </a><a href="/conversor-binario-complemento-a-2" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bases y C2</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Convierte Decimal, Binario, Octal, Hex, Complemento a 1/2, BCD y código Gray.</div>
+            </a><a href="/tablas-de-verdad" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tablas de Verdad</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evalúa fórmulas lógicas, detecta tautologías, extrae FND/FNC y comprueba equivalencias.</div>
+            </a>
+      </div>
+    </div>
+  
+        
+    <div class="relative" data-dropdown>
+      <button type="button" data-dropdown-btn class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 whitespace-nowrap">
+        <span>Códigos y Sistemas</span>
+        <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div data-dropdown-panel class="hidden absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-1.5 z-50">
+        <a href="/codigo-hamming-crc" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Hamming y CRC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Codifica, detecta y corrige errores de 1 bit con Hamming y divide polinomios CRC.</div>
+            </a><a href="/calculadora-raid-chmod" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID y chmod</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.</div>
+            </a>
+      </div>
+    </div>
+  
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <nav aria-label="Language" class="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+        <a href="/modo-examen" hreflang="es" class="px-2 py-1 rounded text-xs uppercase transition bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 font-bold">es</a><a href="/en/exam-mode" hreflang="en" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">en</a><a href="/fr/mode-examen" hreflang="fr" class="px-2 py-1 rounded text-xs uppercase transition text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">fr</a>
+      </nav>
+
+      <button id="study-mode-toggle" type="button" aria-pressed="false" title="Revela los pasos uno a uno" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="hidden md:inline">Modo Estudio</span>
+      </button>
+
+      <a href="/modo-examen" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-sm">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden md:inline">Modo Examen</span>
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-4 h-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-3">
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Redes IP</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/calculadora-subredes-vlsm" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Subredes IPv4 y VLSM</a><a href="/calculadora-cidr-supernetting" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">CIDR y Supernetting</a><a href="/calculadora-ipv6" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculadora IPv6</a><a href="/calculadora-ancho-de-banda-tcp" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Ancho de Banda y TCP</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sistemas Digitales</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/conversor-ieee-754" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Conversor IEEE-754</a><a href="/mapa-karnaugh" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mapa de Karnaugh</a><a href="/conversor-binario-complemento-a-2" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Bases y Complemento a 2</a><a href="/tablas-de-verdad" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tablas de Verdad</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Códigos y Sistemas</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="/codigo-hamming-crc" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Código Hamming y CRC</a><a href="/calculadora-raid-chmod" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID y Permisos chmod</a>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+      <a href="/modo-examen" class="block text-center px-3 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">Modo Examen</a>
+    </div>
+  </div>
+</header>
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:py-10">
+    <div class="exam-no-print mb-6">
+      <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-2">Modo Examen</span>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Modo Examen: Simulacro de 10 ejercicios</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">Selecciona tus temas, resuelve en pantalla o en papel (PDF) y desbloquea las 10 soluciones completas paso a paso a la vez.</p>
+    </div>
+    <div id="exam-app"></div>
+    <div class="exam-no-print"><section class="mt-10">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+    <div class="space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo funciona el Modo Examen?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Eliges los temas, la dificultad y un temporizador opcional. Se generan 10 ejercicios aleatorios sin soluciones visibles hasta que pulses corregir.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Puedo hacer el examen en papel?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Sí. Durante el examen puedes pulsar &quot;Imprimir solo enunciados (PDF)&quot; y dejar los campos de respuesta vacíos sin penalización.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Cómo se generan las soluciones?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Cada solución invoca los mismos motores exactos de BitsPasoAPaso, mostrando el desarrollo completo bit a bit.</p>
+          </details><details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              <span>¿Se guardan mis notas en algún servidor?</span>
+              <span class="ml-2 text-cyan-600 dark:text-cyan-400 transition group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">No. Todo se ejecuta localmente y el historial de los últimos 8 exámenes se guarda solo en tu navegador.</p>
+          </details>
+    </div>
+  </section></div>
+  </main>
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
+    <div>
+      <span class="font-bold text-slate-900 dark:text-slate-200">BitsPasoAPaso</span> · Herramientas educativas de código abierto para Redes IP y Sistemas Digitales.
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="/sobre-nosotros" class="hover:text-cyan-600 dark:hover:text-cyan-400">Sobre nosotros</a>
+      <a href="/privacidad" class="hover:text-cyan-600 dark:hover:text-cyan-400">Privacidad</a>
+      <a href="/aviso-legal" class="hover:text-cyan-600 dark:hover:text-cyan-400">Aviso legal</a>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="/js/app.js?v=mwullzx8"></script>
+</body>
+</html>

@@ -79,4 +79,19 @@
   .step-hidden-in-study {
     display: block !important;
   }
+
+  .exam-print-only {
+    display: block !important;
+  }
+
+  .exam-no-print {
+    display: none !important;
+  }
+
+  .exam-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+  }
 }

@@ -1,7 +1,9 @@
 import { PHASE2_CONTENT } from './seo-content-phase2.js';
+import { PHASE3_CONTENT } from './seo-content-phase3.js';
 
 export const TOOL_CONTENT = {
   ...PHASE2_CONTENT,
+  ...PHASE3_CONTENT,
   vlsm: {
     es: {
       metaTitle: 'Calculadora de Subredes IPv4 y VLSM paso a paso — BitsPasoAPaso',

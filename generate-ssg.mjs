@@ -589,6 +589,8 @@ ${buildHead({ title: c.metaTitle, description: c.metaDescription, routeKey: tool
     <section id="calc-results" class="hidden mt-6 space-y-5">
       <div class="flex flex-wrap items-center justify-end gap-2 no-print">
         <button id="copy-result-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">${esc(ui.actions.copyResult)}</button>
+        <button id="copy-csv-btn" type="button" class="hidden px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">${esc(ui.actions.copyCsv)}</button>
+        <button id="copy-latex-btn" type="button" class="hidden px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">${esc(ui.actions.copyLatex)}</button>
         <button id="copy-link-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">${esc(ui.actions.copyLink)}</button>
         <button id="save-pdf-btn" type="button" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold hover:border-cyan-500">${esc(ui.actions.savePdf)}</button>
       </div>
@@ -1044,6 +1046,50 @@ ${buildHead({ title: em.metaTitle, description: em.metaDescription, routeKey: 'e
 </html>`;
 }
 
+function buildServiceWorkerJs() {
+  return `const CACHE_NAME = 'bitspasoapaso-${BUILD_VERSION}';
+const PRECACHE_URLS = [
+  '/',
+  '/css/tailwind.min.css?v=${BUILD_VERSION}',
+  '/js/app.js?v=${BUILD_VERSION}',
+  '/js/i18n.js',
+  '/favicon.svg'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
+
+  event.respondWith(
+    fetch(event.request)
+      .then((res) => {
+        if (res && res.status === 200) {
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return res;
+      })
+      .catch(() => caches.match(event.request))
+  );
+});
+`;
+}
+
 function main() {
   generateOgCoverPng(path.join(__dirname, 'og-cover.png'));
 
@@ -1074,6 +1120,7 @@ function main() {
   writeOut('404.html', build404Html());
   writeOut('sitemap.xml', buildSitemapXml());
   writeOut('robots.txt', buildRobotsTxt());
+  writeOut('sw.js', buildServiceWorkerJs());
 
   console.log(`Generated ${count} localized HTML pages + 404.html, sitemap.xml, robots.txt, and og-cover.png (v=${BUILD_VERSION}).`);
 }

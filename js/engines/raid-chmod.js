@@ -225,7 +225,8 @@ function solveRaid(raw, lang) {
   ];
 
   const copyText = `RAID ${level} (${n}x ${cap} ${unit})\n${t.usableCap}: ${m.usable} ${unit}\n${t.parityCap}: ${m.parity} ${unit}\n${t.efficiency}: ${eff}%\n${t.faultTol}: ${m.tol}`;
-  return { ok: true, summaryHtml, visualHtml, steps, copyText };
+  const csvText = `Level,Disks,UnitCap,Raw,Usable,Parity,Efficiency,Tolerance\nRAID ${level},${n},${cap} ${unit},${n * cap} ${unit},${m.usable} ${unit},${m.parity} ${unit},${eff}%,${m.tol}`;
+  return { ok: true, summaryHtml, visualHtml, steps, copyText, csvText };
 }
 
 function triadToSym(val, specialBit, isOwnerOrGroup, isSticky) {

@@ -778,5 +778,6 @@ export function solveKarnaugh(input, mode = '3', lang = 'es') {
   ];
 
   const copyText = `Karnaugh (${numVars} vars)\n${derivedStr}\nSOP: F(${varNames.join(',')}) = ${sopExpr}\nPOS: F(${varNames.join(',')}) = ${posExpr}`;
-  return { ok: true, summaryHtml, visualHtml, steps, copyText };
+  const latexText = `F(${varNames.join(',')}) = ${sopExpr.replace(/([A-D])'/g, '\\overline{$1}').replace(/·/g, ' \\cdot ')}`;
+  return { ok: true, summaryHtml, visualHtml, steps, copyText, latexText };
 }

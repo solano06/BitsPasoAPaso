@@ -8,6 +8,8 @@ import { solveBases } from './bases.js';
 import { solveTruthTable } from './truth-table.js';
 import { solveHamming } from './hamming.js';
 import { solveRaidChmod } from './raid-chmod.js';
+import { solveCache } from './cache.js';
+import { solveLineCoding, encodeAmi, encodeHdb3 } from './line-coding.js';
 
 export const EXAM_ENGINES = {
   vlsm: solveVlsm,
@@ -19,7 +21,9 @@ export const EXAM_ENGINES = {
   bases: solveBases,
   truthTable: solveTruthTable,
   hamming: solveHamming,
-  raidChmod: solveRaidChmod
+  raidChmod: solveRaidChmod,
+  cache: solveCache,
+  lineCoding: solveLineCoding
 };
 
 const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -486,6 +490,58 @@ function genRaidChmod(diff, lang) {
   };
 }
 
+function genCache(diff, lang) {
+  const addrBits = diff === 'basic' ? 12 : 16;
+  const cacheSize = pick([128, 256, 512]);
+  const blockSize = pick([16, 32]);
+  const ways = diff === 'basic' ? 1 : pick([1, 2]);
+  const mode = `${ways}_LRU`;
+  const base = pick([0x0010, 0x0020, 0x0110]);
+  const seq = [base, base + 4, base + 0x0100, base, base + blockSize];
+  const hexSeq = seq.map((v) => '0x' + v.toString(16).toUpperCase().padStart(4, '0')).join(', ');
+  const q = `${addrBits} ; ${cacheSize} B ; ${blockSize} B ; ${hexSeq}`;
+  const res = solveCache(q, mode, lang);
+  const hitMatch = res.copyText.match(/Hits:\s*(\d+)/);
+  const promptText = {
+    es: `Para una caché de ${cacheSize} B (bloques de ${blockSize} B, ${ways} vía/s LRU, direcciones de ${addrBits} bits), calcula Tag/Index/Offset y los Hits/Misses de: ${hexSeq}.`,
+    en: `For a ${cacheSize} B cache (${blockSize} B blocks, ${ways}-way LRU, ${addrBits}-bit addresses), find Tag/Index/Offset and Hits/Misses for: ${hexSeq}.`,
+    fr: `Pour un cache de ${cacheSize} o (blocs de ${blockSize} o, ${ways} voie(s) LRU, adresses ${addrBits} bits), calculez Tag/Index/Offset et Hits/Misses pour : ${hexSeq}.`
+  }[lang];
+  return {
+    topic: 'cache',
+    difficulty: diff,
+    promptText,
+    engineInput: q,
+    engineMode: mode,
+    expectedAnswer: hitMatch ? hitMatch[1] : '1',
+    answerHint: '1'
+  };
+}
+
+function genLineCoding(diff, lang) {
+  const useHdb3 = diff !== 'basic';
+  const bits = useHdb3
+    ? pick(['10000101', '11000010', '10000110000', '10100001'])
+    : pick(['10110010', '11010101', '01101001']);
+  const mode = useHdb3 ? 'hdb3' : 'ami';
+  const levels = useHdb3 ? encodeHdb3(bits).levels : encodeAmi(bits);
+  const fmt = levels.map((v) => (v > 0 ? '+' : v < 0 ? '-' : '0')).join('');
+  const promptText = {
+    es: `Codifica la trama binaria ${bits} en ${useHdb3 ? 'HDB3 (ITU-T G.703)' : 'AMI (Bipolar)'} indicando la secuencia de niveles (+ / 0 / -).`,
+    en: `Encode the binary frame ${bits} using ${useHdb3 ? 'HDB3 (ITU-T G.703)' : 'AMI (Bipolar)'} and give the level sequence (+ / 0 / -).`,
+    fr: `Codez la trame binaire ${bits} en ${useHdb3 ? 'HDB3 (ITU-T G.703)' : 'AMI (Bipolaire)'} en indiquant la suite de niveaux (+ / 0 / -).`
+  }[lang];
+  return {
+    topic: 'lineCoding',
+    difficulty: diff,
+    promptText,
+    engineInput: bits,
+    engineMode: mode,
+    expectedAnswer: fmt,
+    answerHint: '+000+0-'
+  };
+}
+
 const GENERATORS = {
   vlsm: genVlsm,
   cidr: genCidr,
@@ -496,7 +552,9 @@ const GENERATORS = {
   bases: genBases,
   truthTable: genTruthTable,
   hamming: genHamming,
-  raidChmod: genRaidChmod
+  raidChmod: genRaidChmod,
+  cache: genCache,
+  lineCoding: genLineCoding
 };
 
 export function generateExam(selectedTopics, difficulty = 'standard', lang = 'es', count = 10) {

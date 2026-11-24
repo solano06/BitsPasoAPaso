@@ -335,5 +335,6 @@ export function solveIeee754(input, mode = 'dec2bin32', lang = 'es') {
   ];
 
   const copyText = `IEEE-754 (${totalBits}-bit)\nHex: ${hexStr}\nBinary: ${signBit} ${expBin} ${mantBin}\nValue: ${displayValue}`;
-  return { ok: true, summaryHtml, visualHtml, steps, copyText };
+  const latexText = `\\text{IEEE-754}_{${totalBits}}: \\; \\texttt{${hexStr}} = (-1)^{${signBit}} \\times 2^{${unbiasedExp}}`;
+  return { ok: true, summaryHtml, visualHtml, steps, copyText, latexText };
 }

@@ -26,7 +26,7 @@
   <script>
     (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuodh7p" />
+  <link rel="stylesheet" href="/css/tailwind.min.css?v=mwuou4f3" />
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"ASCII, 8-Bit Binary, Octal & Hex Table (0–127) — BitsPasoAPaso","url":"https://bitspasoapaso.vercel.app/en/ascii-binary-hex-table","description":"Complete 128-character ASCII table (0 to 127) with 8-bit binary, octal, hex, category filters, and live text converter.","inLanguage":"en"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bitspasoapaso.vercel.app/en"},{"@type":"ListItem","position":2,"name":"ASCII, Binary & Hex Table (0–127)","item":"https://bitspasoapaso.vercel.app/en/ascii-binary-hex-table"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does standard ASCII stop at 127?","acceptedAnswer":{"@type":"Answer","text":"It uses 7 bits (2^7 = 128 codes, 0x00 to 0x7F), typically stored in 8-bit bytes."}},{"@type":"Question","name":"What separates A (65) from a (97)?","acceptedAnswer":{"@type":"Answer","text":"Exactly 32 (bit 5: 01000001 vs 01100001), making case conversion a single bit flip."}},{"@type":"Question","name":"What are codes 0–31 and 127?","acceptedAnswer":{"@type":"Answer","text":"Non-printable control characters such as NUL (0), TAB (9), LF (10), CR (13), ESC (27), and DEL (127)."}},{"@type":"Question","name":"How does the live text converter work?","acceptedAnswer":{"@type":"Answer","text":"Type any text above to inspect each character’s decimal, 8-bit binary, and hex values."}}]}]}</script>
 </head>
@@ -81,6 +81,9 @@
             </a><a href="/en/truth-table-generator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Truth Tables</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Evaluate logic formulas, detect tautologies, extract DNF/CNF, and check equivalences.</div>
+            </a><a href="/en/cache-memory-simulator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Cache Memory</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Simulate Tag/Index/Offset, Hits/Misses, LRU/FIFO replacement, and final cache state.</div>
             </a>
       </div>
     </div>
@@ -98,6 +101,9 @@
             </a><a href="/en/raid-chmod-calculator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">RAID &amp; chmod</div>
               <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Calculate RAID (0/1/5/6/10) usable capacity &amp; fault tolerance and interactive chmod/umask.</div>
+            </a><a href="/en/line-coding-simulator" class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Line Coding</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">Render SVG waveforms for NRZ-L, NRZI, Manchester, Diff. Manchester, AMI, and HDB3.</div>
             </a>
       </div>
     </div>
@@ -161,13 +167,13 @@
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Digital Systems</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a><a href="/en/truth-table-generator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Truth Table Generator</a>
+        <a href="/en/ieee-754-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">IEEE-754 Converter</a><a href="/en/karnaugh-map-solver" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Karnaugh Map Solver</a><a href="/en/binary-twos-complement-converter" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Binary &amp; Two's Complement</a><a href="/en/truth-table-generator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Truth Table Generator</a><a href="/en/cache-memory-simulator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Cache Memory Simulator</a>
       </div>
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Coding &amp; Sys</div>
       <div class="grid grid-cols-1 gap-1">
-        <a href="/en/hamming-crc-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Hamming Code &amp; CRC</a><a href="/en/raid-chmod-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID &amp; chmod Calculator</a>
+        <a href="/en/hamming-crc-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Hamming Code &amp; CRC</a><a href="/en/raid-chmod-calculator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">RAID &amp; chmod Calculator</a><a href="/en/line-coding-simulator" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Line Coding Simulator</a>
       </div>
     </div>
     <div>
@@ -1170,6 +1176,6 @@
     </div>
   </div>
 </footer>
-  <script type="module" src="/js/app.js?v=mwuodh7p"></script>
+  <script type="module" src="/js/app.js?v=mwuou4f3"></script>
 </body>
 </html>

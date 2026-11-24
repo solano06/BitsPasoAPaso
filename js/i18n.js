@@ -58,6 +58,16 @@ export const ROUTES = {
     en: '/en/raid-chmod-calculator',
     fr: '/fr/calculateur-raid-chmod'
   },
+  cache: {
+    es: '/simulador-memoria-cache',
+    en: '/en/cache-memory-simulator',
+    fr: '/fr/simulateur-memoire-cache'
+  },
+  lineCoding: {
+    es: '/codificacion-de-linea',
+    en: '/en/line-coding-simulator',
+    fr: '/fr/codage-en-ligne'
+  },
   exam: {
     es: '/modo-examen',
     en: '/en/exam-mode',
@@ -97,8 +107,8 @@ export const ROUTES = {
 
 export const TOOL_KEYS = [
   'vlsm', 'cidr', 'ipv6', 'bandwidth',
-  'ieee754', 'karnaugh', 'bases', 'truthTable',
-  'hamming', 'raidChmod'
+  'ieee754', 'karnaugh', 'bases', 'truthTable', 'cache',
+  'hamming', 'raidChmod', 'lineCoding'
 ];
 export const CHEAT_KEYS = ['cheatCidr', 'cheatAscii', 'cheatBoolean'];
 export const LEGAL_KEYS = ['about', 'privacy', 'legal'];
@@ -201,6 +211,20 @@ export const UI = {
         category: 'systems',
         badge: 'Códigos y Sistemas',
         description: 'Calcula capacidad útil y tolerancia RAID (0/1/5/6/10) y matriz interactiva chmod/umask.'
+      },
+      cache: {
+        name: 'Memoria Caché',
+        shortName: 'Memoria Caché',
+        category: 'digital',
+        badge: 'Sistemas Digitales',
+        description: 'Simula Tag/Index/Offset, Hits/Misses, políticas LRU/FIFO y estado final de la caché.'
+      },
+      lineCoding: {
+        name: 'Codificación de Línea',
+        shortName: 'Codificación Línea',
+        category: 'systems',
+        badge: 'Codificación',
+        description: 'Dibuja cronogramas SVG de NRZ-L, NRZI, Manchester, Manchester Dif., AMI y HDB3.'
       }
     },
     actions: {
@@ -209,6 +233,8 @@ export const UI = {
       history: 'Historial reciente',
       clearHistory: 'Limpiar',
       copyResult: 'Copiar resultado',
+      copyCsv: 'Copiar CSV',
+      copyLatex: 'Copiar LaTeX',
       copyLink: 'Copiar enlace',
       savePdf: 'Guardar PDF',
       copied: '¡Copiado!',
@@ -419,6 +445,20 @@ export const UI = {
         category: 'systems',
         badge: 'Coding & Systems',
         description: 'Calculate RAID (0/1/5/6/10) usable capacity & fault tolerance and interactive chmod/umask.'
+      },
+      cache: {
+        name: 'Cache Memory Simulator',
+        shortName: 'Cache Memory',
+        category: 'digital',
+        badge: 'Digital Systems',
+        description: 'Simulate Tag/Index/Offset, Hits/Misses, LRU/FIFO replacement, and final cache state.'
+      },
+      lineCoding: {
+        name: 'Line Coding Simulator',
+        shortName: 'Line Coding',
+        category: 'systems',
+        badge: 'Coding & Systems',
+        description: 'Render SVG waveforms for NRZ-L, NRZI, Manchester, Diff. Manchester, AMI, and HDB3.'
       }
     },
     actions: {
@@ -427,6 +467,8 @@ export const UI = {
       history: 'Recent history',
       clearHistory: 'Clear',
       copyResult: 'Copy result',
+      copyCsv: 'Copy CSV',
+      copyLatex: 'Copy LaTeX',
       copyLink: 'Copy link',
       savePdf: 'Save PDF',
       copied: 'Copied!',
@@ -637,6 +679,20 @@ export const UI = {
         category: 'systems',
         badge: 'Codage & Systèmes',
         description: 'Calculez capacité utile RAID (0/1/5/6/10) et matrice interactive chmod/umask.'
+      },
+      cache: {
+        name: 'Simulateur Mémoire Cache',
+        shortName: 'Mémoire Cache',
+        category: 'digital',
+        badge: 'Systèmes Numériques',
+        description: 'Simulez Tag/Index/Offset, Hits/Misses, LRU/FIFO et état final du cache.'
+      },
+      lineCoding: {
+        name: 'Codage en Ligne',
+        shortName: 'Codage en Ligne',
+        category: 'systems',
+        badge: 'Codage & Systèmes',
+        description: 'Tracez les chronogrammes SVG NRZ-L, NRZI, Manchester, Manchester Diff., AMI et HDB3.'
       }
     },
     actions: {
@@ -645,6 +701,8 @@ export const UI = {
       history: 'Historique récent',
       clearHistory: 'Effacer',
       copyResult: 'Copier le résultat',
+      copyCsv: 'Copier CSV',
+      copyLatex: 'Copier LaTeX',
       copyLink: 'Copier le lien',
       savePdf: 'Enregistrer PDF',
       copied: 'Copié !',

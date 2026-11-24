@@ -10,6 +10,8 @@ import { solveIpv6 } from './engines/ipv6.js';
 import { solveTruthTable } from './engines/truth-table.js';
 import { solveBandwidth } from './engines/bandwidth.js';
 import { solveRaidChmod } from './engines/raid-chmod.js';
+import { solveCache } from './engines/cache.js';
+import { solveLineCoding } from './engines/line-coding.js';
 import { initExamPage } from './exam-ui.js';
 import { initCheatSheet } from './cheatsheets-ui.js';
 
@@ -23,7 +25,9 @@ const ENGINES = {
   ipv6: solveIpv6,
   truthTable: solveTruthTable,
   bandwidth: solveBandwidth,
-  raidChmod: solveRaidChmod
+  raidChmod: solveRaidChmod,
+  cache: solveCache,
+  lineCoding: solveLineCoding
 };
 
 const STORAGE_STUDY = 'bits_study_mode';
@@ -118,6 +122,8 @@ function initCalculator(tool, lang) {
   const nextStepBtn = document.getElementById('study-next-btn');
   const showAllBtn = document.getElementById('study-all-btn');
   const copyResultBtn = document.getElementById('copy-result-btn');
+  const copyCsvBtn = document.getElementById('copy-csv-btn');
+  const copyLatexBtn = document.getElementById('copy-latex-btn');
   const copyLinkBtn = document.getElementById('copy-link-btn');
   const pdfBtn = document.getElementById('save-pdf-btn');
   const historyBar = document.getElementById('history-bar');
@@ -129,6 +135,8 @@ function initCalculator(tool, lang) {
   const kmapSubmodeBtns = document.querySelectorAll('[data-kmap-submode]');
   const kmapKeypad = document.getElementById('kmap-keypad');
   let lastCopyText = '';
+  let lastCsvText = '';
+  let lastLatexText = '';
   let revealedCount = 1;
   let totalSteps = 0;
 
@@ -365,6 +373,10 @@ function initCalculator(tool, lang) {
       .join('');
 
     lastCopyText = res.copyText || '';
+    lastCsvText = res.csvText || '';
+    lastLatexText = res.latexText || '';
+    copyCsvBtn?.classList.toggle('hidden', !lastCsvText);
+    copyLatexBtn?.classList.toggle('hidden', !lastLatexText);
     revealedCount = 1;
     applyStudyVisibility();
 
@@ -447,6 +459,22 @@ function initCalculator(tool, lang) {
     const orig = copyResultBtn.textContent;
     copyResultBtn.textContent = ui.actions.copied;
     setTimeout(() => (copyResultBtn.textContent = orig), 1500);
+  });
+
+  copyCsvBtn?.addEventListener('click', async () => {
+    if (!lastCsvText) return;
+    await navigator.clipboard.writeText(lastCsvText);
+    const orig = copyCsvBtn.textContent;
+    copyCsvBtn.textContent = ui.actions.copied;
+    setTimeout(() => (copyCsvBtn.textContent = orig), 1500);
+  });
+
+  copyLatexBtn?.addEventListener('click', async () => {
+    if (!lastLatexText) return;
+    await navigator.clipboard.writeText(lastLatexText);
+    const orig = copyLatexBtn.textContent;
+    copyLatexBtn.textContent = ui.actions.copied;
+    setTimeout(() => (copyLatexBtn.textContent = orig), 1500);
   });
 
   copyLinkBtn?.addEventListener('click', async () => {
@@ -548,5 +576,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCheatSheet(page);
   } else if (tool && ENGINES[tool]) {
     initCalculator(tool, lang);
+  }
+
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
   }
 });

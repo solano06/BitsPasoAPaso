@@ -244,5 +244,6 @@ export function solveBases(input, mode = '8', lang = 'es') {
   ];
 
   const copyText = `Bits: ${bits}\nDecimal (Signed): ${signedVal}\nDecimal (Unsigned): ${unsignedVal}\nBinary (C2): ${binStr}\nHex: ${hexStr}\nOctal: ${octStr}\nBCD: ${bcdStr}\nGray: ${grayStr}`;
-  return { ok: true, summaryHtml, steps, copyText };
+  const latexText = `${signedVal.toString()}_{10} = \\texttt{${binStr}}_{2} = \\texttt{${hexStr}}_{16}`;
+  return { ok: true, summaryHtml, steps, copyText, latexText };
 }

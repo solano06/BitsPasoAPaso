@@ -470,5 +470,7 @@ export function solveTruthTable(input, mode = 'eval', lang = 'es') {
     }
   ];
 
-  return { ok: true, summaryHtml, visualHtml, steps, copyText: `${clsLabel}\nΣm(${minterms.join(',')})\nΠM(${maxterms.join(',')})` };
+  const csvText = [vars.join(',') + ',F', ...Array.from({ length: total }, (_, i) => vars.map((_, b) => (i >> (vars.length - 1 - b)) & 1).concat(minterms.includes(i) ? 1 : 0).join(','))].join('\n');
+  const latexText = `\\Sigma m(${minterms.join(',')}) = ${dnf.replace(/([A-E])'/g, '\\overline{$1}').replace(/·/g, ' \\land ').replace(/\+/g, '\\lor')}`;
+  return { ok: true, summaryHtml, visualHtml, steps, copyText: `${clsLabel}\nΣm(${minterms.join(',')})\nΠM(${maxterms.join(',')})`, csvText, latexText };
 }

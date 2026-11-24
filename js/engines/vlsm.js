@@ -334,8 +334,10 @@ function solveSingle(raw, lang) {
   ];
 
   const copyText = `${t.netAddr}: ${netStr}/${prefix}\n${t.mask}: ${maskStr}\n${t.wildcard}: ${wildStr}\n${t.bcast}: ${bcastStr}\n${t.range}: ${rangeStr}\n${t.usableHosts}: ${usableHosts}`;
+  const csvText = `Field,Value\nNetwork,${netStr}/${prefix}\nMask,${maskStr}\nWildcard,${wildStr}\nBroadcast,${bcastStr}\nRange,${rangeStr}\nUsableHosts,${usableHosts}`;
+  const latexText = `\\text{Net}=${netStr}/${prefix},\\; \\text{Mask}=${maskStr},\\; \\text{Bcast}=${bcastStr},\\; \\text{Hosts}=${usableHosts}`;
 
-  return { ok: true, summaryHtml, visualHtml, steps, copyText };
+  return { ok: true, summaryHtml, visualHtml, steps, copyText, csvText, latexText };
 }
 
 function solveMultiVlsm(raw, lang) {
@@ -511,8 +513,10 @@ function solveMultiVlsm(raw, lang) {
   const copyText = allocated
     .map((s) => `${s.name}\t${s.req}\t${s.usable}\t${s.netStr}/${s.prefix}\t${s.maskStr}\t${s.rangeStr}\t${s.bcastStr}`)
     .join('\n');
+  const csvText = ['Name,Requested,Usable,Network,Mask,Range,Broadcast', ...allocated.map((s) => `${s.name},${s.req},${s.usable},${s.netStr}/${s.prefix},${s.maskStr},${s.rangeStr},${s.bcastStr}`)].join('\n');
+  const latexText = `\\begin{array}{l|c|l}\\text{Subnet} & \\text{Hosts} & \\text{CIDR} \\\\ \\hline ${allocated.map((s) => `${s.name} & ${s.usable} & ${s.netStr}/${s.prefix}`).join(' \\\\ ')}\\end{array}`;
 
-  return { ok: true, summaryHtml, visualHtml, steps, copyText };
+  return { ok: true, summaryHtml, visualHtml, steps, copyText, csvText, latexText };
 }
 
 export function solveVlsm(input, mode = 'single', lang = 'es') {

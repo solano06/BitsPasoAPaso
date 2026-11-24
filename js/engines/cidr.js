@@ -268,7 +268,8 @@ function solveSummarize(raw, lang) {
   ];
 
   const copyText = `${t.summaryRoute}: ${superStr}\n${t.maskLabel}: ${superMaskStr}\nExact: ${isExact}\nBlocks: ${exactListStr}`;
-  return { ok: true, summaryHtml, visualHtml, steps, copyText };
+  const csvText = `Summary,Mask,Exact,Blocks\n${superStr},${superMaskStr},${isExact},"${exactListStr}"`;
+  return { ok: true, summaryHtml, visualHtml, steps, copyText, csvText };
 }
 
 function solveRange(raw, lang) {
